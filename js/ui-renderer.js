@@ -206,7 +206,7 @@ const UIRenderer = (() => {
       <div class="modal-notes">
         ${recipe.coffee.notes.map(n => `<span class="note-tag">${n}</span>`).join('')}
       </div>
-      <p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-6);line-height:1.7;">${recipe.description}</p>
+      <p class="modal-recipe-desc">${recipe.description}</p>
 
       <hr class="modal-divider">
 

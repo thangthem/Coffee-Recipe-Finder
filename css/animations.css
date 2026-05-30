@@ -16,7 +16,7 @@
 }
 
 @keyframes pulse-ring {
-  0%   { transform: scale(1); opacity: 0.6; }
+  0%   { transform: scale(1); opacity: 0.5; }
   100% { transform: scale(1.5); opacity: 0; }
 }
 
@@ -31,7 +31,7 @@
 }
 
 @keyframes scale-in {
-  from { transform: scale(0.94); opacity: 0; }
+  from { transform: scale(0.96); opacity: 0; }
   to   { transform: scale(1);    opacity: 1; }
 }
 
@@ -53,13 +53,13 @@
   animation: scale-in var(--duration-slow) var(--ease-out) both;
 }
 
-/* ── Skeleton shimmer (used while loading) ── */
+/* ── Skeleton shimmer (light theme) ── */
 .skeleton {
   background: linear-gradient(
     90deg,
-    var(--card) 25%,
-    var(--border) 50%,
-    var(--card) 75%
+    var(--border) 25%,
+    var(--bg-elevated) 50%,
+    var(--border) 75%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
@@ -76,23 +76,22 @@
   animation: pulse-ring 1.5s ease-out infinite;
 }
 
-/* ── Card entrance stagger (driven by GSAP, but fallback here) ── */
+/* ── Card entrance stagger (GSAP driven, fallback here) ── */
 [data-stagger-item] {
   opacity: 0;
   transform: translateY(16px);
 }
 
-/* ── Section transitions (class-based, GSAP drives them) ── */
+/* ── Section transitions ── */
 .section-enter {
   animation: slide-up var(--duration-slower) var(--ease-out) both;
 }
 
-/* ── Hover glow on recipe cards ── */
+/* ── Hover glow on recipe cards (white/blue theme) ── */
 .recipe-card:hover {
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(196, 154, 108, 0.08),
-    inset 0 0 60px rgba(196, 154, 108, 0.03);
+    0 10px 40px rgba(30, 41, 59, 0.08),
+    0 0 0 1px rgba(0, 85, 196, 0.12);
 }
 
 /* ── Favorite heart pop ── */

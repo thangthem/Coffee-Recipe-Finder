@@ -1,34 +1,40 @@
 :root {
-  /* Colors */
-  --bg:           #121212;
-  --bg-elevated:  #1A1A1A;
-  --card:         #1E1E1E;
-  --card-hover:   #252525;
-  --border:       #2A2A2A;
-  --border-focus: #3A3A3A;
+  /* Backgrounds */
+  --bg:           #FFFFFF;
+  --bg-elevated:  #FFFFFF;
+  --card:         #FFFFFF;
+  --card-hover:   #F8FAFC;
+  --border:       #E2E8F0;
+  --border-focus: #94A3B8;
 
-  --primary:      #C49A6C;
-  --primary-dim:  rgba(196, 154, 108, 0.12);
-  --primary-glow: rgba(196, 154, 108, 0.25);
+  /* Accent — vibrant cobalt blue */
+  --primary:      #0055C4;
+  --primary-hover:#00449E;
+  --primary-dim:  rgba(0, 85, 196, 0.06);
+  --primary-glow: rgba(0, 85, 196, 0.12);
 
-  --text:         #F8F8F8;
-  --text-muted:   #B8B8B8;
-  --text-dim:     #6E6E6E;
+  /* Text */
+  --text:         #1E293B;
+  --text-muted:   #475569;
+  --text-dim:     #64748B;
 
-  --success:      #4CAF50;
-  --success-dim:  rgba(76, 175, 80, 0.15);
-  --danger:       #CF6679;
-  --danger-dim:   rgba(207, 102, 121, 0.15);
+  /* Semantic */
+  --success:      #10B981;
+  --success-dim:  rgba(16, 185, 129, 0.10);
+  --danger:       #EF4444;
+  --danger-dim:   rgba(239, 68, 68, 0.10);
 
-  /* Semantic tag colors */
-  --tag-fruity:   rgba(255, 160, 100, 0.15);
-  --tag-balanced: rgba(100, 180, 255, 0.12);
-  --tag-strong:   rgba(180, 100, 255, 0.12);
+  /* Preference tag colors */
+  --tag-fruity:   rgba(249, 115, 22, 0.10);
+  --tag-balanced: rgba(14, 165, 233, 0.10);
+  --tag-strong:   rgba(139, 92, 246, 0.10);
 
   /* Typography */
-  --font-sans:    'SF Pro Display', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-sans);
+  --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
   --font-mono:    'SF Mono', 'Fira Code', monospace;
 
+  /* Scale */
   --text-xs:   0.75rem;
   --text-sm:   0.875rem;
   --text-base: 1rem;
@@ -61,16 +67,16 @@
   /* Radii */
   --radius-sm:   6px;
   --radius-md:   12px;
-  --radius-lg:   16px;
+  --radius-lg:   20px;
   --radius-xl:   24px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.5);
-  --shadow-lg:  0 8px 32px rgba(0, 0, 0, 0.6);
-  --shadow-xl:  0 16px 48px rgba(0, 0, 0, 0.7);
-  --shadow-primary: 0 4px 24px rgba(196, 154, 108, 0.2);
+  /* Shadows — slate-tinted, very soft */
+  --shadow-sm:      0 2px 8px  rgba(30, 41, 59, 0.04);
+  --shadow-md:      0 4px 20px rgba(30, 41, 59, 0.06);
+  --shadow-lg:      0 10px 40px rgba(30, 41, 59, 0.08);
+  --shadow-xl:      0 20px 60px rgba(30, 41, 59, 0.10);
+  --shadow-primary: 0 4px 20px rgba(0, 85, 196, 0.20);
 
   /* Transitions */
   --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);

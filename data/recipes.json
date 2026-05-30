@@ -8,7 +8,11 @@
     "coffee": {
       "name": "Lâm Đồng Arabica",
       "origin": "Vietnam",
-      "notes": ["Chocolate", "Nutty", "Sweet"]
+      "notes": [
+        "Chocolate",
+        "Nutty",
+        "Sweet"
+      ]
     },
     "recipe": {
       "ratio": "1:5",
@@ -19,10 +23,30 @@
       "milkRatio": "1:2"
     },
     "steps": [
-      { "name": "Bloom", "water": "30g", "start": 0, "end": 30 },
-      { "name": "Pour 1", "water": "70g", "start": 30, "end": 120 },
-      { "name": "Pour 2", "water": "100g", "start": 120, "end": 240 },
-      { "name": "Finish", "water": "0g", "start": 240, "end": 300 }
+      {
+        "name": "Bloom",
+        "water": "30g",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "Pour 1",
+        "water": "70g",
+        "start": 30,
+        "end": 120
+      },
+      {
+        "name": "Pour 2",
+        "water": "100g",
+        "start": 120,
+        "end": 240
+      },
+      {
+        "name": "Finish",
+        "water": "0g",
+        "start": 240,
+        "end": 300
+      }
     ]
   },
   {
@@ -34,7 +58,11 @@
     "coffee": {
       "name": "Da Lat Mountain Blend",
       "origin": "Vietnam",
-      "notes": ["Caramel", "Almond", "Brown Sugar"]
+      "notes": [
+        "Caramel",
+        "Almond",
+        "Brown Sugar"
+      ]
     },
     "recipe": {
       "ratio": "1:5",
@@ -45,10 +73,30 @@
       "milkRatio": "1:1.5"
     },
     "steps": [
-      { "name": "Bloom", "water": "25g", "start": 0, "end": 30 },
-      { "name": "Pour 1", "water": "75g", "start": 30, "end": 150 },
-      { "name": "Pour 2", "water": "100g", "start": 150, "end": 300 },
-      { "name": "Finish", "water": "0g", "start": 300, "end": 360 }
+      {
+        "name": "Bloom",
+        "water": "25g",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "Pour 1",
+        "water": "75g",
+        "start": 30,
+        "end": 150
+      },
+      {
+        "name": "Pour 2",
+        "water": "100g",
+        "start": 150,
+        "end": 300
+      },
+      {
+        "name": "Finish",
+        "water": "0g",
+        "start": 300,
+        "end": 360
+      }
     ]
   },
   {
@@ -60,7 +108,11 @@
     "coffee": {
       "name": "Cầu Đất Washed",
       "origin": "Vietnam",
-      "notes": ["Citrus", "Peach", "Floral"]
+      "notes": [
+        "Citrus",
+        "Peach",
+        "Floral"
+      ]
     },
     "recipe": {
       "ratio": "1:6",
@@ -71,10 +123,30 @@
       "milkRatio": "None"
     },
     "steps": [
-      { "name": "Bloom", "water": "20g", "start": 0, "end": 30 },
-      { "name": "Pour 1", "water": "60g", "start": 30, "end": 90 },
-      { "name": "Pour 2", "water": "80g", "start": 90, "end": 180 },
-      { "name": "Finish", "water": "0g", "start": 180, "end": 240 }
+      {
+        "name": "Bloom",
+        "water": "20g",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "Pour 1",
+        "water": "60g",
+        "start": 30,
+        "end": 90
+      },
+      {
+        "name": "Pour 2",
+        "water": "80g",
+        "start": 90,
+        "end": 180
+      },
+      {
+        "name": "Finish",
+        "water": "0g",
+        "start": 180,
+        "end": 240
+      }
     ]
   },
   {
@@ -86,7 +158,11 @@
     "coffee": {
       "name": "Bourbon Yellow Natural",
       "origin": "Vietnam",
-      "notes": ["Tropical Fruit", "Honey", "Jasmine"]
+      "notes": [
+        "Tropical Fruit",
+        "Honey",
+        "Jasmine"
+      ]
     },
     "recipe": {
       "ratio": "1:6",
@@ -97,10 +173,30 @@
       "milkRatio": "None"
     },
     "steps": [
-      { "name": "Bloom", "water": "25g", "start": 0, "end": 45 },
-      { "name": "Pour 1", "water": "75g", "start": 45, "end": 150 },
-      { "name": "Pour 2", "water": "75g", "start": 150, "end": 270 },
-      { "name": "Finish", "water": "0g", "start": 270, "end": 300 }
+      {
+        "name": "Bloom",
+        "water": "25g",
+        "start": 0,
+        "end": 45
+      },
+      {
+        "name": "Pour 1",
+        "water": "75g",
+        "start": 45,
+        "end": 150
+      },
+      {
+        "name": "Pour 2",
+        "water": "75g",
+        "start": 150,
+        "end": 270
+      },
+      {
+        "name": "Finish",
+        "water": "0g",
+        "start": 270,
+        "end": 300
+      }
     ]
   },
   {
@@ -112,7 +208,11 @@
     "coffee": {
       "name": "Moka Robusta Blend",
       "origin": "Vietnam",
-      "notes": ["Dark Chocolate", "Smoky", "Heavy Body"]
+      "notes": [
+        "Dark Chocolate",
+        "Smoky",
+        "Heavy Body"
+      ]
     },
     "recipe": {
       "ratio": "1:3",
@@ -123,10 +223,30 @@
       "milkRatio": "1:3"
     },
     "steps": [
-      { "name": "Bloom", "water": "20g", "start": 0, "end": 30 },
-      { "name": "Pour 1", "water": "40g", "start": 30, "end": 180 },
-      { "name": "Pour 2", "water": "40g", "start": 180, "end": 360 },
-      { "name": "Finish", "water": "0g", "start": 360, "end": 420 }
+      {
+        "name": "Bloom",
+        "water": "20g",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "Pour 1",
+        "water": "40g",
+        "start": 30,
+        "end": 180
+      },
+      {
+        "name": "Pour 2",
+        "water": "40g",
+        "start": 180,
+        "end": 360
+      },
+      {
+        "name": "Finish",
+        "water": "0g",
+        "start": 360,
+        "end": 420
+      }
     ]
   },
   {
@@ -138,7 +258,11 @@
     "coffee": {
       "name": "Trung Nguyen Classic",
       "origin": "Vietnam",
-      "notes": ["Espresso-like", "Bitter", "Bold"]
+      "notes": [
+        "Espresso-like",
+        "Bitter",
+        "Bold"
+      ]
     },
     "recipe": {
       "ratio": "1:4",
@@ -149,10 +273,30 @@
       "milkRatio": "1:2"
     },
     "steps": [
-      { "name": "Bloom", "water": "20g", "start": 0, "end": 30 },
-      { "name": "Pour 1", "water": "50g", "start": 30, "end": 150 },
-      { "name": "Pour 2", "water": "50g", "start": 150, "end": 300 },
-      { "name": "Finish", "water": "0g", "start": 300, "end": 360 }
+      {
+        "name": "Bloom",
+        "water": "20g",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "Pour 1",
+        "water": "50g",
+        "start": 30,
+        "end": 150
+      },
+      {
+        "name": "Pour 2",
+        "water": "50g",
+        "start": 150,
+        "end": 300
+      },
+      {
+        "name": "Finish",
+        "water": "0g",
+        "start": 300,
+        "end": 360
+      }
     ]
   },
   {
@@ -164,7 +308,11 @@
     "coffee": {
       "name": "Central Highlands Blend",
       "origin": "Vietnam",
-      "notes": ["Hazelnut", "Milk Chocolate", "Smooth"]
+      "notes": [
+        "Hazelnut",
+        "Milk Chocolate",
+        "Smooth"
+      ]
     },
     "recipe": {
       "ratio": "1:2",
@@ -175,9 +323,24 @@
       "milkRatio": "1:4"
     },
     "steps": [
-      { "name": "Pre-infuse", "water": "5g", "start": 0, "end": 8 },
-      { "name": "Extract", "water": "35g", "start": 8, "end": 28 },
-      { "name": "Finish", "water": "0g", "start": 28, "end": 30 }
+      {
+        "name": "Pre-infuse",
+        "water": "5g",
+        "start": 0,
+        "end": 8
+      },
+      {
+        "name": "Extract",
+        "water": "35g",
+        "start": 8,
+        "end": 28
+      },
+      {
+        "name": "Finish",
+        "water": "0g",
+        "start": 28,
+        "end": 30
+      }
     ]
   },
   {
@@ -189,7 +352,11 @@
     "coffee": {
       "name": "SL28 Vietnam",
       "origin": "Vietnam",
-      "notes": ["Caramel", "Orange Peel", "Balanced Acidity"]
+      "notes": [
+        "Caramel",
+        "Orange Peel",
+        "Balanced Acidity"
+      ]
     },
     "recipe": {
       "ratio": "1:2.2",
@@ -200,9 +367,24 @@
       "milkRatio": "1:3"
     },
     "steps": [
-      { "name": "Pre-infuse", "water": "5g", "start": 0, "end": 10 },
-      { "name": "Extract", "water": "45g", "start": 10, "end": 30 },
-      { "name": "Finish", "water": "0g", "start": 30, "end": 32 }
+      {
+        "name": "Pre-infuse",
+        "water": "5g",
+        "start": 0,
+        "end": 10
+      },
+      {
+        "name": "Extract",
+        "water": "45g",
+        "start": 10,
+        "end": 30
+      },
+      {
+        "name": "Finish",
+        "water": "0g",
+        "start": 30,
+        "end": 32
+      }
     ]
   },
   {
@@ -214,7 +396,11 @@
     "coffee": {
       "name": "Da Lat Honey Process",
       "origin": "Vietnam",
-      "notes": ["Apricot", "Grape", "Bright Acidity"]
+      "notes": [
+        "Apricot",
+        "Grape",
+        "Bright Acidity"
+      ]
     },
     "recipe": {
       "ratio": "1:2.5",
@@ -225,9 +411,24 @@
       "milkRatio": "None"
     },
     "steps": [
-      { "name": "Pre-infuse", "water": "4g", "start": 0, "end": 8 },
-      { "name": "Extract", "water": "51g", "start": 8, "end": 32 },
-      { "name": "Finish", "water": "0g", "start": 32, "end": 34 }
+      {
+        "name": "Pre-infuse",
+        "water": "4g",
+        "start": 0,
+        "end": 8
+      },
+      {
+        "name": "Extract",
+        "water": "51g",
+        "start": 8,
+        "end": 32
+      },
+      {
+        "name": "Finish",
+        "water": "0g",
+        "start": 32,
+        "end": 34
+      }
     ]
   },
   {
@@ -239,7 +440,11 @@
     "coffee": {
       "name": "Gesha Vietnam",
       "origin": "Vietnam",
-      "notes": ["Bergamot", "Blueberry", "Floral"]
+      "notes": [
+        "Bergamot",
+        "Blueberry",
+        "Floral"
+      ]
     },
     "recipe": {
       "ratio": "1:3",
@@ -250,9 +455,24 @@
       "milkRatio": "None"
     },
     "steps": [
-      { "name": "Pre-infuse", "water": "3g", "start": 0, "end": 10 },
-      { "name": "Extract", "water": "57g", "start": 10, "end": 35 },
-      { "name": "Finish", "water": "0g", "start": 35, "end": 37 }
+      {
+        "name": "Pre-infuse",
+        "water": "3g",
+        "start": 0,
+        "end": 10
+      },
+      {
+        "name": "Extract",
+        "water": "57g",
+        "start": 10,
+        "end": 35
+      },
+      {
+        "name": "Finish",
+        "water": "0g",
+        "start": 35,
+        "end": 37
+      }
     ]
   },
   {
@@ -264,7 +484,11 @@
     "coffee": {
       "name": "Italian Style Blend",
       "origin": "Vietnam / Brazil",
-      "notes": ["Dark Chocolate", "Tobacco", "Intense"]
+      "notes": [
+        "Dark Chocolate",
+        "Tobacco",
+        "Intense"
+      ]
     },
     "recipe": {
       "ratio": "1:1.5",
@@ -275,9 +499,24 @@
       "milkRatio": "1:5"
     },
     "steps": [
-      { "name": "Pre-infuse", "water": "5g", "start": 0, "end": 6 },
-      { "name": "Extract", "water": "20g", "start": 6, "end": 25 },
-      { "name": "Finish", "water": "0g", "start": 25, "end": 27 }
+      {
+        "name": "Pre-infuse",
+        "water": "5g",
+        "start": 0,
+        "end": 6
+      },
+      {
+        "name": "Extract",
+        "water": "20g",
+        "start": 6,
+        "end": 25
+      },
+      {
+        "name": "Finish",
+        "water": "0g",
+        "start": 25,
+        "end": 27
+      }
     ]
   },
   {
@@ -289,7 +528,11 @@
     "coffee": {
       "name": "Dark Roast Espresso",
       "origin": "Vietnam",
-      "notes": ["Burnt Caramel", "Cedar", "Bold Finish"]
+      "notes": [
+        "Burnt Caramel",
+        "Cedar",
+        "Bold Finish"
+      ]
     },
     "recipe": {
       "ratio": "1:1.8",
@@ -300,9 +543,24 @@
       "milkRatio": "1:4"
     },
     "steps": [
-      { "name": "Pre-infuse", "water": "4g", "start": 0, "end": 7 },
-      { "name": "Extract", "water": "32g", "start": 7, "end": 26 },
-      { "name": "Finish", "water": "0g", "start": 26, "end": 28 }
+      {
+        "name": "Pre-infuse",
+        "water": "4g",
+        "start": 0,
+        "end": 7
+      },
+      {
+        "name": "Extract",
+        "water": "32g",
+        "start": 7,
+        "end": 26
+      },
+      {
+        "name": "Finish",
+        "water": "0g",
+        "start": 26,
+        "end": 28
+      }
     ]
   },
   {
@@ -314,7 +572,11 @@
     "coffee": {
       "name": "Kon Tum Arabica",
       "origin": "Vietnam",
-      "notes": ["Brown Sugar", "Walnut", "Smooth"]
+      "notes": [
+        "Brown Sugar",
+        "Walnut",
+        "Smooth"
+      ]
     },
     "recipe": {
       "ratio": "1:15",
@@ -325,11 +587,36 @@
       "milkRatio": "None"
     },
     "steps": [
-      { "name": "Bloom", "water": "50g", "start": 0, "end": 30 },
-      { "name": "Pour 1", "water": "150g", "start": 30, "end": 90 },
-      { "name": "Pour 2", "water": "150g", "start": 90, "end": 150 },
-      { "name": "Pour 3", "water": "150g", "start": 150, "end": 200 },
-      { "name": "Drain", "water": "0g", "start": 200, "end": 210 }
+      {
+        "name": "Bloom",
+        "water": "50g",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "Pour 1",
+        "water": "150g",
+        "start": 30,
+        "end": 90
+      },
+      {
+        "name": "Pour 2",
+        "water": "150g",
+        "start": 90,
+        "end": 150
+      },
+      {
+        "name": "Pour 3",
+        "water": "150g",
+        "start": 150,
+        "end": 200
+      },
+      {
+        "name": "Drain",
+        "water": "0g",
+        "start": 200,
+        "end": 210
+      }
     ]
   },
   {
@@ -341,7 +628,11 @@
     "coffee": {
       "name": "Culi Peaberry",
       "origin": "Vietnam",
-      "notes": ["Vanilla", "Toffee", "Medium Body"]
+      "notes": [
+        "Vanilla",
+        "Toffee",
+        "Medium Body"
+      ]
     },
     "recipe": {
       "ratio": "1:14",
@@ -352,10 +643,30 @@
       "milkRatio": "None"
     },
     "steps": [
-      { "name": "Bloom", "water": "40g", "start": 0, "end": 30 },
-      { "name": "Pour 1", "water": "130g", "start": 30, "end": 90 },
-      { "name": "Pour 2", "water": "130g", "start": 90, "end": 180 },
-      { "name": "Drain", "water": "0g", "start": 180, "end": 240 }
+      {
+        "name": "Bloom",
+        "water": "40g",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "Pour 1",
+        "water": "130g",
+        "start": 30,
+        "end": 90
+      },
+      {
+        "name": "Pour 2",
+        "water": "130g",
+        "start": 90,
+        "end": 180
+      },
+      {
+        "name": "Drain",
+        "water": "0g",
+        "start": 180,
+        "end": 240
+      }
     ]
   },
   {
@@ -367,7 +678,11 @@
     "coffee": {
       "name": "Washed Ethiopian Style",
       "origin": "Vietnam",
-      "notes": ["Lemon", "Strawberry", "Tea-like"]
+      "notes": [
+        "Lemon",
+        "Strawberry",
+        "Tea-like"
+      ]
     },
     "recipe": {
       "ratio": "1:16",
@@ -378,10 +693,30 @@
       "milkRatio": "None"
     },
     "steps": [
-      { "name": "Bloom", "water": "30g", "start": 0, "end": 30 },
-      { "name": "Pour 1", "water": "120g", "start": 30, "end": 75 },
-      { "name": "Pour 2", "water": "120g", "start": 75, "end": 130 },
-      { "name": "Drain", "water": "0g", "start": 130, "end": 180 }
+      {
+        "name": "Bloom",
+        "water": "30g",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "Pour 1",
+        "water": "120g",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "Pour 2",
+        "water": "120g",
+        "start": 75,
+        "end": 130
+      },
+      {
+        "name": "Drain",
+        "water": "0g",
+        "start": 130,
+        "end": 180
+      }
     ]
   },
   {
@@ -393,7 +728,11 @@
     "coffee": {
       "name": "Honey Process Filter",
       "origin": "Vietnam",
-      "notes": ["Plum", "Raisin", "Sweet Acidity"]
+      "notes": [
+        "Plum",
+        "Raisin",
+        "Sweet Acidity"
+      ]
     },
     "recipe": {
       "ratio": "1:15",
@@ -404,10 +743,30 @@
       "milkRatio": "None"
     },
     "steps": [
-      { "name": "Bloom", "water": "35g", "start": 0, "end": 35 },
-      { "name": "Pour 1", "water": "115g", "start": 35, "end": 90 },
-      { "name": "Pour 2", "water": "115g", "start": 90, "end": 150 },
-      { "name": "Drain", "water": "0g", "start": 150, "end": 210 }
+      {
+        "name": "Bloom",
+        "water": "35g",
+        "start": 0,
+        "end": 35
+      },
+      {
+        "name": "Pour 1",
+        "water": "115g",
+        "start": 35,
+        "end": 90
+      },
+      {
+        "name": "Pour 2",
+        "water": "115g",
+        "start": 90,
+        "end": 150
+      },
+      {
+        "name": "Drain",
+        "water": "0g",
+        "start": 150,
+        "end": 210
+      }
     ]
   },
   {
@@ -419,7 +778,11 @@
     "coffee": {
       "name": "Full City Roast",
       "origin": "Vietnam",
-      "notes": ["Dark Cocoa", "Roasted Nut", "Heavy"]
+      "notes": [
+        "Dark Cocoa",
+        "Roasted Nut",
+        "Heavy"
+      ]
     },
     "recipe": {
       "ratio": "1:12",
@@ -430,10 +793,30 @@
       "milkRatio": "1:3"
     },
     "steps": [
-      { "name": "Bloom", "water": "50g", "start": 0, "end": 30 },
-      { "name": "Pour 1", "water": "150g", "start": 30, "end": 100 },
-      { "name": "Pour 2", "water": "150g", "start": 100, "end": 190 },
-      { "name": "Drain", "water": "0g", "start": 190, "end": 240 }
+      {
+        "name": "Bloom",
+        "water": "50g",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "Pour 1",
+        "water": "150g",
+        "start": 30,
+        "end": 100
+      },
+      {
+        "name": "Pour 2",
+        "water": "150g",
+        "start": 100,
+        "end": 190
+      },
+      {
+        "name": "Drain",
+        "water": "0g",
+        "start": 190,
+        "end": 240
+      }
     ]
   },
   {
@@ -445,7 +828,11 @@
     "coffee": {
       "name": "Yen Bai Robusta",
       "origin": "Vietnam",
-      "notes": ["Charcoal", "Molasses", "Bitter Finish"]
+      "notes": [
+        "Charcoal",
+        "Molasses",
+        "Bitter Finish"
+      ]
     },
     "recipe": {
       "ratio": "1:11",
@@ -456,10 +843,30 @@
       "milkRatio": "1:4"
     },
     "steps": [
-      { "name": "Bloom", "water": "45g", "start": 0, "end": 30 },
-      { "name": "Pour 1", "water": "135g", "start": 30, "end": 120 },
-      { "name": "Pour 2", "water": "135g", "start": 120, "end": 220 },
-      { "name": "Drain", "water": "0g", "start": 220, "end": 270 }
+      {
+        "name": "Bloom",
+        "water": "45g",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "Pour 1",
+        "water": "135g",
+        "start": 30,
+        "end": 120
+      },
+      {
+        "name": "Pour 2",
+        "water": "135g",
+        "start": 120,
+        "end": 220
+      },
+      {
+        "name": "Drain",
+        "water": "0g",
+        "start": 220,
+        "end": 270
+      }
     ]
   },
   {
@@ -471,7 +878,11 @@
     "coffee": {
       "name": "Night Owl Blend",
       "origin": "Vietnam",
-      "notes": ["Chocolate Milk", "Smooth", "Mellow"]
+      "notes": [
+        "Chocolate Milk",
+        "Smooth",
+        "Mellow"
+      ]
     },
     "recipe": {
       "ratio": "1:8",
@@ -482,11 +893,38 @@
       "milkRatio": "1:1"
     },
     "steps": [
-      { "name": "Coarse Grind", "water": "0g", "start": 0, "end": 60 },
-      { "name": "Combine", "water": "400g", "start": 60, "end": 120 },
-      { "name": "Steep", "water": "0g", "start": 120, "end": 180, "passive": true, "passiveLabel": "Refrigerate 12 hours" },
-      { "name": "Filter", "water": "0g", "start": 180, "end": 240 },
-      { "name": "Serve", "water": "0g", "start": 240, "end": 270 }
+      {
+        "name": "Coarse Grind",
+        "water": "0g",
+        "start": 0,
+        "end": 60
+      },
+      {
+        "name": "Combine",
+        "water": "400g",
+        "start": 60,
+        "end": 120
+      },
+      {
+        "name": "Steep",
+        "water": "0g",
+        "start": 120,
+        "end": 180,
+        "passive": true,
+        "passiveLabel": "Refrigerate 12 hours"
+      },
+      {
+        "name": "Filter",
+        "water": "0g",
+        "start": 180,
+        "end": 240
+      },
+      {
+        "name": "Serve",
+        "water": "0g",
+        "start": 240,
+        "end": 270
+      }
     ]
   },
   {
@@ -498,7 +936,11 @@
     "coffee": {
       "name": "Cold Brew Classic",
       "origin": "Vietnam",
-      "notes": ["Dark Fruit", "Mild Sweet", "Low Acidity"]
+      "notes": [
+        "Dark Fruit",
+        "Mild Sweet",
+        "Low Acidity"
+      ]
     },
     "recipe": {
       "ratio": "1:7",
@@ -509,11 +951,38 @@
       "milkRatio": "1:1.5"
     },
     "steps": [
-      { "name": "Coarse Grind", "water": "0g", "start": 0, "end": 60 },
-      { "name": "Combine", "water": "350g", "start": 60, "end": 120 },
-      { "name": "Steep", "water": "0g", "start": 120, "end": 180, "passive": true, "passiveLabel": "Refrigerate 14 hours" },
-      { "name": "Filter", "water": "0g", "start": 180, "end": 240 },
-      { "name": "Serve", "water": "0g", "start": 240, "end": 270 }
+      {
+        "name": "Coarse Grind",
+        "water": "0g",
+        "start": 0,
+        "end": 60
+      },
+      {
+        "name": "Combine",
+        "water": "350g",
+        "start": 60,
+        "end": 120
+      },
+      {
+        "name": "Steep",
+        "water": "0g",
+        "start": 120,
+        "end": 180,
+        "passive": true,
+        "passiveLabel": "Refrigerate 14 hours"
+      },
+      {
+        "name": "Filter",
+        "water": "0g",
+        "start": 180,
+        "end": 240
+      },
+      {
+        "name": "Serve",
+        "water": "0g",
+        "start": 240,
+        "end": 270
+      }
     ]
   },
   {
@@ -525,7 +994,11 @@
     "coffee": {
       "name": "Berry Cold Brew",
       "origin": "Vietnam",
-      "notes": ["Blackberry", "Cherry", "Bright"]
+      "notes": [
+        "Blackberry",
+        "Cherry",
+        "Bright"
+      ]
     },
     "recipe": {
       "ratio": "1:9",
@@ -536,11 +1009,38 @@
       "milkRatio": "None"
     },
     "steps": [
-      { "name": "Coarse Grind", "water": "0g", "start": 0, "end": 60 },
-      { "name": "Combine", "water": "450g", "start": 60, "end": 120 },
-      { "name": "Steep", "water": "0g", "start": 120, "end": 180, "passive": true, "passiveLabel": "Refrigerate 10 hours" },
-      { "name": "Filter", "water": "0g", "start": 180, "end": 240 },
-      { "name": "Serve", "water": "0g", "start": 240, "end": 270 }
+      {
+        "name": "Coarse Grind",
+        "water": "0g",
+        "start": 0,
+        "end": 60
+      },
+      {
+        "name": "Combine",
+        "water": "450g",
+        "start": 60,
+        "end": 120
+      },
+      {
+        "name": "Steep",
+        "water": "0g",
+        "start": 120,
+        "end": 180,
+        "passive": true,
+        "passiveLabel": "Refrigerate 10 hours"
+      },
+      {
+        "name": "Filter",
+        "water": "0g",
+        "start": 180,
+        "end": 240
+      },
+      {
+        "name": "Serve",
+        "water": "0g",
+        "start": 240,
+        "end": 270
+      }
     ]
   },
   {
@@ -552,7 +1052,11 @@
     "coffee": {
       "name": "Tropical Bloom",
       "origin": "Vietnam",
-      "notes": ["Mango", "Passion Fruit", "Floral"]
+      "notes": [
+        "Mango",
+        "Passion Fruit",
+        "Floral"
+      ]
     },
     "recipe": {
       "ratio": "1:10",
@@ -563,11 +1067,38 @@
       "milkRatio": "None"
     },
     "steps": [
-      { "name": "Coarse Grind", "water": "0g", "start": 0, "end": 60 },
-      { "name": "Combine", "water": "500g", "start": 60, "end": 120 },
-      { "name": "Steep", "water": "0g", "start": 120, "end": 180, "passive": true, "passiveLabel": "Refrigerate 8 hours" },
-      { "name": "Filter", "water": "0g", "start": 180, "end": 240 },
-      { "name": "Serve", "water": "0g", "start": 240, "end": 270 }
+      {
+        "name": "Coarse Grind",
+        "water": "0g",
+        "start": 0,
+        "end": 60
+      },
+      {
+        "name": "Combine",
+        "water": "500g",
+        "start": 60,
+        "end": 120
+      },
+      {
+        "name": "Steep",
+        "water": "0g",
+        "start": 120,
+        "end": 180,
+        "passive": true,
+        "passiveLabel": "Refrigerate 8 hours"
+      },
+      {
+        "name": "Filter",
+        "water": "0g",
+        "start": 180,
+        "end": 240
+      },
+      {
+        "name": "Serve",
+        "water": "0g",
+        "start": 240,
+        "end": 270
+      }
     ]
   },
   {
@@ -579,7 +1110,11 @@
     "coffee": {
       "name": "Dark Cold Brew",
       "origin": "Vietnam",
-      "notes": ["Espresso-like", "Dark Chocolate", "Bold"]
+      "notes": [
+        "Espresso-like",
+        "Dark Chocolate",
+        "Bold"
+      ]
     },
     "recipe": {
       "ratio": "1:5",
@@ -590,11 +1125,38 @@
       "milkRatio": "1:2"
     },
     "steps": [
-      { "name": "Coarse Grind", "water": "0g", "start": 0, "end": 60 },
-      { "name": "Combine", "water": "250g", "start": 60, "end": 120 },
-      { "name": "Steep", "water": "0g", "start": 120, "end": 180, "passive": true, "passiveLabel": "Refrigerate 18 hours" },
-      { "name": "Filter", "water": "0g", "start": 180, "end": 240 },
-      { "name": "Serve", "water": "0g", "start": 240, "end": 270 }
+      {
+        "name": "Coarse Grind",
+        "water": "0g",
+        "start": 0,
+        "end": 60
+      },
+      {
+        "name": "Combine",
+        "water": "250g",
+        "start": 60,
+        "end": 120
+      },
+      {
+        "name": "Steep",
+        "water": "0g",
+        "start": 120,
+        "end": 180,
+        "passive": true,
+        "passiveLabel": "Refrigerate 18 hours"
+      },
+      {
+        "name": "Filter",
+        "water": "0g",
+        "start": 180,
+        "end": 240
+      },
+      {
+        "name": "Serve",
+        "water": "0g",
+        "start": 240,
+        "end": 270
+      }
     ]
   },
   {
@@ -606,7 +1168,11 @@
     "coffee": {
       "name": "Nitro Blend",
       "origin": "Vietnam",
-      "notes": ["Whiskey-like", "Dark Fruit", "Velvety"]
+      "notes": [
+        "Whiskey-like",
+        "Dark Fruit",
+        "Velvety"
+      ]
     },
     "recipe": {
       "ratio": "1:6",
@@ -617,11 +1183,38 @@
       "milkRatio": "None"
     },
     "steps": [
-      { "name": "Coarse Grind", "water": "0g", "start": 0, "end": 60 },
-      { "name": "Combine", "water": "300g", "start": 60, "end": 120 },
-      { "name": "Steep", "water": "0g", "start": 120, "end": 180, "passive": true, "passiveLabel": "Refrigerate 16 hours" },
-      { "name": "Filter", "water": "0g", "start": 180, "end": 240 },
-      { "name": "Serve", "water": "0g", "start": 240, "end": 270 }
+      {
+        "name": "Coarse Grind",
+        "water": "0g",
+        "start": 0,
+        "end": 60
+      },
+      {
+        "name": "Combine",
+        "water": "300g",
+        "start": 60,
+        "end": 120
+      },
+      {
+        "name": "Steep",
+        "water": "0g",
+        "start": 120,
+        "end": 180,
+        "passive": true,
+        "passiveLabel": "Refrigerate 16 hours"
+      },
+      {
+        "name": "Filter",
+        "water": "0g",
+        "start": 180,
+        "end": 240
+      },
+      {
+        "name": "Serve",
+        "water": "0g",
+        "start": 240,
+        "end": 270
+      }
     ]
   }
 ]
