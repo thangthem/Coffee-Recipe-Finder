@@ -1,0 +1,317 @@
+/* ── Base ── */
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── App Shell ── */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transform: translateY(-100%);
+  transition: transform var(--duration-slow) var(--ease-out),
+              opacity var(--duration-slow) var(--ease-out);
+  opacity: 0;
+}
+
+.app-header.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6);
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semi);
+  color: var(--primary);
+  letter-spacing: 0.03em;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* ── Step Indicator ── */
+.step-indicator {
+  position: fixed;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-header);
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: var(--space-3) var(--space-6);
+}
+
+.step-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--border-focus);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semi);
+  color: var(--text-dim);
+  transition: all var(--duration-base) var(--ease-out);
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+}
+
+.step-dot.active {
+  border-color: var(--primary);
+  background: var(--primary-dim);
+  color: var(--primary);
+}
+
+.step-dot.completed {
+  border-color: var(--success);
+  background: var(--success-dim);
+  color: var(--success);
+}
+
+.step-line {
+  width: 48px;
+  height: 1px;
+  background: var(--border);
+  transition: background var(--duration-base) var(--ease-out);
+}
+
+.step-line.active {
+  background: var(--primary);
+}
+
+/* ── App Main ── */
+.app-main {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ── Sections ── */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-6);
+  padding-top: calc(var(--space-20) + 72px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.section.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+  min-height: 100vh;
+}
+
+.section.hidden {
+  display: none;
+}
+
+.section-landing {
+  padding-top: 0;
+  justify-content: center;
+}
+
+/* ── Section anatomy ── */
+.section-header {
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: var(--space-10);
+  text-align: center;
+}
+
+.section-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-3);
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+}
+
+.section-footer {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-10);
+}
+
+/* ── Cards Grid ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 720px;
+}
+
+.cards-grid--pref {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ── Results Grid ── */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+  width: 100%;
+  max-width: 960px;
+  margin-top: var(--space-6);
+}
+
+/* ── Search ── */
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: var(--space-4);
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: var(--space-3) var(--space-5) var(--space-3) calc(var(--space-4) + 24px);
+  font-size: var(--text-sm);
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-dim);
+}
+
+.search-input::placeholder {
+  color: var(--text-dim);
+}
+
+/* ── Results meta ── */
+.results-meta {
+  width: 100%;
+  max-width: 960px;
+  font-size: var(--text-sm);
+  color: var(--text-dim);
+  margin-bottom: var(--space-2);
+}
+
+.no-results {
+  text-align: center;
+  color: var(--text-muted);
+  padding: var(--space-16) 0;
+  font-size: var(--text-lg);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-6) var(--space-4);
+    padding-top: calc(var(--space-16) + 72px);
+  }
+
+  .section-title {
+    font-size: var(--text-2xl);
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .cards-grid--pref {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step-indicator {
+    top: 60px;
+  }
+}
+
+@media (max-width: 375px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: var(--text-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .cards-grid--pref {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 720px;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .results-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+  }
+}

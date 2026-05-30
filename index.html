@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find the perfect coffee brew recipe for your method and taste preference.">
+  <title>Coffee Recipe Finder</title>
+
+  <!-- AOS (scroll animations) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+  <!-- App styles -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+
+  <!-- ── Header ───────────────────────────────────────────── -->
+  <header class="app-header" id="app-header" aria-label="App header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          aria-hidden="true">
+          <path d="M17 8h1a4 4 0 010 8h-1" />
+          <path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z" />
+          <line x1="6" y1="2" x2="6" y2="4" />
+          <line x1="10" y1="2" x2="10" y2="4" />
+          <line x1="14" y1="2" x2="14" y2="4" />
+        </svg>
+        <span>Brew</span>
+      </div>
+      <nav class="header-nav" aria-label="App navigation">
+        <button id="btn-nav-favorites" class="btn-icon-sm" aria-label="Open favorites" title="Favorites">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+          </svg>
+          <span id="fav-count" class="badge hidden" aria-label="Favorites count">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Step indicator ───────────────────────────────────── -->
+  <div class="step-indicator hidden" id="step-indicator" role="progressbar" aria-label="Step progress">
+    <div class="step-dot active" data-step="1" aria-label="Step 1: Method"><span>1</span></div>
+    <div class="step-line"></div>
+    <div class="step-dot" data-step="2" aria-label="Step 2: Preference"><span>2</span></div>
+    <div class="step-line"></div>
+    <div class="step-dot" data-step="3" aria-label="Step 3: Results"><span>3</span></div>
+  </div>
+
+  <!-- ── Main ─────────────────────────────────────────────── -->
+  <main class="app-main" id="app-main">
+
+    <!-- Step 1 — Landing -->
+    <section id="section-landing" class="section section-landing active" aria-label="Welcome screen">
+      <div class="landing-content">
+        <div class="landing-icon" aria-hidden="true">
+          <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
+            <circle cx="45" cy="45" r="43" stroke="#C49A6C" stroke-width="1" stroke-dasharray="5 5" />
+            <path d="M27 34h36v22a9 9 0 01-9 9H36a9 9 0 01-9-9V34z" stroke="#C49A6C" stroke-width="2" fill="none" />
+            <path d="M63 38h2a7 7 0 010 14h-2" stroke="#C49A6C" stroke-width="2" />
+            <path d="M36 25c0 0 2-5 5 0M45 25c0 0 2-5 5 0" stroke="#C49A6C" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M27 34h36" stroke="#C49A6C" stroke-width="1.5" />
+            <circle cx="45" cy="48" r="4" fill="#C49A6C" opacity="0.3" />
+          </svg>
+        </div>
+        <h1 class="landing-title">Coffee Recipe Finder</h1>
+        <p class="landing-tagline">Find the perfect brew for today.</p>
+        <button id="btn-start" class="btn-primary btn-lg">
+          Start Brewing
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Step 2 — Tool selector -->
+    <section id="section-tool" class="section hidden" aria-label="Choose your brewing method">
+      <div class="section-header" style="position:relative;padding-top:var(--space-8);">
+        <button class="btn-back" id="btn-back-tool" aria-label="Back to landing">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            aria-hidden="true">
+            <path d="M19 12H5M12 5l-7 7 7 7" />
+          </svg>
+          Back
+        </button>
+        <h2 class="section-title">Choose Your Brewing Method</h2>
+        <p class="section-subtitle">How do you like to brew your coffee?</p>
+      </div>
+
+      <div class="cards-grid" id="tool-cards" role="radiogroup" aria-label="Brewing method options"></div>
+
+      <div class="section-footer">
+        <button id="btn-tool-next" class="btn-primary" disabled aria-label="Continue to flavor preference">
+          Continue
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Step 3 — Preference selector -->
+    <section id="section-preference" class="section hidden" aria-label="Choose your flavor preference">
+      <div class="section-header" style="position:relative;padding-top:var(--space-8);">
+        <button class="btn-back" id="btn-back-pref" aria-label="Back to brewing method">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            aria-hidden="true">
+            <path d="M19 12H5M12 5l-7 7 7 7" />
+          </svg>
+          Back
+        </button>
+        <h2 class="section-title">What Flavor Profile Do You Prefer?</h2>
+        <p class="section-subtitle">Choose the taste that suits your mood today.</p>
+      </div>
+
+      <div class="cards-grid cards-grid--pref" id="preference-cards" role="radiogroup"
+        aria-label="Flavor preference options"></div>
+
+      <div class="section-footer">
+        <button id="btn-pref-next" class="btn-primary" disabled aria-label="See coffee recommendations">
+          See Recommendations
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Step 4 — Results -->
+    <section id="section-results" class="section hidden" aria-label="Coffee recommendations">
+      <div class="section-header" style="position:relative;padding-top:var(--space-8);">
+        <button class="btn-back" id="btn-back-results" aria-label="Back to flavor preference">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            aria-hidden="true">
+            <path d="M19 12H5M12 5l-7 7 7 7" />
+          </svg>
+          Back
+        </button>
+        <h2 class="section-title" id="results-title">Recommended for You</h2>
+      </div>
+
+      <div class="search-wrapper" style="margin-bottom:var(--space-2);">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8" />
+          <path d="M21 21l-4.35-4.35" />
+        </svg>
+        <input type="search" id="search-input" class="search-input" placeholder="Search coffee, origin, flavor…"
+          aria-label="Search recipes" autocomplete="off" spellcheck="false">
+      </div>
+
+      <div class="results-meta" id="results-meta" aria-live="polite"></div>
+      <div class="results-grid" id="results-grid" role="list" aria-label="Recipe results"></div>
+      <div class="no-results hidden" id="no-results" role="status">
+        <p>No results found.<br>Try a different search term.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Recipe Modal ──────────────────────────────────────── -->
+  <div id="recipe-modal" class="modal" role="dialog" aria-modal="true" aria-label="Recipe details" aria-hidden="true"
+    tabindex="-1">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-container" role="document">
+      <button class="modal-close" id="modal-close" aria-label="Close recipe details">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ── Favorites panel ───────────────────────────────────── -->
+  <aside id="favorites-panel" class="favorites-panel" aria-label="Saved favorites" aria-hidden="true">
+    <div class="favorites-panel-header">
+      <h3>Favorites</h3>
+      <button id="btn-close-favorites" class="btn-icon-sm" aria-label="Close favorites panel">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <div id="favorites-list" class="favorites-list" role="list" aria-label="Favorite recipes"></div>
+    <div id="favorites-empty" class="favorites-empty" aria-hidden="true">
+      <p>No favorites yet.<br>Tap ♡ on a recipe to save it.</p>
+    </div>
+  </aside>
+  <div class="favorites-overlay hidden" id="favorites-overlay" aria-hidden="true"></div>
+
+  <!-- ── Toast notification ────────────────────────────────── -->
+  <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ── Loading overlay ───────────────────────────────────── -->
+  <div id="loading" class="loading-overlay hidden" role="status" aria-label="Loading" aria-hidden="true">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- ── Scripts ───────────────────────────────────────────── -->
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- App modules (order matters) -->
+  <script src="js/state.js"></script>
+  <script src="js/data-service.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/ui-renderer.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
