@@ -150,12 +150,24 @@ const BrewTimer = (() => {
     _interval = null;
   }
 
+  function _replaceWithClone(id) {
+    const el = document.getElementById(id);
+    if (!el) return null;
+    const clone = el.cloneNode(true);
+    el.parentNode.replaceChild(clone, el);
+    return clone;
+  }
+
   function bindDOM() {
+    // Replace buttons with fresh clones to strip any stale listeners
+    _elPlay = _replaceWithClone('btn-timer-play');
+    _replaceWithClone('btn-timer-reset');
+    _replaceWithClone('btn-timer-skip');
+
     _elDisplay    = document.getElementById('timer-display');
     _elStepName   = document.getElementById('timer-step-name');
     _elProgress   = document.getElementById('timer-progress');
     _elPassive    = document.getElementById('timer-passive');
-    _elPlay       = document.getElementById('btn-timer-play');
     _elPlayIcon   = document.getElementById('play-icon');
     _elPauseIcon  = document.getElementById('pause-icon');
     _timelineStepEls = Array.from(document.querySelectorAll('#brew-timeline .timeline-step'));
