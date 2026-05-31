@@ -514,6 +514,58 @@
   margin: var(--space-6) 0;
 }
 
+/* Recipe sub-selector tabs (MÁY) */
+.recipe-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.recipe-tab {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  transition: border-color var(--duration-fast), background var(--duration-fast);
+  user-select: none;
+}
+
+.recipe-tab:hover {
+  border-color: var(--primary);
+  background: var(--primary-dim);
+}
+
+.recipe-tab.active {
+  border-color: var(--primary);
+  background: var(--primary-dim);
+}
+
+.recipe-tab-icon {
+  color: var(--primary);
+  margin-bottom: var(--space-2);
+  line-height: 1;
+}
+
+.recipe-tab-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semi);
+  color: var(--text);
+  margin-bottom: var(--space-1);
+}
+
+.recipe-tab-sub {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.modal-disclaimer {
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+  margin-top: var(--space-4);
+  line-height: 1.6;
+}
+
 /* Recipe detail grid */
 .recipe-detail-grid {
   display: grid;

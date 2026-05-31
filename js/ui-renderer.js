@@ -174,68 +174,56 @@ const UIRenderer = (() => {
     });
   }
 
-  // ── Modal content ─────────────────────────────────────────────────────
-  function renderModalContent(recipe) {
-    const TOOL_LABELS = { MÁY: 'Máy Espresso', PHIN: 'Phin', ESPRESSO: 'Espresso', FILTER: 'Filter', COLD_BREW: 'Cold Brew', COLDBREW: 'Cold Brew' };
-    const toolLabel = TOOL_LABELS[recipe.tool] || recipe.tool;
-
-    const prefSlug = recipe.preference.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-    const prefChipClass = `chip--pref-${prefSlug}`;
-    const prefDisplay = recipe.preference.charAt(0) + recipe.preference.slice(1).toLowerCase();
-
-    const r = recipe.recipe || {};
-    const temp = r.temperature;
-    const tempStr = temp != null ? (temp === 4 ? `${temp}°C (cold)` : `${temp}°C`) : null;
-
-    const detailItems = [
-      { label: 'Ratio',       value: r.ratio },
-      { label: 'Dose',        value: r.dose },
-      { label: 'Water',       value: r.water },
-      { label: 'Temperature', value: tempStr },
-      { label: 'Bloom Temp',  value: r.bloomTemp != null ? `${r.bloomTemp}°C` : null },
-      { label: 'Cold Water',  value: r.coldWaterTemp != null ? `${r.coldWaterTemp}°C` : null },
-      { label: 'Grind',       value: r.grind },
-      { label: 'Water PPM',   value: r.waterPPM },
-      { label: 'Brew Time',   value: r.brewTime },
-      { label: 'Milk Ratio',  value: r.milkRatio },
+  // ── Specs grid (shared helper, also exposed publicly) ─────────────────
+  function renderSpecsGrid(specs) {
+    if (!specs) return '';
+    const items = [
+      { label: 'Ratio',       value: specs.ratio },
+      { label: 'Temperature', value: specs.temperature != null ? `${specs.temperature}°C` : null },
+      { label: 'Bloom Temp',  value: specs.bloomTemp != null ? `${specs.bloomTemp}°C` : null },
+      { label: 'Cold Water',  value: specs.coldWaterTemp != null ? `${specs.coldWaterTemp}°C` : null },
+      { label: 'Dose',        value: specs.dose },
+      { label: 'Water',       value: specs.water },
+      { label: 'Grind',       value: specs.grind },
+      { label: 'Water PPM',   value: specs.waterPPM },
+      { label: 'Brew Time',   value: specs.brewTime || (specs.brewTimeSec != null ? `${specs.brewTimeSec}s` : null) },
+      { label: 'Milk Ratio',  value: specs.milkRatio },
     ].filter(item => item.value != null);
 
-    const detailSection = r.note
-      ? `<p class="modal-recipe-desc">${r.note}</p>`
-      : `<div class="recipe-detail-grid">
-          ${detailItems.map(item => `
-            <div class="recipe-detail-item">
-              <div class="recipe-detail-label">${item.label}</div>
-              <div class="recipe-detail-value">${item.value}</div>
-            </div>
-          `).join('')}
-        </div>`;
+    return `<div class="recipe-detail-grid">
+      ${items.map(item => `
+        <div class="recipe-detail-item">
+          <div class="recipe-detail-label">${item.label}</div>
+          <div class="recipe-detail-value">${item.value}</div>
+        </div>
+      `).join('')}
+    </div>`;
+  }
 
-    return `
+  // ── Modal content ─────────────────────────────────────────────────────
+  function renderModalContent(recipe) {
+    const TOOL_LABELS = { MÁY: 'Máy Espresso', PHIN: 'Phin', FILTER: 'Filter', COLDBREW: 'Cold Brew', ESPRESSO: 'Espresso', COLD_BREW: 'Cold Brew' };
+    const toolLabel   = TOOL_LABELS[recipe.tool] || recipe.tool;
+    const prefSlug    = recipe.preference.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const prefDisplay = recipe.preference.charAt(0) + recipe.preference.slice(1).toLowerCase();
+
+    const RECIPE_ICONS = {
+      espresso: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14v9a2 2 0 01-2 2H7a2 2 0 01-2-2V8z"/><path d="M19 10h1a3 3 0 010 6h-1"/></svg>`,
+      milk_beverage: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 2h8l1 4H7L8 2z"/><rect x="6" y="6" width="12" height="14" rx="2"/></svg>`,
+      vietnamese_milk_coffee: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="3" width="12" height="16" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/></svg>`,
+    };
+
+    const header = `
       <p class="modal-origin">📍 ${recipe.coffee.origin}</p>
       <h2 class="modal-coffee-name">${recipe.coffee.name}</h2>
       <div class="modal-chips">
         <span class="chip chip--tool">${toolLabel}</span>
-        <span class="chip ${prefChipClass}">${prefDisplay}</span>
-      </div>
-      <div class="modal-notes">
+        <span class="chip chip--pref-${prefSlug}">${prefDisplay}</span>
         ${recipe.coffee.notes.map(n => `<span class="note-tag">${n}</span>`).join('')}
       </div>
-      ${recipe.description ? `<p class="modal-recipe-desc">${recipe.description}</p>` : ''}
+    `;
 
-      <hr class="modal-divider">
-
-      <div class="modal-section-label">Recipe Details</div>
-      ${detailSection}
-
-      <hr class="modal-divider">
-
-      <div class="modal-section-label">Brew Timeline</div>
-      <div class="brew-timeline" id="brew-timeline"></div>
-
-      <hr class="modal-divider">
-
-      <div class="modal-section-label">Brew Timer</div>
+    const timerWidget = `
       <div class="brew-timer" id="brew-timer-widget">
         <div class="brew-timer-display" id="timer-display">00:00</div>
         <div class="brew-timer-step-name" id="timer-step-name">Ready to brew</div>
@@ -264,7 +252,55 @@ const UIRenderer = (() => {
           </button>
         </div>
       </div>
-      ${recipe.disclaimer ? `<p class="modal-recipe-desc" style="font-size:0.8em;opacity:0.7;margin-top:var(--space-4)">${recipe.disclaimer}</p>` : ''}
+      ${recipe.disclaimer ? `<p class="modal-disclaimer">${recipe.disclaimer}</p>` : ''}
+    `;
+
+    // ── MÁY: recipe sub-selector ──
+    if (recipe.recipes && recipe.recipes.length > 0) {
+      const firstRec = recipe.recipes[0];
+      return header + `
+        <hr class="modal-divider">
+        <div class="modal-section-label">Chọn Recipe</div>
+        <div class="recipe-tabs" id="recipe-tabs">
+          ${recipe.recipes.map((r, i) => `
+            <div class="recipe-tab${i === 0 ? ' active' : ''}" data-index="${i}" role="button" tabindex="0">
+              <div class="recipe-tab-icon">${RECIPE_ICONS[r.type] || RECIPE_ICONS.espresso}</div>
+              <div class="recipe-tab-label">${r.label}</div>
+              <div class="recipe-tab-sub">${r.subtitle}</div>
+            </div>
+          `).join('')}
+        </div>
+        <hr class="modal-divider">
+        <div class="modal-section-label">Recipe Details</div>
+        <div id="recipe-specs-container">${renderSpecsGrid(firstRec.specs)}</div>
+        <hr class="modal-divider">
+        <div class="modal-section-label" id="timer-section-label">Brew Timer — ${firstRec.label}</div>
+        ${timerWidget}
+      `;
+    }
+
+    // ── PHIN / COLDBREW: step-based timeline ──
+    if (recipe.brewSteps) {
+      return header + `
+        <hr class="modal-divider">
+        <div class="modal-section-label">Recipe Details</div>
+        ${renderSpecsGrid(recipe.brewSpecs)}
+        <hr class="modal-divider">
+        <div class="modal-section-label">Brew Timeline</div>
+        <div class="brew-timeline" id="brew-timeline"></div>
+        <hr class="modal-divider">
+        <div class="modal-section-label">Brew Timer</div>
+        ${timerWidget}
+      `;
+    }
+
+    // ── FILTER: note only ──
+    return header + `
+      <hr class="modal-divider">
+      <p class="modal-recipe-desc">${recipe.note || ''}</p>
+      <hr class="modal-divider">
+      <div class="modal-section-label">Brew Timer</div>
+      ${timerWidget}
     `;
   }
 
@@ -275,5 +311,6 @@ const UIRenderer = (() => {
     renderRecipeCards, updateFavButton,
     renderFavoritesList,
     renderModalContent,
+    renderSpecsGrid,
   };
 })();
