@@ -189,12 +189,14 @@
     .steps-table input[type="checkbox"] { cursor: pointer; accent-color: var(--primary); }
     .steps-table input:disabled { background: #F8FAFC; color: var(--text-dim); }
     .col-num    { width: 28px; }
-    .col-name   { width: 110px; }
-    .col-water  { width: 72px; }
-    .col-start  { width: 72px; }
-    .col-end    { width: 72px; }
+    .col-name   { width: 100px; }
+    .col-water  { width: 62px; }
+    .col-ratio  { width: 80px; }
+    .col-temp   { width: 62px; }
+    .col-start  { width: 62px; }
+    .col-end    { width: 62px; }
     .col-passive{ width: 58px; text-align: center !important; }
-    .col-passive-label { min-width: 160px; }
+    .col-passive-label { min-width: 140px; }
     .col-del    { width: 36px; }
     .steps-empty {
       padding: var(--space-5); text-align: center; font-size: var(--text-xs);
@@ -406,13 +408,18 @@
           </div>
         </section>
 
-        <!-- ── Brew Specs (PHIN + COLDBREW) ── -->
+        <!-- ── Brew Specs (PHIN + FILTER + COLDBREW) ── -->
         <section class="form-section hidden" id="section-brew-specs">
           <div class="form-section-title">Brew Specs</div>
           <div class="form-grid form-grid--3">
+            <!-- FILTER only -->
+            <div class="form-field hidden" id="bs-field-tools">
+              <label>Tools / Dripper</label>
+              <input type="text" id="f-bs-tools" placeholder="Solo Dripper">
+            </div>
             <div class="form-field">
               <label>Ratio</label>
-              <input type="text" id="f-bs-ratio" placeholder="1:5">
+              <input type="text" id="f-bs-ratio" placeholder="1:15">
             </div>
             <div class="form-field">
               <label>Grind Size</label>
@@ -426,18 +433,18 @@
               <label>Brew Time</label>
               <input type="text" id="f-bs-brewTime" placeholder="4:30-5:00 min">
             </div>
-            <!-- PHIN only -->
+            <!-- PHIN + FILTER -->
             <div class="form-field" id="bs-field-dose">
               <label>Dose</label>
-              <input type="text" id="f-bs-dose" placeholder="25g">
+              <input type="text" id="f-bs-dose" placeholder="15g">
             </div>
             <div class="form-field" id="bs-field-water">
               <label>Water</label>
-              <input type="text" id="f-bs-water" placeholder="125g">
+              <input type="text" id="f-bs-water" placeholder="225g">
             </div>
             <div class="form-field" id="bs-field-temperature">
               <label>Temperature (°C)</label>
-              <input type="number" id="f-bs-temperature" placeholder="96">
+              <input type="number" id="f-bs-temperature" placeholder="95">
             </div>
             <!-- COLDBREW only -->
             <div class="form-field hidden" id="bs-field-bloomTemp">
@@ -448,15 +455,6 @@
               <label>Cold Water Temp (°C)</label>
               <input type="number" id="f-bs-coldWaterTemp" placeholder="10">
             </div>
-          </div>
-        </section>
-
-        <!-- ── Note (FILTER only) ── -->
-        <section class="form-section hidden" id="section-note">
-          <div class="form-section-title">Recipe Note</div>
-          <div class="form-field">
-            <label>Note</label>
-            <textarea id="f-note" rows="3" placeholder="BASED ON BREWING CALIBRATION RECIPE…"></textarea>
           </div>
         </section>
 
@@ -495,6 +493,8 @@
                   <th class="col-num">#</th>
                   <th class="col-name">Name</th>
                   <th class="col-water">Water</th>
+                  <th class="col-ratio">Ratio/Parts</th>
+                  <th class="col-temp">Temp</th>
                   <th class="col-start">Start (s)</th>
                   <th class="col-end">End (s)</th>
                   <th class="col-passive" style="text-align:center;">Passive</th>

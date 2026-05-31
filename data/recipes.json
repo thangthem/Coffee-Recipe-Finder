@@ -1852,8 +1852,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-15 (15GR - 225GR)\n- GRIND: 15 ON EK43 -  25 CLICKS ON COMANDANTE\n- TEMP: 95*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:10 - POUR TO 120GR \n3/ 01:10 - 01:50- POUR TO 180GR \n4/ 01:50 - 02:20 - POUR TO 225GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-15 (15GR - 225GR)",
+      "grind": "15 ON EK43 -  25 CLICKS ON COMANDANTE",
+      "temperature": 95,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "120GR",
+        "start": 30,
+        "end": 70
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 70,
+        "end": 110
+      },
+      {
+        "name": "POUR TO",
+        "water": "225GR",
+        "start": 110,
+        "end": 140
+      }
+    ]
   },
   {
     "id": 45,
@@ -1869,8 +1900,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-16 (15GR - 240GR)\n- GRIND: 14 ON EK43 - 26 CLICKS ON COMANDANTE\n- TEMP: 95*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 120GR \n3/ 01:15 - 01:45 - POUR TO 180GR \n4/ 01:45 - 02:30 - POUR TO 240GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-16 (15GR - 240GR)",
+      "grind": "14 ON EK43 - 26 CLICKS ON COMANDANTE",
+      "temperature": 95,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "120GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 75,
+        "end": 105
+      },
+      {
+        "name": "POUR TO",
+        "water": "240GR",
+        "start": 105,
+        "end": 150
+      }
+    ]
   },
   {
     "id": 52,
@@ -1886,8 +1948,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-16 (15GR - 240GR)\n- GRIND: 14 ON EK43 - 26 CLICKS ON COMANDANTE\n- TEMP: 95*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 120GR \n3/ 01:15 - 01:45 - POUR TO 180GR \n4/ 01:45 - 02:30 - POUR TO 240GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-16 (15GR - 240GR)",
+      "grind": "14 ON EK43 - 26 CLICKS ON COMANDANTE",
+      "temperature": 95,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "120GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 75,
+        "end": 105
+      },
+      {
+        "name": "POUR TO",
+        "water": "240GR",
+        "start": 105,
+        "end": 150
+      }
+    ]
   },
   {
     "id": 53,
@@ -1902,8 +1995,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-16 (15GR - 240GR)\n- GRIND: 14 ON EK43 - 26 CLICKS ON COMANDANTE\n- TEMP: 95*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 120GR \n3/ 01:15 - 01:45 - POUR TO 180GR \n4/ 01:45 - 02:30 - POUR TO 240GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-16 (15GR - 240GR)",
+      "grind": "14 ON EK43 - 26 CLICKS ON COMANDANTE",
+      "temperature": 95,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "120GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 75,
+        "end": 105
+      },
+      {
+        "name": "POUR TO",
+        "water": "240GR",
+        "start": 105,
+        "end": 150
+      }
+    ]
   },
   {
     "id": 59,
@@ -1919,8 +2043,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-15 (15GR - 225GR)\n- GRIND: 10 ON EK43 - 19 CLICKS ON COMANDANTE\n- TEMP: 94*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 105GR \n3/ 01:15 - 01:45 - POUR TO 180GR \n4/ 01:45 - 02:30 - POUR TO 225GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-15 (15GR - 225GR)",
+      "grind": "10 ON EK43 - 19 CLICKS ON COMANDANTE",
+      "temperature": 94,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "105GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 75,
+        "end": 105
+      },
+      {
+        "name": "POUR TO",
+        "water": "225GR",
+        "start": 105,
+        "end": 150
+      }
+    ]
   },
   {
     "id": 60,
@@ -1935,8 +2090,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-15 (15GR - 225GR)\n- GRIND: 13.5 ON EK43 - 23 CLICKS ON COMANDANTE\n- TEMP: 94*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 120GR \n3/ 01:15 - 01:45 - POUR TO 180GR \n4/ 01:45 - 02:30 - POUR TO 225GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-15 (15GR - 225GR)",
+      "grind": "13.5 ON EK43 - 23 CLICKS ON COMANDANTE",
+      "temperature": 94,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "120GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 75,
+        "end": 105
+      },
+      {
+        "name": "POUR TO",
+        "water": "225GR",
+        "start": 105,
+        "end": 150
+      }
+    ]
   },
   {
     "id": 61,
@@ -1952,8 +2138,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-15 (15GR - 225GR)\n- GRIND: 13.5 ON EK43 - 23 CLICKS ON COMANDANTE\n- TEMP: 94*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 120GR \n3/ 01:15 - 01:45 - POUR TO 180GR \n4/ 01:45 - 02:30 - POUR TO 225GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-15 (15GR - 225GR)",
+      "grind": "13.5 ON EK43 - 23 CLICKS ON COMANDANTE",
+      "temperature": 94,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "120GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 75,
+        "end": 105
+      },
+      {
+        "name": "POUR TO",
+        "water": "225GR",
+        "start": 105,
+        "end": 150
+      }
+    ]
   },
   {
     "id": 62,
@@ -1969,8 +2186,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-16 (15GR - 240GR)\n- GRIND: 14 ON EK43 - 26 CLICKS ON COMANDANTE\n- TEMP: 96*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 120GR\n3/ 01:15 - 01:45 - POUR TO 180GR \n4/ 01:45 - 02:30 - POUR TO 240GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-16 (15GR - 240GR)",
+      "grind": "14 ON EK43 - 26 CLICKS ON COMANDANTE",
+      "temperature": 96,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "120GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 75,
+        "end": 105
+      },
+      {
+        "name": "POUR TO",
+        "water": "240GR",
+        "start": 105,
+        "end": 150
+      }
+    ]
   },
   {
     "id": 63,
@@ -1986,8 +2234,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-15 (15GR - 225GR)\n- GRIND: 10.5 ON EK43 - 20 CLICKS ON COMANDANTE\n- TEMP: 94*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 105GR \n3/ 01:15 - 01:45 - POUR TO 180GR \n4/ 01:45 - 02:30 - POUR TO 225GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-15 (15GR - 225GR)",
+      "grind": "10.5 ON EK43 - 20 CLICKS ON COMANDANTE",
+      "temperature": 94,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "105GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 75,
+        "end": 105
+      },
+      {
+        "name": "POUR TO",
+        "water": "225GR",
+        "start": 105,
+        "end": 150
+      }
+    ]
   },
   {
     "id": 64,
@@ -2004,8 +2283,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-15 (15GR - 225GR)\n- GRIND: 5.5 ON EK43 - 16 CLICKS ON COMANDANTE\n- TEMP: 99*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 105GR\n3/ 01:15 - 01:45 - POUR TO 180GR \n4/ 01:45 - 02:30 - POUR TO 225GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-15 (15GR - 225GR)",
+      "grind": "5.5 ON EK43 - 16 CLICKS ON COMANDANTE",
+      "temperature": 99,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "105GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 75,
+        "end": 105
+      },
+      {
+        "name": "POUR TO",
+        "water": "225GR",
+        "start": 105,
+        "end": 150
+      }
+    ]
   },
   {
     "id": 65,
@@ -2021,8 +2331,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-15 (15GR - 225GR)\n- GRIND: 5.5 ON EK43 - 16 CLICKS ON COMANDANTE\n- TEMP: 99*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 105GR\n3/ 01:15 - 01:45 - POUR TO 180GR \n4/ 01:45 - 02:30 - POUR TO 225GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-15 (15GR - 225GR)",
+      "grind": "5.5 ON EK43 - 16 CLICKS ON COMANDANTE",
+      "temperature": 99,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "105GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 75,
+        "end": 105
+      },
+      {
+        "name": "POUR TO",
+        "water": "225GR",
+        "start": 105,
+        "end": 150
+      }
+    ]
   },
   {
     "id": 66,
@@ -2038,8 +2379,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-15 (15GR - 225GR)\n- GRIND: 10.5 ON EK43 - 20 CLICKS ON COMANDANTE\n- TEMP: 96*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 105GR \n3/ 01:15 - 02:00 - POUR TO 180GR \n4/ 02:00 - 02:30 - POUR TO 225GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-15 (15GR - 225GR)",
+      "grind": "10.5 ON EK43 - 20 CLICKS ON COMANDANTE",
+      "temperature": 96,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "105GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 75,
+        "end": 120
+      },
+      {
+        "name": "POUR TO",
+        "water": "225GR",
+        "start": 120,
+        "end": 150
+      }
+    ]
   },
   {
     "id": 68,
@@ -2055,8 +2427,39 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-15 (15GR - 225GR)\n- GRIND: 12 ON EK43 - 21 CLICKS ON COMANDANTE\n- TEMP: 94*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 105GR \n3/ 01:15 - 01:45 - POUR TO 180GR \n4/ 01:45 - 02:30 - POUR TO 225GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-15 (15GR - 225GR)",
+      "grind": "12 ON EK43 - 21 CLICKS ON COMANDANTE",
+      "temperature": 94,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "105GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "180GR",
+        "start": 75,
+        "end": 105
+      },
+      {
+        "name": "POUR TO",
+        "water": "225GR",
+        "start": 105,
+        "end": 150
+      }
+    ]
   },
   {
     "id": 69,
@@ -2071,7 +2474,38 @@
       ]
     },
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser.",
-    "brewSpecs": null,
-    "note": "- TOOLS: SOLO DRIPPER \n- RATIO: 1-13 (15GR - 225GR)\n- GRIND: 11.5 ON EK43 - 19 CLICKS ON COMANDANTE\n- TEMP: 90*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 00:30 - BLOOM  45GR \n2/ 00:30 - 01:15 - POUR TO 105GR \n3/ 01:15 - 01:45 - POUR TO 150GR \n4/ 01:45 - 02:15 - POUR TO 195GR"
+    "brewSpecs": {
+      "tools": "SOLO DRIPPER",
+      "ratio": "1-13 (15GR - 225GR)",
+      "grind": "11.5 ON EK43 - 19 CLICKS ON COMANDANTE",
+      "temperature": 90,
+      "waterPPM": "55 - 60 PPM"
+    },
+    "brewSteps": [
+      {
+        "name": "BLOOM",
+        "water": "45GR",
+        "start": 0,
+        "end": 30
+      },
+      {
+        "name": "POUR TO",
+        "water": "105GR",
+        "start": 30,
+        "end": 75
+      },
+      {
+        "name": "POUR TO",
+        "water": "150GR",
+        "start": 75,
+        "end": 105
+      },
+      {
+        "name": "POUR TO",
+        "water": "195GR",
+        "start": 105,
+        "end": 135
+      }
+    ]
   }
 ]

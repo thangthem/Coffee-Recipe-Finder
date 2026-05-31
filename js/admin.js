@@ -7,10 +7,10 @@ const Admin = (() => {
   // ── Tool config ───────────────────────────────────────────
   // Defines which form sections are visible per tool
   const TOOL_SECTIONS = {
-    'MÁY':     { baseSpecs: true,  brewSpecs: false, note: false, subRecipes: true,  steps: false },
-    'PHIN':    { baseSpecs: false, brewSpecs: true,  note: false, subRecipes: false, steps: true  },
-    'FILTER':  { baseSpecs: false, brewSpecs: false, note: true,  subRecipes: false, steps: false },
-    'COLDBREW':{ baseSpecs: false, brewSpecs: true,  note: false, subRecipes: false, steps: true  },
+    'MÁY':     { baseSpecs: true,  brewSpecs: false, subRecipes: true,  steps: false },
+    'PHIN':    { baseSpecs: false, brewSpecs: true,  subRecipes: false, steps: true  },
+    'FILTER':  { baseSpecs: false, brewSpecs: true,  subRecipes: false, steps: true  },
+    'COLDBREW':{ baseSpecs: false, brewSpecs: true,  subRecipes: false, steps: true  },
   };
 
   const VALID_TOOLS = ['MÁY', 'PHIN', 'FILTER', 'COLDBREW'];
@@ -145,18 +145,21 @@ const Admin = (() => {
     const cfg = TOOL_SECTIONS[tool] || {};
     $('section-base-specs').classList.toggle('hidden', !cfg.baseSpecs);
     $('section-brew-specs').classList.toggle('hidden', !cfg.brewSpecs);
-    $('section-note').classList.toggle('hidden', !cfg.note);
     $('section-sub-recipes').classList.toggle('hidden', !cfg.subRecipes);
     $('section-brew-steps').classList.toggle('hidden', !cfg.steps);
 
-    // Within brew specs: show/hide PHIN vs COLDBREW-specific fields
     if (cfg.brewSpecs) {
-      const isPhin = tool === 'PHIN';
-      $('bs-field-dose').classList.toggle('hidden', !isPhin);
-      $('bs-field-water').classList.toggle('hidden', !isPhin);
-      $('bs-field-temperature').classList.toggle('hidden', !isPhin);
-      $('bs-field-bloomTemp').classList.toggle('hidden', isPhin);
-      $('bs-field-coldWaterTemp').classList.toggle('hidden', isPhin);
+      const isColdbrew = tool === 'COLDBREW';
+      const isFilter   = tool === 'FILTER';
+      // PHIN + FILTER fields
+      $('bs-field-dose').classList.toggle('hidden', isColdbrew);
+      $('bs-field-water').classList.toggle('hidden', isColdbrew);
+      $('bs-field-temperature').classList.toggle('hidden', isColdbrew);
+      // COLDBREW-only fields
+      $('bs-field-bloomTemp').classList.toggle('hidden', !isColdbrew);
+      $('bs-field-coldWaterTemp').classList.toggle('hidden', !isColdbrew);
+      // FILTER-only field
+      $('bs-field-tools').classList.toggle('hidden', !isFilter);
     }
   }
 
@@ -189,28 +192,34 @@ const Admin = (() => {
       syncSubUI();
     }
 
-    if (tool === 'PHIN' || tool === 'COLDBREW') {
+    if (tool === 'PHIN' || tool === 'FILTER') {
       const bs = r.brewSpecs || {};
-      $('f-bs-ratio').value    = bs.ratio    || '';
-      $('f-bs-grind').value    = bs.grind    || '';
-      $('f-bs-waterPPM').value = bs.waterPPM || '';
-      $('f-bs-brewTime').value = bs.brewTime || '';
-      if (tool === 'PHIN') {
-        $('f-bs-dose').value        = bs.dose        || '';
-        $('f-bs-water').value       = bs.water       || '';
-        $('f-bs-temperature').value = bs.temperature ?? '';
-      } else {
-        $('f-bs-bloomTemp').value      = bs.bloomTemp      ?? '';
-        $('f-bs-coldWaterTemp').value  = bs.coldWaterTemp  ?? '';
+      $('f-bs-ratio').value       = bs.ratio       || '';
+      $('f-bs-grind').value       = bs.grind       || '';
+      $('f-bs-waterPPM').value    = bs.waterPPM    || '';
+      $('f-bs-brewTime').value    = bs.brewTime    || '';
+      $('f-bs-dose').value        = bs.dose        || '';
+      $('f-bs-water').value       = bs.water       || '';
+      $('f-bs-temperature').value = bs.temperature ?? '';
+      if (tool === 'FILTER') {
+        $('f-bs-tools').value = bs.tools || '';
       }
-      // Steps
       $('steps-tbody').innerHTML = '';
       (r.brewSteps || []).forEach(s => addStepRow(s));
       syncStepsUI();
     }
 
-    if (tool === 'FILTER') {
-      $('f-note').value = r.note || '';
+    if (tool === 'COLDBREW') {
+      const bs = r.brewSpecs || {};
+      $('f-bs-ratio').value          = bs.ratio         || '';
+      $('f-bs-grind').value          = bs.grind         || '';
+      $('f-bs-waterPPM').value       = bs.waterPPM      || '';
+      $('f-bs-brewTime').value       = bs.brewTime      || '';
+      $('f-bs-bloomTemp').value      = bs.bloomTemp     ?? '';
+      $('f-bs-coldWaterTemp').value  = bs.coldWaterTemp ?? '';
+      $('steps-tbody').innerHTML = '';
+      (r.brewSteps || []).forEach(s => addStepRow(s));
+      syncStepsUI();
     }
   }
 
@@ -320,10 +329,14 @@ const Admin = (() => {
     const tbody = $('steps-tbody');
     const num   = tbody.rows.length + 1;
     const tr    = document.createElement('tr');
+    // ratio is used by COLDBREW step 0, parts by step 1
+    const ratioVal = step.ratio || step.parts || '';
     tr.innerHTML = `
       <td class="col-num" style="color:var(--text-dim);font-size:var(--text-xs);text-align:center;">${num}</td>
       <td class="col-name"><input type="text"   class="s-name"  value="${esc(step.name  || '')}" placeholder="Bloom"></td>
       <td class="col-water"><input type="text"  class="s-water" value="${esc(step.water || '')}" placeholder="50g"></td>
+      <td class="col-ratio"><input type="text"  class="s-ratio" value="${esc(ratioVal)}"          placeholder="1:2"></td>
+      <td class="col-temp"><input type="text"   class="s-temp"  value="${esc(step.temp  || '')}"  placeholder="90°C"></td>
       <td class="col-start"><input type="number" class="s-start" value="${step.start ?? ''}" placeholder="0" min="0"></td>
       <td class="col-end"><input type="number"   class="s-end"   value="${step.end   ?? ''}" placeholder="60" min="0"></td>
       <td class="col-passive" style="text-align:center;">
@@ -370,15 +383,19 @@ const Admin = (() => {
     return Array.from($('steps-tbody').rows).map(tr => {
       const step = {
         name:  tr.querySelector('.s-name').value.trim(),
-        water: tr.querySelector('.s-water').value.trim() || undefined,
         start: Number(tr.querySelector('.s-start').value),
         end:   Number(tr.querySelector('.s-end').value),
       };
+      const water = tr.querySelector('.s-water').value.trim();
+      const ratio = tr.querySelector('.s-ratio').value.trim();
+      const temp  = tr.querySelector('.s-temp').value.trim();
+      if (water) step.water = water;
+      if (ratio) step.ratio = ratio;
+      if (temp)  step.temp  = temp;
       if (tr.querySelector('.s-passive').checked) {
         step.passive      = true;
         step.passiveLabel = tr.querySelector('.s-passive-label').value.trim();
       }
-      if (!step.water) delete step.water;
       return step;
     });
   }
@@ -416,17 +433,21 @@ const Admin = (() => {
       data.recipes = collectSubRecipes();
     }
 
-    if (tool === 'PHIN') {
-      data.brewSpecs = {
-        ratio:       $('f-bs-ratio').value.trim()    || undefined,
-        dose:        $('f-bs-dose').value.trim()     || undefined,
-        water:       $('f-bs-water').value.trim()    || undefined,
+    if (tool === 'PHIN' || tool === 'FILTER') {
+      const bs = {
+        ratio:       $('f-bs-ratio').value.trim()        || undefined,
+        dose:        $('f-bs-dose').value.trim()         || undefined,
+        water:       $('f-bs-water').value.trim()        || undefined,
         temperature: Number($('f-bs-temperature').value) || undefined,
-        grind:       $('f-bs-grind').value.trim()    || undefined,
-        waterPPM:    $('f-bs-waterPPM').value.trim() || undefined,
-        brewTime:    $('f-bs-brewTime').value.trim() || undefined,
+        grind:       $('f-bs-grind').value.trim()        || undefined,
+        waterPPM:    $('f-bs-waterPPM').value.trim()     || undefined,
+        brewTime:    $('f-bs-brewTime').value.trim()     || undefined,
       };
-      Object.keys(data.brewSpecs).forEach(k => data.brewSpecs[k] === undefined && delete data.brewSpecs[k]);
+      if (tool === 'FILTER') {
+        bs.tools = $('f-bs-tools').value.trim() || undefined;
+      }
+      Object.keys(bs).forEach(k => bs[k] === undefined && delete bs[k]);
+      data.brewSpecs = Object.keys(bs).length ? bs : null;
       data.brewSteps = collectSteps();
     }
 
@@ -443,11 +464,6 @@ const Admin = (() => {
       data.brewSteps = collectSteps();
     }
 
-    if (tool === 'FILTER') {
-      data.brewSpecs = null;
-      const note = $('f-note').value.trim();
-      if (note) data.note = note;
-    }
 
     const errors = validate(data);
     if (errors.length) {

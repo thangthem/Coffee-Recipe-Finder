@@ -345,7 +345,7 @@ const UIRenderer = (() => {
       `;
     }
 
-    // ── PHIN / COLDBREW: step-based timeline ──
+    // ── PHIN / FILTER / COLDBREW: step-based timeline ──
     if (recipe.brewSteps) {
       return header + `
         <hr class="modal-divider">
@@ -357,17 +357,12 @@ const UIRenderer = (() => {
         <hr class="modal-divider">
         <div class="modal-section-label">Brew Timer</div>
         ${timerWidget}
+        ${recipe.disclaimer ? `<p class="modal-disclaimer">${recipe.disclaimer}</p>` : ''}
       `;
     }
 
-    // ── FILTER: note only ──
-    return header + `
-      <hr class="modal-divider">
-      <p class="modal-recipe-desc">${recipe.note || ''}</p>
-      <hr class="modal-divider">
-      <div class="modal-section-label">Brew Timer</div>
-      ${timerWidget}
-    `;
+    // Fallback
+    return header;
   }
 
   return {

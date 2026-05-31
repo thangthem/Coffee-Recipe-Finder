@@ -90,7 +90,7 @@ const Modal = (() => {
       if (timeline) BrewTimer.renderTimeline(timeline);
       _wireProfileTabs(recipe.profiles);
     } else {
-      // PHIN, COLDBREW, old FILTER
+      // PHIN, FILTER, COLDBREW
       const steps = recipe.brewSteps || [];
       BrewTimer.init(steps);
       const timeline = document.getElementById('brew-timeline');
