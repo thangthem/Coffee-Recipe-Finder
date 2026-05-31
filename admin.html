@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Admin — Coffee Recipe Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    .hidden { display: none !important; }
+
+    body {
+      font-family: var(--font-sans);
+      background: #F1F5F9;
+      color: var(--text);
+      min-height: 100vh;
+      text-transform: none;
+    }
+
+    /* ── Header ── */
+    .admin-header {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 56px;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--space-6);
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .admin-logo {
+      font-size: var(--text-sm); font-weight: var(--weight-bold);
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--primary);
+    }
+    .admin-header-actions { display: flex; align-items: center; gap: var(--space-3); }
+
+    /* ── Layout ── */
+    .admin-layout {
+      display: flex; margin-top: 56px;
+      height: calc(100vh - 56px); overflow: hidden;
+    }
+
+    /* ── Sidebar ── */
+    .admin-sidebar {
+      width: 300px; flex-shrink: 0;
+      background: #fff; border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .sidebar-toolbar {
+      padding: var(--space-4); border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: var(--space-3);
+    }
+    .filter-row { display: flex; gap: var(--space-2); }
+    .filter-row select {
+      flex: 1; height: 32px; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-size: var(--text-xs);
+      padding: 0 var(--space-2); color: var(--text); background: var(--bg);
+      outline: none; cursor: pointer; text-transform: none;
+    }
+    .filter-row select:focus { border-color: var(--primary); }
+    .recipe-list {
+      flex: 1; overflow-y: auto; padding: var(--space-3);
+      display: flex; flex-direction: column; gap: var(--space-2);
+    }
+    .recipe-list-item {
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      padding: var(--space-3) var(--space-4); cursor: pointer;
+      transition: border-color 150ms, background 150ms; background: var(--bg);
+    }
+    .recipe-list-item:hover { border-color: var(--border-focus); background: var(--card-hover); }
+    .recipe-list-item.active { border-color: var(--primary); background: var(--primary-dim); }
+    .recipe-list-item-name {
+      font-size: var(--text-sm); font-weight: var(--weight-semi); color: var(--text);
+      margin-bottom: var(--space-1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .recipe-list-item-meta { display: flex; align-items: center; gap: var(--space-2); }
+    .list-chip {
+      font-size: 10px; font-weight: var(--weight-semi); padding: 1px 6px;
+      border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;
+    }
+    .list-chip--tool       { background: var(--primary-dim); color: var(--primary); }
+    .list-chip--pref-BALANCE      { background: var(--tag-balanced); color: #0A6050; }
+    .list-chip--pref-LIGHT_FRUITY { background: var(--tag-fruity);   color: #994500; }
+    .list-chip--pref-STRONG       { background: var(--tag-strong);   color: #6B2E90; }
+    .list-score { font-size: 10px; color: var(--text-dim); margin-left: auto; }
+    .sidebar-footer {
+      padding: var(--space-3) var(--space-4); border-top: 1px solid var(--border);
+      font-size: var(--text-xs); color: var(--text-dim); text-align: center;
+    }
+    .list-empty {
+      padding: var(--space-8) var(--space-4); text-align: center;
+      color: var(--text-dim); font-size: var(--text-xs);
+    }
+
+    /* ── Form panel ── */
+    .admin-form-panel { flex: 1; overflow-y: auto; background: #F1F5F9; }
+    .form-empty {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      height: 100%; color: var(--text-dim); font-size: var(--text-sm);
+      gap: var(--space-4); text-align: center; line-height: 1.8;
+    }
+    .form-empty-icon { font-size: 3rem; opacity: 0.35; }
+
+    /* ── Form ── */
+    .recipe-form { padding: var(--space-6); max-width: 860px; margin: 0 auto; }
+
+    .form-section {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-4);
+    }
+    .form-section-title {
+      font-size: var(--text-xs); font-weight: var(--weight-bold);
+      text-transform: uppercase; letter-spacing: 0.10em; color: var(--text-dim);
+      margin-bottom: var(--space-5); display: flex; align-items: center; justify-content: space-between;
+    }
+    .form-grid   { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+    .form-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .form-grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .form-field   { display: flex; flex-direction: column; gap: var(--space-2); }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label {
+      font-size: var(--text-xs); font-weight: var(--weight-semi);
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: var(--space-2) var(--space-3); font-size: var(--text-sm);
+      font-family: var(--font-sans); color: var(--text); background: var(--bg);
+      outline: none; transition: border-color 150ms, box-shadow 150ms; text-transform: none;
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-dim);
+    }
+    .form-field input[readonly] { background: #F8FAFC; color: var(--text-dim); cursor: not-allowed; }
+    .form-field textarea { resize: vertical; min-height: 72px; }
+    .field-hint  { font-size: 10px; color: var(--text-dim); }
+    .form-field.has-error input,
+    .form-field.has-error select,
+    .form-field.has-error textarea { border-color: var(--danger); }
+    .error-msg { font-size: 10px; color: var(--danger); display: none; }
+    .form-field.has-error .error-msg { display: block; }
+
+    /* ── Sub-recipe cards (MÁY) ── */
+    .sub-recipe-list { display: flex; flex-direction: column; gap: var(--space-4); }
+
+    .sub-recipe-card {
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      padding: var(--space-4); background: #F8FAFC;
+    }
+    .sub-recipe-card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: var(--space-4);
+    }
+    .sub-recipe-num {
+      width: 24px; height: 24px; border-radius: var(--radius-full);
+      background: var(--primary-dim); color: var(--primary);
+      font-size: var(--text-xs); font-weight: var(--weight-bold);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .sub-recipe-empty {
+      padding: var(--space-5); text-align: center; font-size: var(--text-xs);
+      color: var(--text-dim); border: 1px dashed var(--border); border-radius: var(--radius-sm);
+    }
+
+    /* ── Steps table ── */
+    .steps-table { width: 100%; border-collapse: collapse; }
+    .steps-table th {
+      font-size: 10px; font-weight: var(--weight-semi); text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--text-dim);
+      padding: var(--space-2); text-align: left; border-bottom: 1px solid var(--border);
+    }
+    .steps-table td { padding: var(--space-2); vertical-align: middle; }
+    .steps-table input[type="text"],
+    .steps-table input[type="number"] {
+      width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 5px var(--space-2); font-size: var(--text-xs); font-family: var(--font-sans);
+      color: var(--text); outline: none; text-transform: none; transition: border-color 150ms; background: var(--bg);
+    }
+    .steps-table input:focus { border-color: var(--primary); }
+    .steps-table input[type="checkbox"] { cursor: pointer; accent-color: var(--primary); }
+    .steps-table input:disabled { background: #F8FAFC; color: var(--text-dim); }
+    .col-num    { width: 28px; }
+    .col-name   { width: 110px; }
+    .col-water  { width: 72px; }
+    .col-start  { width: 72px; }
+    .col-end    { width: 72px; }
+    .col-passive{ width: 58px; text-align: center !important; }
+    .col-passive-label { min-width: 160px; }
+    .col-del    { width: 36px; }
+    .steps-empty {
+      padding: var(--space-5); text-align: center; font-size: var(--text-xs);
+      color: var(--text-dim); border: 1px dashed var(--border); border-radius: var(--radius-sm);
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      font-size: var(--text-xs); font-weight: var(--weight-semi);
+      padding: 8px var(--space-4); border-radius: var(--radius-full); cursor: pointer;
+      transition: background 150ms, color 150ms; text-transform: uppercase;
+      letter-spacing: 0.06em; white-space: nowrap; font-family: var(--font-sans);
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--card-hover); color: var(--text); }
+    .btn-danger { background: var(--danger-dim); color: var(--danger); }
+    .btn-danger:hover { background: var(--danger); color: #fff; }
+    .btn-success { background: var(--success-dim); color: var(--success); }
+    .btn-success:hover { background: var(--success); color: #fff; }
+    .btn-new {
+      width: 100%; justify-content: center;
+      background: var(--primary); color: #fff; border-radius: var(--radius-md);
+    }
+    .btn-new:hover { background: var(--primary-hover); }
+    .btn-icon {
+      width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center;
+      border-radius: var(--radius-sm); color: var(--text-dim);
+      transition: background 150ms, color 150ms; cursor: pointer;
+    }
+    .btn-icon:hover { background: var(--danger-dim); color: var(--danger); }
+    .btn-import-label {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      font-size: var(--text-xs); font-weight: var(--weight-semi);
+      padding: 8px var(--space-4); border-radius: var(--radius-full); cursor: pointer;
+      background: var(--bg); color: var(--text-muted); border: 1px solid var(--border);
+      text-transform: uppercase; letter-spacing: 0.06em; transition: background 150ms;
+    }
+    .btn-import-label:hover { background: var(--card-hover); color: var(--text); }
+    .btn-import-label input[type="file"] { display: none; }
+
+    /* ── Form actions ── */
+    .form-actions {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: var(--space-4) 0 var(--space-8);
+    }
+    .form-actions-right { display: flex; gap: var(--space-3); }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed; bottom: var(--space-6); left: 50%;
+      transform: translateX(-50%) translateY(calc(100% + var(--space-6)));
+      border-radius: var(--radius-full); padding: var(--space-3) var(--space-6);
+      font-size: var(--text-xs); font-weight: var(--weight-semi); letter-spacing: 0.06em;
+      text-transform: uppercase; color: #fff; box-shadow: var(--shadow-xl);
+      z-index: 9999; transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap; pointer-events: none;
+    }
+    .toast.visible { transform: translateX(-50%) translateY(0); }
+    .toast--success { background: var(--success); }
+    .toast--error   { background: var(--danger); }
+    .toast--info    { background: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="admin-logo">☕ Recipe Admin</div>
+    <div class="admin-header-actions">
+      <label class="btn-import-label">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+        Import JSON
+        <input type="file" id="import-input" accept=".json">
+      </label>
+      <button class="btn btn-success" id="btn-export">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Export JSON
+      </button>
+    </div>
+  </header>
+
+  <!-- Layout -->
+  <div class="admin-layout">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-toolbar">
+        <button class="btn btn-new" id="btn-new">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          New Recipe
+        </button>
+        <div class="filter-row">
+          <select id="filter-tool">
+            <option value="">All Tools</option>
+            <option value="MÁY">Espresso</option>
+            <option value="PHIN">Phin</option>
+            <option value="FILTER">Filter</option>
+            <option value="COLDBREW">Cold Brew</option>
+          </select>
+          <select id="filter-pref">
+            <option value="">All Prefs</option>
+            <option value="LIGHT / FRUITY">Light / Fruity</option>
+            <option value="BALANCE">Balance</option>
+            <option value="STRONG">Strong</option>
+          </select>
+        </div>
+      </div>
+      <div class="recipe-list" id="recipe-list"></div>
+      <div class="sidebar-footer" id="sidebar-footer">Loading…</div>
+    </aside>
+
+    <!-- Form panel -->
+    <main class="admin-form-panel">
+      <div class="form-empty" id="form-empty">
+        <span class="form-empty-icon">☕</span>
+        <span>Select a recipe to edit,<br>or create a new one.</span>
+      </div>
+
+      <form class="recipe-form hidden" id="recipe-form" autocomplete="off" novalidate>
+
+        <!-- ── Basic Info ── -->
+        <section class="form-section">
+          <div class="form-section-title">Basic Info</div>
+          <div class="form-grid form-grid--4">
+            <div class="form-field" id="field-id">
+              <label>ID</label>
+              <input type="number" id="f-id" readonly tabindex="-1">
+            </div>
+            <div class="form-field" id="field-tool">
+              <label>Tool *</label>
+              <select id="f-tool">
+                <option value="MÁY">Espresso</option>
+                <option value="PHIN">Phin</option>
+                <option value="FILTER">Filter</option>
+                <option value="COLDBREW">Cold Brew</option>
+              </select>
+            </div>
+            <div class="form-field" id="field-preference">
+              <label>Preference *</label>
+              <select id="f-preference">
+                <option value="LIGHT / FRUITY">Light / Fruity</option>
+                <option value="BALANCE">Balance</option>
+                <option value="STRONG">Strong</option>
+              </select>
+            </div>
+            <div class="form-field" id="field-score">
+              <label>Score (optional)</label>
+              <input type="number" id="f-score" step="0.1" min="0" max="5" placeholder="4.5">
+            </div>
+          </div>
+          <div class="form-grid" style="margin-top:var(--space-4);">
+            <div class="form-field full" id="field-disclaimer">
+              <label>Disclaimer</label>
+              <textarea id="f-disclaimer" rows="2" placeholder="This recipe is a starting point…"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Coffee ── -->
+        <section class="form-section">
+          <div class="form-section-title">Coffee</div>
+          <div class="form-grid">
+            <div class="form-field" id="field-coffee-name">
+              <label>Coffee Name *</label>
+              <input type="text" id="f-coffee-name" placeholder="Ethiopia Shakiso">
+              <span class="error-msg">Required</span>
+            </div>
+            <div class="form-field" id="field-coffee-origin">
+              <label>Origin *</label>
+              <input type="text" id="f-coffee-origin" placeholder="Ethiopia">
+              <span class="error-msg">Required</span>
+            </div>
+            <div class="form-field full" id="field-coffee-notes">
+              <label>Tasting Notes *</label>
+              <input type="text" id="f-coffee-notes" placeholder="Fruity, Floral, Bright Acidity">
+              <span class="field-hint">Separate with commas</span>
+              <span class="error-msg">At least one note required</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Base Specs (MÁY only) ── -->
+        <section class="form-section hidden" id="section-base-specs">
+          <div class="form-section-title">Base Specs</div>
+          <div class="form-grid form-grid--3">
+            <div class="form-field">
+              <label>Temperature (°C)</label>
+              <input type="number" id="f-base-temperature" placeholder="94">
+            </div>
+            <div class="form-field">
+              <label>Grind Size</label>
+              <input type="text" id="f-base-grind" placeholder="Fine">
+            </div>
+            <div class="form-field">
+              <label>Water PPM</label>
+              <input type="text" id="f-base-waterPPM" placeholder="55-60">
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Brew Specs (PHIN + COLDBREW) ── -->
+        <section class="form-section hidden" id="section-brew-specs">
+          <div class="form-section-title">Brew Specs</div>
+          <div class="form-grid form-grid--3">
+            <div class="form-field">
+              <label>Ratio</label>
+              <input type="text" id="f-bs-ratio" placeholder="1:5">
+            </div>
+            <div class="form-field">
+              <label>Grind Size</label>
+              <input type="text" id="f-bs-grind" placeholder="Medium">
+            </div>
+            <div class="form-field">
+              <label>Water PPM</label>
+              <input type="text" id="f-bs-waterPPM" placeholder="55-60">
+            </div>
+            <div class="form-field">
+              <label>Brew Time</label>
+              <input type="text" id="f-bs-brewTime" placeholder="4:30-5:00 min">
+            </div>
+            <!-- PHIN only -->
+            <div class="form-field" id="bs-field-dose">
+              <label>Dose</label>
+              <input type="text" id="f-bs-dose" placeholder="25g">
+            </div>
+            <div class="form-field" id="bs-field-water">
+              <label>Water</label>
+              <input type="text" id="f-bs-water" placeholder="125g">
+            </div>
+            <div class="form-field" id="bs-field-temperature">
+              <label>Temperature (°C)</label>
+              <input type="number" id="f-bs-temperature" placeholder="96">
+            </div>
+            <!-- COLDBREW only -->
+            <div class="form-field hidden" id="bs-field-bloomTemp">
+              <label>Bloom Temp (°C)</label>
+              <input type="number" id="f-bs-bloomTemp" placeholder="90">
+            </div>
+            <div class="form-field hidden" id="bs-field-coldWaterTemp">
+              <label>Cold Water Temp (°C)</label>
+              <input type="number" id="f-bs-coldWaterTemp" placeholder="10">
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Note (FILTER only) ── -->
+        <section class="form-section hidden" id="section-note">
+          <div class="form-section-title">Recipe Note</div>
+          <div class="form-field">
+            <label>Note</label>
+            <textarea id="f-note" rows="3" placeholder="BASED ON BREWING CALIBRATION RECIPE…"></textarea>
+          </div>
+        </section>
+
+        <!-- ── Sub-Recipes (MÁY only) ── -->
+        <section class="form-section hidden" id="section-sub-recipes">
+          <div class="form-section-title">
+            Sub-Recipes
+            <button type="button" class="btn btn-secondary" id="btn-add-sub" style="padding:4px 12px;font-size:11px;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+              Add Sub-Recipe
+            </button>
+          </div>
+          <div class="sub-recipe-list" id="sub-recipe-list">
+            <div class="sub-recipe-empty" id="sub-recipe-empty">No sub-recipes yet. Click "Add Sub-Recipe" to begin.</div>
+          </div>
+        </section>
+
+        <!-- ── Brew Steps (PHIN + COLDBREW) ── -->
+        <section class="form-section hidden" id="section-brew-steps">
+          <div class="form-section-title">
+            Brew Steps
+            <button type="button" class="btn btn-secondary" id="btn-add-step" style="padding:4px 12px;font-size:11px;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+              Add Step
+            </button>
+          </div>
+          <div id="steps-container">
+            <div class="steps-empty" id="steps-empty">No steps yet.</div>
+            <table class="steps-table hidden" id="steps-table">
+              <thead>
+                <tr>
+                  <th class="col-num">#</th>
+                  <th class="col-name">Name</th>
+                  <th class="col-water">Water</th>
+                  <th class="col-start">Start (s)</th>
+                  <th class="col-end">End (s)</th>
+                  <th class="col-passive" style="text-align:center;">Passive</th>
+                  <th class="col-passive-label">Passive Label</th>
+                  <th class="col-del"></th>
+                </tr>
+              </thead>
+              <tbody id="steps-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ── Form actions ── -->
+        <div class="form-actions">
+          <button type="button" class="btn btn-danger" id="btn-delete">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="3 6 5 6 21 6"/>
+              <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/>
+              <path d="M10 11v6M14 11v6"/>
+              <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
+            </svg>
+            Delete
+          </button>
+          <div class="form-actions-right">
+            <button type="button" class="btn btn-secondary" id="btn-cancel">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-save">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                <polyline points="17 21 17 13 7 13 7 21"/>
+                <polyline points="7 3 7 8 15 8"/>
+              </svg>
+              Save Recipe
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+  <script src="js/admin.js"></script>
+</body>
+</html>

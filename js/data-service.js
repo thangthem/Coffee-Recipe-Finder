@@ -39,6 +39,7 @@ const DataService = (() => {
   function getAll() { return _recipes; }
 
   // ── Inline fallback (mirrors data/recipes.json) ─────────────────────
+  // NOTE: kept minimal — full data loads via fetch in normal operation
   const RECIPES_INLINE = [
     {
       id: 1, tool: 'PHIN', preference: 'BALANCED', score: 4.8,

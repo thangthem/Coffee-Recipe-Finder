@@ -20,7 +20,10 @@ const BrewTimer = (() => {
 
   function _currentStep() { return _steps[_stepIndex]; }
 
-  function _stepDuration(step) { return step.end - step.start; }
+  function _stepDuration(step) {
+    if (!step || typeof step.start !== 'number' || typeof step.end !== 'number') return 0;
+    return step.end - step.start;
+  }
 
   function _totalElapsed() {
     let total = 0;
@@ -35,6 +38,12 @@ const BrewTimer = (() => {
 
   function _updateUI() {
     if (!_elDisplay) return;
+    if (!_steps.length) {
+      _elDisplay.textContent = '00:00';
+      _elStepName.textContent = 'No steps';
+      _elProgress.style.width = '0%';
+      return;
+    }
     const step = _currentStep();
     const dur  = _stepDuration(step);
     const remaining = dur - _elapsed;
@@ -82,6 +91,7 @@ const BrewTimer = (() => {
 
   function _tick() {
     const step = _currentStep();
+    if (!step) { _pause(); return; }
     if (step.passive) {
       // Passive step — just show the note, don't tick
       return;
@@ -114,7 +124,7 @@ const BrewTimer = (() => {
   }
 
   function _play() {
-    if (_isFinished) return;
+    if (_isFinished || !_steps.length) return;
     _isRunning = true;
     _elPlayIcon.style.display  = 'none';
     _elPauseIcon.style.display = 'block';
@@ -140,12 +150,24 @@ const BrewTimer = (() => {
     _interval = null;
   }
 
+  function _replaceWithClone(id) {
+    const el = document.getElementById(id);
+    if (!el) return null;
+    const clone = el.cloneNode(true);
+    el.parentNode.replaceChild(clone, el);
+    return clone;
+  }
+
   function bindDOM() {
+    // Replace buttons with fresh clones to strip any stale listeners
+    _elPlay = _replaceWithClone('btn-timer-play');
+    _replaceWithClone('btn-timer-reset');
+    _replaceWithClone('btn-timer-skip');
+
     _elDisplay    = document.getElementById('timer-display');
     _elStepName   = document.getElementById('timer-step-name');
     _elProgress   = document.getElementById('timer-progress');
     _elPassive    = document.getElementById('timer-passive');
-    _elPlay       = document.getElementById('btn-timer-play');
     _elPlayIcon   = document.getElementById('play-icon');
     _elPauseIcon  = document.getElementById('pause-icon');
     _timelineStepEls = Array.from(document.querySelectorAll('#brew-timeline .timeline-step'));
@@ -199,10 +221,23 @@ const BrewTimer = (() => {
           ? `${stepDur}s`
           : `${Math.floor(stepDur / 60)}m${stepDur % 60 ? (stepDur % 60) + 's' : ''}`;
 
+      let subLabel = '';
+      if (step.water && step.water !== '0g') {
+        subLabel = step.water;
+      } else if (step.ratio) {
+        subLabel = step.ratio;
+      } else if (step.temp) {
+        subLabel = step.temp;
+      } else if (step.milkRatio) {
+        subLabel = step.milkRatio;
+      } else {
+        subLabel = timeLabel;
+      }
+
       el.innerHTML = `
         <div class="timeline-dot">${i + 1}</div>
         <div class="timeline-step-name">${step.name}</div>
-        <div class="timeline-step-water">${step.water !== '0g' ? step.water : timeLabel}</div>
+        <div class="timeline-step-water">${subLabel}</div>
       `;
       track.appendChild(el);
     });

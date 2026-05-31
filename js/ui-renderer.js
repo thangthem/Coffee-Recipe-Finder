@@ -1,15 +1,15 @@
 const UIRenderer = (() => {
   const TOOLS = [
-    { id: 'PHIN',      label: 'Phin',       icon: '🫖', desc: 'Traditional Vietnamese drip filter' },
-    { id: 'ESPRESSO',  label: 'Espresso',   icon: '⚡', desc: 'Pressure-extracted concentrated shot' },
-    { id: 'FILTER',    label: 'Filter',     icon: '☕', desc: 'Pour-over or drip brew method' },
-    { id: 'COLD_BREW', label: 'Cold Brew',  icon: '🧊', desc: 'Slow cold-water immersion extraction' },
+    { id: 'MÁY',      label: 'Espresso', icon: '⚡', desc: 'Pressure-extracted concentrated shot' },
+    { id: 'PHIN',     label: 'Phin',          icon: '🫖', desc: 'Traditional Vietnamese drip filter' },
+    { id: 'FILTER',   label: 'Filter',        icon: '☕', desc: 'Pour-over or drip brew method' },
+    { id: 'COLDBREW', label: 'Cold Brew',     icon: '🧊', desc: 'Slow cold-water immersion extraction' },
   ];
 
   const PREFS = [
-    { id: 'FRUITY',   label: 'Fruity',   icon: '🍑', desc: 'Bright acidity\nFloral aroma\nVibrant & light' },
-    { id: 'BALANCED', label: 'Balanced', icon: '⚖️', desc: 'Sweet & nutty\nSmooth body\nEveryday perfect' },
-    { id: 'STRONG',   label: 'Strong',   icon: '💪', desc: 'Bold & intense\nDark chocolate\nHeavy body' },
+    { id: 'LIGHT / FRUITY', label: 'Light / Fruity', icon: '🍑', desc: 'Bright acidity\nFloral aroma\nVibrant & light' },
+    { id: 'BALANCE',        label: 'Balance',        icon: '⚖️', desc: 'Sweet & nutty\nSmooth body\nEveryday perfect' },
+    { id: 'STRONG',         label: 'Strong',         icon: '💪', desc: 'Bold & intense\nDark chocolate\nHeavy body' },
   ];
 
   function prefClass(id) {
@@ -34,7 +34,6 @@ const UIRenderer = (() => {
       card.setAttribute('tabindex', '0');
       card.dataset.staggerItem = '';
       card.innerHTML = `
-        <span class="sel-card-icon">${t.icon}</span>
         <div class="sel-card-title">${t.label}</div>
         <div class="sel-card-desc">${t.desc}</div>
         <div class="sel-card-check">✓</div>
@@ -70,7 +69,6 @@ const UIRenderer = (() => {
       card.dataset.staggerItem = '';
       const descLines = p.desc.split('\n').join('<br>');
       card.innerHTML = `
-        <span class="sel-card-icon">${p.icon}</span>
         <div class="sel-card-title">${p.label}</div>
         <div class="sel-card-desc">${descLines}</div>
         <div class="sel-card-check">✓</div>
@@ -122,10 +120,7 @@ const UIRenderer = (() => {
           ${r.coffee.notes.map(n => `<span class="note-tag">${n}</span>`).join('')}
         </div>
         <div class="recipe-card-footer">
-          <div class="recipe-card-score">
-            <span>${stars(r.score)}</span>
-            <span>${r.score}</span>
-          </div>
+          ${r.score != null ? `<div class="recipe-card-score"><span>${stars(r.score)}</span><span>${r.score}</span></div>` : '<div></div>'}
           <span class="recipe-card-cta">View Recipe →</span>
         </div>
       `;
@@ -166,7 +161,7 @@ const UIRenderer = (() => {
       const item = document.createElement('div');
       item.className = 'fav-item';
       item.setAttribute('tabindex', '0');
-      const toolLabel = { PHIN: 'Phin', ESPRESSO: 'Espresso', FILTER: 'Filter', COLD_BREW: 'Cold Brew' }[r.tool] || r.tool;
+      const toolLabel = { MÁY: 'Espresso', PHIN: 'Phin', ESPRESSO: 'Espresso', FILTER: 'Filter', COLD_BREW: 'Cold Brew', COLDBREW: 'Cold Brew' }[r.tool] || r.tool;
       item.innerHTML = `
         <div class="fav-item-name">${r.coffee.name}</div>
         <div class="fav-item-sub">${toolLabel} · ${r.preference.charAt(0) + r.preference.slice(1).toLowerCase()}</div>
@@ -179,55 +174,56 @@ const UIRenderer = (() => {
     });
   }
 
+  // ── Specs grid (shared helper, also exposed publicly) ─────────────────
+  function renderSpecsGrid(specs) {
+    if (!specs) return '';
+    const items = [
+      { label: 'Ratio',       value: specs.ratio },
+      { label: 'Temperature', value: specs.temperature != null ? `${specs.temperature}°C` : null },
+      { label: 'Bloom Temp',  value: specs.bloomTemp != null ? `${specs.bloomTemp}°C` : null },
+      { label: 'Cold Water',  value: specs.coldWaterTemp != null ? `${specs.coldWaterTemp}°C` : null },
+      { label: 'Dose',        value: specs.dose },
+      { label: 'Water',       value: specs.water },
+      { label: 'Grind',       value: specs.grind },
+      { label: 'Water PPM',   value: specs.waterPPM },
+      { label: 'Brew Time',   value: specs.brewTime || (specs.brewTimeSec != null ? `${specs.brewTimeSec}s` : null) },
+      { label: 'Milk Ratio',  value: specs.milkRatio },
+    ].filter(item => item.value != null);
+
+    return `<div class="recipe-detail-grid">
+      ${items.map(item => `
+        <div class="recipe-detail-item">
+          <div class="recipe-detail-label">${item.label}</div>
+          <div class="recipe-detail-value">${item.value}</div>
+        </div>
+      `).join('')}
+    </div>`;
+  }
+
   // ── Modal content ─────────────────────────────────────────────────────
   function renderModalContent(recipe) {
-    const toolLabel = { PHIN: 'Phin', ESPRESSO: 'Espresso', FILTER: 'Filter', COLD_BREW: 'Cold Brew' }[recipe.tool] || recipe.tool;
-    const prefClass = `chip--pref-${recipe.preference.toLowerCase()}`;
-    const tempStr = recipe.recipe.temperature === 4
-      ? `${recipe.recipe.temperature}°C (cold)`
-      : `${recipe.recipe.temperature}°C`;
+    const TOOL_LABELS = { MÁY: 'Espresso', PHIN: 'Phin', FILTER: 'Filter', COLDBREW: 'Cold Brew', ESPRESSO: 'Espresso', COLD_BREW: 'Cold Brew' };
+    const toolLabel   = TOOL_LABELS[recipe.tool] || recipe.tool;
+    const prefSlug    = recipe.preference.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const prefDisplay = recipe.preference.charAt(0) + recipe.preference.slice(1).toLowerCase();
 
-    const detailItems = [
-      { label: 'Ratio',       value: recipe.recipe.ratio },
-      { label: 'Temperature', value: tempStr },
-      { label: 'Grind',       value: recipe.recipe.grind },
-      { label: 'Water PPM',   value: recipe.recipe.waterPPM },
-      { label: 'Brew Time',   value: recipe.recipe.brewTime },
-      { label: 'Milk Ratio',  value: recipe.recipe.milkRatio },
-    ];
+    const RECIPE_ICONS = {
+      espresso: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14v9a2 2 0 01-2 2H7a2 2 0 01-2-2V8z"/><path d="M19 10h1a3 3 0 010 6h-1"/></svg>`,
+      milk_beverage: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 2h8l1 4H7L8 2z"/><rect x="6" y="6" width="12" height="14" rx="2"/></svg>`,
+      vietnamese_milk_coffee: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="3" width="12" height="16" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/></svg>`,
+    };
 
-    return `
+    const header = `
       <p class="modal-origin">📍 ${recipe.coffee.origin}</p>
       <h2 class="modal-coffee-name">${recipe.coffee.name}</h2>
       <div class="modal-chips">
         <span class="chip chip--tool">${toolLabel}</span>
-        <span class="chip ${prefClass}">${recipe.preference.charAt(0) + recipe.preference.slice(1).toLowerCase()}</span>
-      </div>
-      <div class="modal-notes">
+        <span class="chip chip--pref-${prefSlug}">${prefDisplay}</span>
         ${recipe.coffee.notes.map(n => `<span class="note-tag">${n}</span>`).join('')}
       </div>
-      <p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-6);line-height:1.7;">${recipe.description}</p>
+    `;
 
-      <hr class="modal-divider">
-
-      <div class="modal-section-label">Recipe Details</div>
-      <div class="recipe-detail-grid">
-        ${detailItems.map(item => `
-          <div class="recipe-detail-item">
-            <div class="recipe-detail-label">${item.label}</div>
-            <div class="recipe-detail-value">${item.value}</div>
-          </div>
-        `).join('')}
-      </div>
-
-      <hr class="modal-divider">
-
-      <div class="modal-section-label">Brew Timeline</div>
-      <div class="brew-timeline" id="brew-timeline"></div>
-
-      <hr class="modal-divider">
-
-      <div class="modal-section-label">Brew Timer</div>
+    const timerWidget = `
       <div class="brew-timer" id="brew-timer-widget">
         <div class="brew-timer-display" id="timer-display">00:00</div>
         <div class="brew-timer-step-name" id="timer-step-name">Ready to brew</div>
@@ -256,6 +252,55 @@ const UIRenderer = (() => {
           </button>
         </div>
       </div>
+      ${recipe.disclaimer ? `<p class="modal-disclaimer">${recipe.disclaimer}</p>` : ''}
+    `;
+
+    // ── MÁY: recipe sub-selector ──
+    if (recipe.recipes && recipe.recipes.length > 0) {
+      const firstRec = recipe.recipes[0];
+      return header + `
+        <hr class="modal-divider">
+        <div class="modal-section-label">Chọn Recipe</div>
+        <div class="recipe-tabs" id="recipe-tabs">
+          ${recipe.recipes.map((r, i) => `
+            <div class="recipe-tab${i === 0 ? ' active' : ''}" data-index="${i}" role="button" tabindex="0">
+              <div class="recipe-tab-icon">${RECIPE_ICONS[r.type] || RECIPE_ICONS.espresso}</div>
+              <div class="recipe-tab-label">${r.label}</div>
+              <div class="recipe-tab-sub">${r.subtitle}</div>
+            </div>
+          `).join('')}
+        </div>
+        <hr class="modal-divider">
+        <div class="modal-section-label">Recipe Details</div>
+        <div id="recipe-specs-container">${renderSpecsGrid(firstRec.specs)}</div>
+        <hr class="modal-divider">
+        <div class="modal-section-label" id="timer-section-label">Brew Timer — ${firstRec.label}</div>
+        ${timerWidget}
+      `;
+    }
+
+    // ── PHIN / COLDBREW: step-based timeline ──
+    if (recipe.brewSteps) {
+      return header + `
+        <hr class="modal-divider">
+        <div class="modal-section-label">Recipe Details</div>
+        ${renderSpecsGrid(recipe.brewSpecs)}
+        <hr class="modal-divider">
+        <div class="modal-section-label">Brew Timeline</div>
+        <div class="brew-timeline" id="brew-timeline"></div>
+        <hr class="modal-divider">
+        <div class="modal-section-label">Brew Timer</div>
+        ${timerWidget}
+      `;
+    }
+
+    // ── FILTER: note only ──
+    return header + `
+      <hr class="modal-divider">
+      <p class="modal-recipe-desc">${recipe.note || ''}</p>
+      <hr class="modal-divider">
+      <div class="modal-section-label">Brew Timer</div>
+      ${timerWidget}
     `;
   }
 
@@ -266,5 +311,6 @@ const UIRenderer = (() => {
     renderRecipeCards, updateFavButton,
     renderFavoritesList,
     renderModalContent,
+    renderSpecsGrid,
   };
 })();
