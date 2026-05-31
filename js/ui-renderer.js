@@ -34,7 +34,6 @@ const UIRenderer = (() => {
       card.setAttribute('tabindex', '0');
       card.dataset.staggerItem = '';
       card.innerHTML = `
-        <span class="sel-card-icon">${t.icon}</span>
         <div class="sel-card-title">${t.label}</div>
         <div class="sel-card-desc">${t.desc}</div>
         <div class="sel-card-check">✓</div>
@@ -70,7 +69,6 @@ const UIRenderer = (() => {
       card.dataset.staggerItem = '';
       const descLines = p.desc.split('\n').join('<br>');
       card.innerHTML = `
-        <span class="sel-card-icon">${p.icon}</span>
         <div class="sel-card-title">${p.label}</div>
         <div class="sel-card-desc">${descLines}</div>
         <div class="sel-card-check">✓</div>
