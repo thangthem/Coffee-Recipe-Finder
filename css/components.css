@@ -129,9 +129,11 @@
   border: 1px solid rgba(0, 85, 196, 0.18);
 }
 
-.chip--pref-fruity   { background: var(--tag-fruity);   color: #994500; border: 1px solid rgba(200,100,30,0.20); }
-.chip--pref-balanced { background: var(--tag-balanced);  color: #0A6050; border: 1px solid rgba(20,120,100,0.20); }
-.chip--pref-strong   { background: var(--tag-strong);    color: #6B2E90; border: 1px solid rgba(120,50,160,0.20); }
+.chip--pref-fruity        { background: var(--tag-fruity);   color: #994500; border: 1px solid rgba(200,100,30,0.20); }
+.chip--pref-light-fruity  { background: var(--tag-fruity);   color: #994500; border: 1px solid rgba(200,100,30,0.20); }
+.chip--pref-balanced      { background: var(--tag-balanced);  color: #0A6050; border: 1px solid rgba(20,120,100,0.20); }
+.chip--pref-balance       { background: var(--tag-balanced);  color: #0A6050; border: 1px solid rgba(20,120,100,0.20); }
+.chip--pref-strong        { background: var(--tag-strong);    color: #6B2E90; border: 1px solid rgba(120,50,160,0.20); }
 
 /* ══════════════════════════════════════
    SELECTION CARDS (tool / preference)
