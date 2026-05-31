@@ -12,6 +12,37 @@ const Modal = (() => {
     return [{ name: subRecipe.label, start: 0, end: subRecipe.specs.brewTimeSec }];
   }
 
+  function _wireProfileTabs(profiles) {
+    const tabs = document.getElementById('profile-tabs');
+    if (!tabs) return;
+
+    tabs.querySelectorAll('.recipe-tab').forEach(tab => {
+      const activate = () => {
+        const key     = tab.dataset.profile;
+        const profile = profiles[key];
+        if (!profile) return;
+
+        tabs.querySelectorAll('.recipe-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const specsEl = document.getElementById('profile-specs-container');
+        if (specsEl) specsEl.innerHTML = UIRenderer.renderSpecsGrid(profile.specs);
+
+        BrewTimer.stop();
+        BrewTimer.init(profile.brewSteps || []);
+        BrewTimer.bindDOM();
+
+        const timeline = document.getElementById('brew-timeline');
+        if (timeline) BrewTimer.renderTimeline(timeline);
+      };
+
+      tab.addEventListener('click', activate);
+      tab.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+      });
+    });
+  }
+
   function _wireRecipeTabs(subRecipes) {
     const tabs = document.getElementById('recipe-tabs');
     if (!tabs) return;
@@ -51,8 +82,15 @@ const Modal = (() => {
       // MÁY: simple countdown for selected sub-recipe
       BrewTimer.init(_recipeToSteps(recipe.recipes[0]));
       _wireRecipeTabs(recipe.recipes);
+    } else if (recipe.profiles) {
+      // FILTER with social/staff profiles
+      const firstProfile = Object.values(recipe.profiles)[0];
+      BrewTimer.init(firstProfile.brewSteps || []);
+      const timeline = document.getElementById('brew-timeline');
+      if (timeline) BrewTimer.renderTimeline(timeline);
+      _wireProfileTabs(recipe.profiles);
     } else {
-      // PHIN, COLDBREW, FILTER
+      // PHIN, COLDBREW, old FILTER
       const steps = recipe.brewSteps || [];
       BrewTimer.init(steps);
       const timeline = document.getElementById('brew-timeline');

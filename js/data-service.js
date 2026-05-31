@@ -15,7 +15,7 @@ const DataService = (() => {
 
   function filter(tool, preference) {
     return _recipes.filter(
-      r => r.tool === tool && r.preference === preference
+      r => r.tool === tool && (!r.preference || r.preference === preference)
     );
   }
 

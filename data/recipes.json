@@ -1563,91 +1563,6 @@
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
   },
   {
-    "id": 32,
-    "tool": "FILTER",
-    "preference": "LIGHT / FRUITY",
-    "coffee": {
-      "name": "BBB",
-      "origin": "Vietnam",
-      "notes": [
-        "Light Roast",
-        "Fruity",
-        "Bright"
-      ]
-    },
-    "brewSpecs": null,
-    "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!",
-    "disclaimer": "Recipe based on individual brewing calibration. Please refer to specific product specification."
-  },
-  {
-    "id": 33,
-    "tool": "FILTER",
-    "preference": "LIGHT / FRUITY",
-    "coffee": {
-      "name": "OVER CUCKOO NEST",
-      "origin": "Vietnam",
-      "notes": [
-        "Light Roast",
-        "Fruity",
-        "Bright"
-      ]
-    },
-    "brewSpecs": null,
-    "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!",
-    "disclaimer": "Recipe based on individual brewing calibration. Please refer to specific product specification."
-  },
-  {
-    "id": 34,
-    "tool": "FILTER",
-    "preference": "LIGHT / FRUITY",
-    "coffee": {
-      "name": "SINGLE ORIGIN",
-      "origin": "Various",
-      "notes": [
-        "Light Roast",
-        "Fruity",
-        "Bright"
-      ]
-    },
-    "brewSpecs": null,
-    "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!",
-    "disclaimer": "Recipe based on individual brewing calibration. Please refer to specific product specification."
-  },
-  {
-    "id": 35,
-    "tool": "FILTER",
-    "preference": "BALANCE",
-    "coffee": {
-      "name": "FRUITY BLEND",
-      "origin": "Vietnam",
-      "notes": [
-        "Balanced",
-        "Sweet",
-        "Smooth"
-      ]
-    },
-    "brewSpecs": null,
-    "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!",
-    "disclaimer": "Recipe based on individual brewing calibration. Please refer to specific product specification."
-  },
-  {
-    "id": 36,
-    "tool": "FILTER",
-    "preference": "BALANCE",
-    "coffee": {
-      "name": "ETHIOPIA SHAKISO",
-      "origin": "Ethiopia",
-      "notes": [
-        "Fruity",
-        "Floral",
-        "Bright Acidity"
-      ]
-    },
-    "brewSpecs": null,
-    "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!",
-    "disclaimer": "Recipe based on individual brewing calibration. Please refer to specific product specification."
-  },
-  {
     "id": 37,
     "tool": "COLDBREW",
     "preference": "LIGHT / FRUITY",
@@ -1921,6 +1836,2874 @@
         "passiveLabel": "Steep 24 hours"
       }
     ],
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 43,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "ETHIOPIA HAMBELLA",
+      "origin": "Vietnam",
+      "region": "GUJI",
+      "varietyProcess": "MIX HEIRLOOM G1 - WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 95,
+      "grind": "15 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "15 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 70,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 70,
+            "end": 110,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 110,
+            "end": 140,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0,
+            "withMellowDrip": true
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.75,
+      "aftertaste": 3.75,
+      "acid": 3.75,
+      "sweet": 3.5,
+      "mouthfeel": 3.5
+    },
+    "comment": "ESPRESSO:\n- EK: 0.5 - GROUP TRÁI\n- RATIO: 1-2.5 (16GR - 40GR) \n- TIME: 39S\n- TEMP: 94\nMILK: LATTE & CAPPUCCINO \n- EK: 0.5 - GROUP TRÁI\n- RATIO: 1-2 (16GR - 32GR) \n- TIME: 35S\n- TEMP: 94",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 44,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "VƯƠNG FARM JAVA",
+      "origin": "Vietnam",
+      "region": "LÂM ĐỒNG - VƯƠNG FARM",
+      "varietyProcess": "JAVA - ANAEROBIC WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 95,
+      "grind": "12 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "12 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "12 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 2.5,
+      "aftertaste": 2.75,
+      "acid": 2.5,
+      "sweet": 2.5,
+      "mouthfeel": 2.75
+    },
+    "comment": "",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 45,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "ETHIOPIA X SERIES - INFINITY",
+      "origin": "Ethiopia",
+      "region": "ALO - SIDAMA - BENSA",
+      "varietyProcess": "74158 - WASHED - DARK ROOM DRYING"
+    },
+    "brewSpecs": {
+      "ratio": "1-16",
+      "doseGr": 15,
+      "waterGr": 240.0,
+      "temperature": 95,
+      "grind": "14 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-16",
+          "doseGr": 15,
+          "waterGr": 240.0,
+          "grind": "14 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 240.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-16",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0,
+            "withMellowDrip": true
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 4.0,
+      "aftertaste": 4.0,
+      "acid": 4.0,
+      "sweet": 3.5,
+      "mouthfeel": 3.5
+    },
+    "comment": "",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 46,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "ETHIOPIA BOTABA",
+      "origin": "Ethiopia",
+      "region": "YIRGACHEFFE - KOCHERE",
+      "varietyProcess": "MIX HEIRLOOM - WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 95,
+      "grind": "14 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0,
+            "withMellowDrip": true
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.25,
+      "aftertaste": 3.25,
+      "acid": 3.25,
+      "sweet": 3.25,
+      "mouthfeel": 3.5
+    },
+    "comment": "ESPRESSO:\n- EK: 1.4 - GROUP TRÁI\n- RATIO: 1-2.5 (16GR - 40GR) \n- TIME: 39S\n- TEMP: 94\nMILK: LATTE & CAPPUCCINO \n- EK: 1.4 - GROUP TRÁI\n- RATIO: 1-2 (16GR - 32GR) \n- TIME: 35S\n- TEMP: 94",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 47,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "ETHIOPIA BISHALA",
+      "origin": "Ethiopia",
+      "region": "GUJI",
+      "varietyProcess": "(74110 - 74112) - RED HONEY"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 94,
+      "grind": "14 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0,
+            "withMellowDrip": true
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.0,
+      "aftertaste": 3.0,
+      "acid": 3.0,
+      "sweet": 3.5,
+      "mouthfeel": 3.0
+    },
+    "comment": "",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 48,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "KENYA  AA YERIHA",
+      "origin": "Kenya",
+      "region": "NYERI",
+      "varietyProcess": "(SL28 - SL34) - WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 95,
+      "grind": "14.5 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14.5 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14.5 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0,
+            "withMellowDrip": true
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.0,
+      "aftertaste": 3.0,
+      "acid": 3.5,
+      "sweet": 3.0,
+      "mouthfeel": 3.0
+    },
+    "comment": "",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 49,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "KENYA AA OTHAYA",
+      "origin": "Kenya",
+      "region": "NYERI",
+      "varietyProcess": "(SL28 - SL34) - WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 94,
+      "grind": "14 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "13 ON EK43",
+          "temperature": 96,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0,
+            "withMellowDrip": true
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.0,
+      "aftertaste": 3.75,
+      "acid": 3.5,
+      "sweet": 3.5,
+      "mouthfeel": 3.5
+    },
+    "comment": "ESPRESSO:\n- EK: 0.8 - GROUP TRÁI\n- RATIO: 1-2.5 (16GR - 40GR)\n- TIME: 39S\n- TEMP: 94\nMILK: LATTE & CAPPUCCINO \n- EK: 0.8 - GROUP TRÁI\n- RATIO: 1-2 (16GR - 32GR) \n- TIME: 35S\n- TEMP: 94",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 50,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "KENYA AA KIRINYAGA",
+      "origin": "Kenya",
+      "region": "KAMWANGI",
+      "varietyProcess": "(SL28 - SL34) - WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 96,
+      "grind": "13.5 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "13.5 ON EK43",
+          "temperature": 96,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 70,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 70,
+            "end": 110,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 110,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "13.5 ON EK43",
+          "temperature": 96,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 70,
+            "end": 110,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 110,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.0,
+      "aftertaste": 3.0,
+      "acid": 3.5,
+      "sweet": 3.0,
+      "mouthfeel": 3.0
+    },
+    "comment": "ESPRESSO:\n- EK: 0.8 - GROUP TRÁI\n- RATIO: 1-2.5 (16GR - 40GR)\n- TIME: 39S\n- TEMP: 94\nMILK: LATTE & CAPPUCCINO \n- EK: 0.8 - GROUP TRÁI\n- RATIO: 1-2 (16GR - 32GR) \n- TIME: 35S\n- TEMP: 94",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 51,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "COLOMBIA JAVA",
+      "origin": "Colombia",
+      "region": "CAUCA",
+      "varietyProcess": "JAVA - ANAEROBIC FERMENTATION"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 95,
+      "grind": "13 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "13 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "10 ON EK43",
+          "temperature": 97,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0,
+            "withMellowDrip": true
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.5,
+      "aftertaste": 3.0,
+      "acid": 3.75,
+      "sweet": 3.5,
+      "mouthfeel": 3.0
+    },
+    "comment": "",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 52,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "ETHIOPIA X SERIES - ASCEND",
+      "origin": "Ethiopia",
+      "region": "ALO - SIDAMA - BENSA",
+      "varietyProcess": "74158 - NATURAL - DARK ROOM DRYING"
+    },
+    "brewSpecs": {
+      "ratio": "1-16",
+      "doseGr": 15,
+      "waterGr": 240.0,
+      "temperature": 95,
+      "grind": "13.5 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-16",
+          "doseGr": 15,
+          "waterGr": 240.0,
+          "grind": "13.5 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 240.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-16",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0,
+            "withMellowDrip": true
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 4.0,
+      "aftertaste": 4.0,
+      "acid": 4.0,
+      "sweet": 4.0,
+      "mouthfeel": 4.0
+    },
+    "comment": "",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 53,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "ETHIOPIA X SERIES - DIVINE",
+      "origin": "Ethiopia",
+      "region": "ALO - SIDAMA - BENSA",
+      "varietyProcess": "74158 - ANAEROBIC WASHED - DARK ROOM DRYING"
+    },
+    "brewSpecs": {
+      "ratio": "1-16",
+      "doseGr": 15,
+      "waterGr": 240.0,
+      "temperature": 95,
+      "grind": "13.5 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-16",
+          "doseGr": 15,
+          "waterGr": 240.0,
+          "grind": "13.5 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 240.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-16",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0,
+            "withMellowDrip": true
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.5,
+      "aftertaste": 3.5,
+      "acid": 3.5,
+      "sweet": 3.5,
+      "mouthfeel": 3.5
+    },
+    "comment": "",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 54,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "ETHIOPIA TWAKOK",
+      "origin": "Ethiopia",
+      "region": "GUJI",
+      "varietyProcess": "MIX HEIRLOOM G1 - WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 93,
+      "grind": "15 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "15 ON EK43",
+          "temperature": 93,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 70,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 70,
+            "end": 110,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 110,
+            "end": 140,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "15 ON EK43",
+          "temperature": 93,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 70,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 70,
+            "end": 110,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 110,
+            "end": 140,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.5,
+      "aftertaste": 3.5,
+      "acid": 3.25,
+      "sweet": 3.5,
+      "mouthfeel": 3.75
+    },
+    "comment": "",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 55,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "KENYA GACHATHA",
+      "origin": "Kenya",
+      "region": "GACHATHA",
+      "varietyProcess": "(SL28 - SL34) PEABERRY - WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-15.5",
+      "doseGr": 15,
+      "waterGr": 232.5,
+      "temperature": 94,
+      "grind": "13 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15.5",
+          "doseGr": 15,
+          "waterGr": 232.5,
+          "grind": "13 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 70,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 70,
+            "end": 110,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 110,
+            "end": 140,
+            "waterGr": 232.5
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15.5",
+          "doseGr": 15,
+          "waterGr": 232.5,
+          "grind": "14.5 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 70,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 70,
+            "end": 110,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 110,
+            "end": 140,
+            "waterGr": 232.5
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.5,
+      "aftertaste": 3.5,
+      "acid": 3.5,
+      "sweet": 3.5,
+      "mouthfeel": 3.5
+    },
+    "comment": "",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 56,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "COLOMBIA EL DIVISIO",
+      "origin": "Colombia",
+      "region": "HUILA",
+      "varietyProcess": "CHILI BOURBON - ANAEROBIC NATURAL"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 94,
+      "grind": "15 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "15 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 60,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 60,
+            "end": 90,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 90,
+            "end": 130,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "15 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 60,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 60,
+            "end": 90,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 90,
+            "end": 130,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.75,
+      "aftertaste": 3.5,
+      "acid": 3.5,
+      "sweet": 3.75,
+      "mouthfeel": 3.5
+    },
+    "comment": "",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 57,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "RWANDA KUBWARI MARTIN",
+      "origin": "Rwanda",
+      "region": "RED BOURBON - ANAEROBIC NATURAL",
+      "varietyProcess": ""
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 94,
+      "grind": "14 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0,
+            "withMellowDrip": true
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.5,
+      "aftertaste": 3.5,
+      "acid": 3.25,
+      "sweet": 4.0,
+      "mouthfeel": 3.5
+    },
+    "comment": "ESPRESSO:\n- EK: 0.8 - GROUP TRÁI\n- RATIO: 1-2.5 (16GR - 40GR) \n- TIME: 39S\n- TEMP: 94\nMILK: LATTE & CAPPUCCINO \n- EK: 0.8 - GROUP TRÁI\n- RATIO: 1-2 (16GR - 32GR) \n- TIME: 35S\n- TEMP: 94",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 58,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "KENYA AA KIRIMIKUI",
+      "origin": "Kenya",
+      "region": "KIRINYAGA",
+      "varietyProcess": "(SL28 - SL34) - WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 95,
+      "grind": "14.5 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14.5 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 70,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 70,
+            "end": 110,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 110,
+            "end": 140,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "14.5 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 70,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 70,
+            "end": 110,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 110,
+            "end": 140,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.5,
+      "aftertaste": 3.5,
+      "acid": 3.5,
+      "sweet": 3.5,
+      "mouthfeel": 3.5
+    },
+    "comment": "ESPRESSO:\n- EK: 0.8 - GROUP PHẢI\n- RATIO: 1-2 (16GR - 32GR)\n- TIME: 42S\n- TEMP: 94\nMILK: LATTE & CAPPUCCINO \n- EK: 0.8 - GROUP \n- RATIO: 1-2 (16GR - 32GR) \n- TIME: 42S\n- TEMP: 95",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 59,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "LANGBIANG PROJECT CATIMOR",
+      "origin": "Vietnam",
+      "region": "LÂM ĐỒNG - LANGBIANG FARM",
+      "varietyProcess": "CATIMOR - ANAEROBIC NATURAL"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 95,
+      "grind": "10 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "10 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "10 ON EK43",
+          "temperature": 95,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.0,
+      "aftertaste": 3.0,
+      "acid": 3.0,
+      "sweet": 3.25,
+      "mouthfeel": 3.0
+    },
+    "comment": "A HÒA: CUPPING THÌ RẤT NGON, NHƯNG KHI PHA THÌ ACIDITY ĐANG CAO HƠN HẲN SO VỚI NGỌT.\nKIỂM TRA VÀ PHA LẠI SAO CHO CÂN BẰNG HƠN",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 60,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "LAOS",
+      "origin": "Laos",
+      "region": "PAKSONGS",
+      "varietyProcess": "GESHA - WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 94,
+      "grind": "13.5 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "13.5 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "13.5 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.0,
+      "aftertaste": 3.0,
+      "acid": 2.75,
+      "sweet": 3.5,
+      "mouthfeel": 2.5
+    },
+    "comment": "WHITE FLORAL - HONEY - STONE FRUIT LIKE \n\nL - ACIDITY, L-M SWEETNESS, L BITTERNESS, WELL BALANCED.\n\nHOWEVER - THE INTENSITY AND CLARITY IS QUITE LOW, BITTERNESS OF BLACK TEA APPEAR WHEN WARM AND COOL \n\nMOUTHFEEL IS SMOOTH AND SILKY WHEN HOT AND WARM BUT DRY WHEN COOL DOWN",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 61,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "LAOS",
+      "origin": "Laos",
+      "region": "PAKSONGS",
+      "varietyProcess": "JAVA - WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 94,
+      "grind": "12.5 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "12.5 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "12.5 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.0,
+      "aftertaste": 3.0,
+      "acid": 3.0,
+      "sweet": 3.0,
+      "mouthfeel": 3.0
+    },
+    "comment": "WHITE FLORAL - TROPICAL FRUIT - BLACK TEA - BROWN SUGAR\n\nM AND PRONOUCE ACIDITY, L-M SWEETNESS, L-BITTERNESS, WELL BALANCED.\n\nTHE TRASITION FROM HOT - WARM - COOL IS REALLY SMOOTH. \nHOWEVER - THE INTENSITY AND CLARITY IS LOW, BITTERNESS OF BLACK TEA INCREASE WHEN WARM AND COOL. ACIDITY AND SWEETNESS IS STILL THERE BUT NOT ENOUGH TO SUPPORT BALANCE\n\nMOUTHFEEL IS SMOOTH AND SILKY, DRY WHEN COOL BUT STILL PLEASANT",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 62,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "PERU GESHA",
+      "origin": "Peru",
+      "region": "CAJAMARCA - LA HUACA",
+      "varietyProcess": "GESHA - WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-16",
+      "doseGr": 15,
+      "waterGr": 240.0,
+      "temperature": 96,
+      "grind": "14 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-16",
+          "doseGr": 15,
+          "waterGr": 240.0,
+          "grind": "14 ON EK43",
+          "temperature": 96,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 240.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-16",
+          "doseGr": 15,
+          "waterGr": 240.0,
+          "grind": "14 ON EK43",
+          "temperature": 96,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 120.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0,
+            "withMellowDrip": true
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 240.0,
+            "withMellowDrip": true
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.75,
+      "aftertaste": 3.25,
+      "acid": 3.5,
+      "sweet": 3.5,
+      "mouthfeel": 3.25
+    },
+    "comment": "ESPRESSO:\n- EK: 0.8 - GROUP TRÁI\n- RATIO: 1-2.5 (15GR - 40GR)\n- TIME: 39S\n- TEMP: 94\nMILK: LATTE & CAPPUCCINO \n- EK: 0.8 - GROUP TRÁI\n- RATIO: 1-2 (15GR - 35GR) \n- TIME: 35S\n- TEMP: 94",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 63,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "NATURE'S GIFT",
+      "origin": "Vietnam",
+      "region": "LÂM ĐỒNG - LỘC RỪNG FARM",
+      "varietyProcess": "CATIMOR - CM WASHED"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 94,
+      "grind": "10.5 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "10.5 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "10.5 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.0,
+      "aftertaste": 3.0,
+      "acid": 3.5,
+      "sweet": 3.0,
+      "mouthfeel": 3.0
+    },
+    "comment": "",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 64,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "MADAME HƯƠNG LIBERICA",
+      "origin": "Vietnam",
+      "region": "QUẢNG TRỊ - MADAM HƯƠNG",
+      "varietyProcess": "LIBERICA - 200HRS NATURAL"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 99,
+      "grind": "5.5 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "5.5 ON EK43",
+          "temperature": 99,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "5 ON EK43",
+          "temperature": 99,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 2.75,
+      "aftertaste": 2.5,
+      "acid": 2.5,
+      "sweet": 3.0,
+      "mouthfeel": 2.75
+    },
+    "comment": "ESPRESSO:\n- MAZZER: 155 - GROUP PHẢI\n- RATIO: 1-2 (16GR - 32GR)\n- TIME: 34S\n- TEMP: 94\nMILK: LATTE & CAPPUCCINO\n- MAZZER: 155 - GROUP PHẢI\n- RATIO: 1-2 (16GR - 30GR)\n- TIME: 32S\n- TEMP: 94",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 65,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "HOÀNG LUẬN LIBERICA - NATURAL FEMENTATION",
+      "origin": "Vietnam",
+      "region": "",
+      "varietyProcess": ""
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 96,
+      "grind": "6 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER + MELLOW DRIP"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "6 ON EK43",
+          "temperature": 96,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 120,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 120,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "6 ON EK43",
+          "temperature": 96,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 120,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 120,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.5,
+      "aftertaste": 3.5,
+      "acid": 3.0,
+      "sweet": 3.5,
+      "mouthfeel": 3.5
+    },
+    "comment": "FRUITY LIKE TROPICAL - RIPE PINEAPPLE OR JACKFRUIT\n\nHIGH SWEETNESS AND WELL BALANCED BY MILD ACIDITY\n\nVERY SMOOTH MOUTHFEEL AND LONG AFTERTASTE\n\nCLEANER FINISH COMPARED TO MADAM HƯƠNG LIBERICA",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 66,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "LANGBIANG PROJECT CATIMOR (SEPICAL)",
+      "origin": "Vietnam",
+      "region": "LÂM ĐỒNG - LANGBIANG FARM",
+      "varietyProcess": "CATIMOR - ANAEROBIC NATURAL - SACCHAROMYCES CEREVISIAE YEAST"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 96,
+      "grind": "10.5 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER + MELLOW DRIP"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "10.5 ON EK43",
+          "temperature": 96,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 120,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 120,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "10.5 ON EK43",
+          "temperature": 96,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER + MELLOW DRIP"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 120,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 120,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.25,
+      "aftertaste": 3.25,
+      "acid": 3.25,
+      "sweet": 3.5,
+      "mouthfeel": 3.5
+    },
+    "comment": "FRUITY LIKE TROPICAL - PINEAPPLE OR PASSION FRUIT \n\nSILKY MOUTHFEEL AND LONG WINEY AFTERTASTE\n\nMILD ACIDITY AND SWEETNESS, LESS HERBAL AND NUTTY OF CATIMOR\n\nBUT COMPLEXITY AND CLARITY IS QUITE LOW",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 67,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "NATURE'S GIFT",
+      "origin": "Vietnam",
+      "region": "LÂM ĐỒNG - LỘC RỪNG FARM",
+      "varietyProcess": "CATIMOR - STRAWBERRY"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 94,
+      "grind": "12 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "12 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "12 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.0,
+      "aftertaste": 3.0,
+      "acid": 3.0,
+      "sweet": 3.0,
+      "mouthfeel": 3.0
+    },
+    "comment": "",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 68,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "NATURE'S GIFT",
+      "origin": "Vietnam",
+      "region": "LÂM ĐỒNG - LỘC RỪNG FARM",
+      "varietyProcess": "CATIMOR - MANGO"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 94,
+      "grind": "12 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "12 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "12 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.0,
+      "aftertaste": 3.0,
+      "acid": 3.0,
+      "sweet": 3.0,
+      "mouthfeel": 2.75
+    },
+    "comment": "MANGO - TEA - MANGO CANDY\n\nML ACIDITY WHEN HOT BECOMING M ACID AS THE COFFFEE  COOLS TO WARM AND COOLS TEMPERATURES\n\nWHEN HOT, WARM AND COLD THE SWEETNESS REMAINS AT A MEDIUM INTENSITY, LIKE MANGO CANDY\n\nMOUTHFEEL IS SMOOTH AND SILKY WHEN HOT AND WARM BUT DRY WHEN COOL DOWN",
+    "description": "",
+    "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
+  },
+  {
+    "id": 69,
+    "tool": "FILTER",
+    "coffee": {
+      "name": "NATURE'S GIFT",
+      "origin": "Vietnam",
+      "region": "LÂM ĐỒNG - LỘC RỪNG FARM",
+      "varietyProcess": "CATIMOR - MANGO"
+    },
+    "brewSpecs": {
+      "ratio": "1-15",
+      "doseGr": 15,
+      "waterGr": 225.0,
+      "temperature": 94,
+      "grind": "12 ON EK43",
+      "waterPPM": "55 - 60 PPM",
+      "tools": "SOLO DRIPPER"
+    },
+    "profiles": {
+      "social": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "12 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      },
+      "staff": {
+        "specs": {
+          "ratio": "1-15",
+          "doseGr": 15,
+          "waterGr": 225.0,
+          "grind": "12 ON EK43",
+          "temperature": 94,
+          "waterPPM": "55 - 60 PPM",
+          "tools": "SOLO DRIPPER"
+        },
+        "brewSteps": [
+          {
+            "name": "BLOOM",
+            "start": 0,
+            "end": 30,
+            "waterGr": 45.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 30,
+            "end": 75,
+            "waterGr": 105.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 75,
+            "end": 105,
+            "waterGr": 180.0
+          },
+          {
+            "name": "POUR TO",
+            "start": 105,
+            "end": 150,
+            "waterGr": 225.0
+          }
+        ]
+      }
+    },
+    "scoring": {
+      "flavor": 3.0,
+      "aftertaste": 3.0,
+      "acid": 3.0,
+      "sweet": 3.0,
+      "mouthfeel": 2.75
+    },
+    "comment": "- TOOLS: PHIN\n- RATIO: 1-5 (25GR - 125GR)\n- GRIND: 6 ON EK43 - 15 CLICKS ON COMANDANTE\n- TEMP: 96*C\n- WATER: 55 - 60 PPM\n- FRAMEWORK: \n1/ 00:00 - 01:00 - BLOOM  50GR \n2/ 01:00 - 02:00 - POUR TO 50R \n3/ 02:00 - 03:00 - POUR TO 25GR \n\n- TOOLS: ESPRESSO\n- RATIO: 1-2 \n- TEMP: 94*C\n- WATER: 55 - 60 PPM\n- TIME: 26S - 30S\n\n- TOOLS: ESPRESSO - MILK BEVERAGE (CAPPUCCINO / LATTE)\n- RATIO: 1-1,5\n- TEMP: 94*C\n- WATER: 55 - 60 PPM\n- TIME: 20S -23S\n- COFFEE - MILK RATIO: 1 COFFEE : 4 MILK\n\n- TOOLS: ESPRESSO - TRADITIONAL VNMESE MILK COFFEE\n- RATIO: 1-2,5\n- TEMP: 94*C\n- WATER: 55 - 60 PPM\n- TIME: 30S -33S\n- COFFEE - CD MILK RATIO: 1 COFFEE : 2 CONDENSED MILK",
+    "description": "",
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
   }
 ]
