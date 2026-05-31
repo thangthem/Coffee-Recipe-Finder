@@ -6,6 +6,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.8;
+  text-transform: uppercase;
 }
 
 /* ── App Shell ── */
@@ -172,7 +173,7 @@ body {
   font-size: clamp(var(--text-2xl), 4vw, 2.5rem);
   font-weight: var(--weight-bold);
   letter-spacing: -0.02em;
-  text-transform: none;
+  text-transform: uppercase;
   margin-bottom: var(--space-3);
   line-height: 1.2;
   color: var(--primary);
