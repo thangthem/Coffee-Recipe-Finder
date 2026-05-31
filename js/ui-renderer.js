@@ -1,6 +1,6 @@
 const UIRenderer = (() => {
   const TOOLS = [
-    { id: 'MÁY',      label: 'Máy Espresso', icon: '⚡', desc: 'Pressure-extracted concentrated shot' },
+    { id: 'MÁY',      label: 'Espresso', icon: '⚡', desc: 'Pressure-extracted concentrated shot' },
     { id: 'PHIN',     label: 'Phin',          icon: '🫖', desc: 'Traditional Vietnamese drip filter' },
     { id: 'FILTER',   label: 'Filter',        icon: '☕', desc: 'Pour-over or drip brew method' },
     { id: 'COLDBREW', label: 'Cold Brew',     icon: '🧊', desc: 'Slow cold-water immersion extraction' },
@@ -161,7 +161,7 @@ const UIRenderer = (() => {
       const item = document.createElement('div');
       item.className = 'fav-item';
       item.setAttribute('tabindex', '0');
-      const toolLabel = { MÁY: 'Máy Espresso', PHIN: 'Phin', ESPRESSO: 'Espresso', FILTER: 'Filter', COLD_BREW: 'Cold Brew', COLDBREW: 'Cold Brew' }[r.tool] || r.tool;
+      const toolLabel = { MÁY: 'Espresso', PHIN: 'Phin', ESPRESSO: 'Espresso', FILTER: 'Filter', COLD_BREW: 'Cold Brew', COLDBREW: 'Cold Brew' }[r.tool] || r.tool;
       item.innerHTML = `
         <div class="fav-item-name">${r.coffee.name}</div>
         <div class="fav-item-sub">${toolLabel} · ${r.preference.charAt(0) + r.preference.slice(1).toLowerCase()}</div>
@@ -202,7 +202,7 @@ const UIRenderer = (() => {
 
   // ── Modal content ─────────────────────────────────────────────────────
   function renderModalContent(recipe) {
-    const TOOL_LABELS = { MÁY: 'Máy Espresso', PHIN: 'Phin', FILTER: 'Filter', COLDBREW: 'Cold Brew', ESPRESSO: 'Espresso', COLD_BREW: 'Cold Brew' };
+    const TOOL_LABELS = { MÁY: 'Espresso', PHIN: 'Phin', FILTER: 'Filter', COLDBREW: 'Cold Brew', ESPRESSO: 'Espresso', COLD_BREW: 'Cold Brew' };
     const toolLabel   = TOOL_LABELS[recipe.tool] || recipe.tool;
     const prefSlug    = recipe.preference.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     const prefDisplay = recipe.preference.charAt(0) + recipe.preference.slice(1).toLowerCase();

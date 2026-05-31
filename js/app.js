@@ -137,7 +137,7 @@ const App = (() => {
   }
 
   function _toolLabel(t) {
-    return { MÁY: 'Máy Espresso', PHIN: 'Phin', ESPRESSO: 'Espresso', FILTER: 'Filter', COLD_BREW: 'Cold Brew', COLDBREW: 'Cold Brew' }[t] || t;
+    return { MÁY: 'Espresso', PHIN: 'Phin', ESPRESSO: 'Espresso', FILTER: 'Filter', COLD_BREW: 'Cold Brew', COLDBREW: 'Cold Brew' }[t] || t;
   }
 
   function _prefLabel(p) {
