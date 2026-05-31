@@ -992,6 +992,7 @@
   color: var(--text-dim);
   max-width: 320px;
   line-height: 1.7;
+  white-space: nowrap;
 }
 
 .modal-recipe-desc {
