@@ -12,25 +12,36 @@
         "Bright"
       ]
     },
-    "recipe": {
-      "ratio": "1:2.5 / 1:3",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "33-36 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso - Light Roast",
-        "start": 0,
-        "end": 36
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2.5 / 1:3",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 36
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -48,25 +59,36 @@
         "Bright"
       ]
     },
-    "recipe": {
-      "ratio": "1:2.5 / 1:3",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "33-36 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso - Light Roast",
-        "start": 0,
-        "end": 36
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2.5 / 1:3",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 36
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -84,25 +106,36 @@
         "Bright Acidity"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -120,25 +153,36 @@
         "Bright"
       ]
     },
-    "recipe": {
-      "ratio": "1:2.5 / 1:3",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "33-36 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso - Light Roast",
-        "start": 0,
-        "end": 36
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2.5 / 1:3",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 36
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -156,25 +200,36 @@
         "Smooth"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -192,25 +247,36 @@
         "Citrus"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -228,25 +294,36 @@
         "Sweet"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -264,25 +341,36 @@
         "Smooth"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -300,25 +388,36 @@
         "Clean"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -336,25 +435,36 @@
         "Smooth Body"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -372,25 +482,36 @@
         "Smooth"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -408,32 +529,49 @@
         "Heavy Body"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       },
       {
-        "name": "Traditional Vietnamese Milk Coffee",
-        "ratio": "1:2.5",
-        "milkRatio": "1 Coffee : 2 Condensed Milk",
-        "start": 0,
-        "end": 33
+        "type": "vietnamese_milk_coffee",
+        "label": "Vietnamese Milk Coffee",
+        "subtitle": "Cà phê sữa truyền thống",
+        "specs": {
+          "ratio": "1:2.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 33,
+          "milkRatio": "1 Coffee : 2 Condensed Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -451,32 +589,49 @@
         "Intense"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       },
       {
-        "name": "Traditional Vietnamese Milk Coffee",
-        "ratio": "1:2.5",
-        "milkRatio": "1 Coffee : 2 Condensed Milk",
-        "start": 0,
-        "end": 33
+        "type": "vietnamese_milk_coffee",
+        "label": "Vietnamese Milk Coffee",
+        "subtitle": "Cà phê sữa truyền thống",
+        "specs": {
+          "ratio": "1:2.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 33,
+          "milkRatio": "1 Coffee : 2 Condensed Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -494,32 +649,49 @@
         "Classic Vietnamese"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       },
       {
-        "name": "Traditional Vietnamese Milk Coffee",
-        "ratio": "1:2.5",
-        "milkRatio": "1 Coffee : 2 Condensed Milk",
-        "start": 0,
-        "end": 33
+        "type": "vietnamese_milk_coffee",
+        "label": "Vietnamese Milk Coffee",
+        "subtitle": "Cà phê sữa truyền thống",
+        "specs": {
+          "ratio": "1:2.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 33,
+          "milkRatio": "1 Coffee : 2 Condensed Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -537,32 +709,49 @@
         "Heavy Body"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       },
       {
-        "name": "Traditional Vietnamese Milk Coffee",
-        "ratio": "1:2.5",
-        "milkRatio": "1 Coffee : 2 Condensed Milk",
-        "start": 0,
-        "end": 33
+        "type": "vietnamese_milk_coffee",
+        "label": "Vietnamese Milk Coffee",
+        "subtitle": "Cà phê sữa truyền thống",
+        "specs": {
+          "ratio": "1:2.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 33,
+          "milkRatio": "1 Coffee : 2 Condensed Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -580,32 +769,49 @@
         "Bold"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       },
       {
-        "name": "Traditional Vietnamese Milk Coffee",
-        "ratio": "1:2.5",
-        "milkRatio": "1 Coffee : 2 Condensed Milk",
-        "start": 0,
-        "end": 33
+        "type": "vietnamese_milk_coffee",
+        "label": "Vietnamese Milk Coffee",
+        "subtitle": "Cà phê sữa truyền thống",
+        "specs": {
+          "ratio": "1:2.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 33,
+          "milkRatio": "1 Coffee : 2 Condensed Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -623,32 +829,49 @@
         "Dark Roast"
       ]
     },
-    "recipe": {
-      "ratio": "1:2",
+    "baseSpecs": {
       "temperature": 94,
       "grind": "Fine",
-      "waterPPM": "55-60",
-      "brewTime": "26-30 sec"
+      "waterPPM": "55-60"
     },
-    "steps": [
+    "recipes": [
       {
-        "name": "Espresso",
-        "start": 0,
-        "end": 30
+        "type": "espresso",
+        "label": "Espresso",
+        "subtitle": "Uống thẳng",
+        "specs": {
+          "ratio": "1:2",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 30
+        }
       },
       {
-        "name": "Espresso - Milk Beverage (Cappuccino / Latte)",
-        "ratio": "1:1.5",
-        "milkRatio": "1 Coffee : 4-5 Milk",
-        "start": 0,
-        "end": 23
+        "type": "milk_beverage",
+        "label": "Milk Beverage",
+        "subtitle": "Cappuccino / Latte",
+        "specs": {
+          "ratio": "1:1.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 23,
+          "milkRatio": "1 Coffee : 4-5 Milk"
+        }
       },
       {
-        "name": "Traditional Vietnamese Milk Coffee",
-        "ratio": "1:2.5",
-        "milkRatio": "1 Coffee : 2 Condensed Milk",
-        "start": 0,
-        "end": 33
+        "type": "vietnamese_milk_coffee",
+        "label": "Vietnamese Milk Coffee",
+        "subtitle": "Cà phê sữa truyền thống",
+        "specs": {
+          "ratio": "1:2.5",
+          "temperature": 94,
+          "grind": "Fine",
+          "waterPPM": "55-60",
+          "brewTimeSec": 33,
+          "milkRatio": "1 Coffee : 2 Condensed Milk"
+        }
       }
     ],
     "disclaimer": "This recipe is a starting point. If the brew runs too fast and tastes weak, grind finer. If it runs too slow and tastes harsh, grind coarser."
@@ -666,7 +889,7 @@
         "Clean"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -675,7 +898,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -715,7 +938,7 @@
         "Bright Acidity"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -724,7 +947,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -764,7 +987,7 @@
         "Tea-like"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -773,7 +996,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -813,7 +1036,7 @@
         "Sweet"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -822,7 +1045,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -862,7 +1085,7 @@
         "Smooth"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -871,7 +1094,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -911,7 +1134,7 @@
         "Clean"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -920,7 +1143,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -960,7 +1183,7 @@
         "Smooth Body"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -969,7 +1192,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -1009,7 +1232,7 @@
         "Smooth"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -1018,7 +1241,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -1058,7 +1281,7 @@
         "Smooth"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -1067,7 +1290,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -1107,7 +1330,7 @@
         "Intense"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -1116,7 +1339,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -1156,7 +1379,7 @@
         "Classic Vietnamese"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -1165,7 +1388,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -1205,7 +1428,7 @@
         "Heavy Body"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -1214,7 +1437,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -1254,7 +1477,7 @@
         "Bold"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -1263,7 +1486,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -1303,7 +1526,7 @@
         "Dark Roast"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:5",
       "dose": "25g",
       "water": "125g",
@@ -1312,7 +1535,7 @@
       "waterPPM": "55-60",
       "brewTime": "4:30-5:00 min"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "water": "50g",
@@ -1352,10 +1575,8 @@
         "Bright"
       ]
     },
-    "recipe": {
-      "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!"
-    },
-    "steps": [],
+    "brewSpecs": null,
+    "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!",
     "disclaimer": "Recipe based on individual brewing calibration. Please refer to specific product specification."
   },
   {
@@ -1371,10 +1592,8 @@
         "Bright"
       ]
     },
-    "recipe": {
-      "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!"
-    },
-    "steps": [],
+    "brewSpecs": null,
+    "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!",
     "disclaimer": "Recipe based on individual brewing calibration. Please refer to specific product specification."
   },
   {
@@ -1390,10 +1609,8 @@
         "Bright"
       ]
     },
-    "recipe": {
-      "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!"
-    },
-    "steps": [],
+    "brewSpecs": null,
+    "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!",
     "disclaimer": "Recipe based on individual brewing calibration. Please refer to specific product specification."
   },
   {
@@ -1409,10 +1626,8 @@
         "Smooth"
       ]
     },
-    "recipe": {
-      "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!"
-    },
-    "steps": [],
+    "brewSpecs": null,
+    "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!",
     "disclaimer": "Recipe based on individual brewing calibration. Please refer to specific product specification."
   },
   {
@@ -1428,10 +1643,8 @@
         "Bright Acidity"
       ]
     },
-    "recipe": {
-      "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!"
-    },
-    "steps": [],
+    "brewSpecs": null,
+    "note": "BASED ON BREWING CALIBRATION RECIPE BECAUSE SPECIFICATION!!!",
     "disclaimer": "Recipe based on individual brewing calibration. Please refer to specific product specification."
   },
   {
@@ -1447,7 +1660,7 @@
         "Bright"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:10",
       "bloomTemp": 90,
       "coldWaterTemp": 10,
@@ -1455,7 +1668,7 @@
       "waterPPM": "55-60",
       "brewTime": "24 hrs"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "ratio": "1:2",
@@ -1493,7 +1706,7 @@
         "Bright"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:10",
       "bloomTemp": 90,
       "coldWaterTemp": 10,
@@ -1501,7 +1714,7 @@
       "waterPPM": "55-60",
       "brewTime": "24 hrs"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "ratio": "1:2",
@@ -1539,7 +1752,7 @@
         "Bright"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:10",
       "bloomTemp": 90,
       "coldWaterTemp": 10,
@@ -1547,7 +1760,7 @@
       "waterPPM": "55-60",
       "brewTime": "24 hrs"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "ratio": "1:2",
@@ -1585,7 +1798,7 @@
         "Bright"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:10",
       "bloomTemp": 90,
       "coldWaterTemp": 10,
@@ -1593,7 +1806,7 @@
       "waterPPM": "55-60",
       "brewTime": "24 hrs"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "ratio": "1:2",
@@ -1631,7 +1844,7 @@
         "Smooth"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:10",
       "bloomTemp": 90,
       "coldWaterTemp": 10,
@@ -1639,7 +1852,7 @@
       "waterPPM": "55-60",
       "brewTime": "24 hrs"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "ratio": "1:2",
@@ -1677,7 +1890,7 @@
         "Bright Acidity"
       ]
     },
-    "recipe": {
+    "brewSpecs": {
       "ratio": "1:10",
       "bloomTemp": 90,
       "coldWaterTemp": 10,
@@ -1685,7 +1898,7 @@
       "waterPPM": "55-60",
       "brewTime": "24 hrs"
     },
-    "steps": [
+    "brewSteps": [
       {
         "name": "Bloom",
         "ratio": "1:2",
