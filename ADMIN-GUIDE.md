@@ -107,4 +107,3 @@ Kiểm tra xem recipes mới đã hiện chưa.
 | Export ra file nhưng chưa push | Chưa ảnh hưởng gì đến production |
 | Push nhưng web chưa cập nhật | Chờ 1–2 phút, sau đó hard refresh |
 | Muốn rollback về version cũ | Vào GitHub → file `data/recipes.json` → **History** → chọn commit cũ → copy nội dung |
-| Admin không load được recipes | Kiểm tra đang chạy `npx serve .`, không mở file:// |
