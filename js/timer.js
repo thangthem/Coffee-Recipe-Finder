@@ -224,6 +224,8 @@ const BrewTimer = (() => {
       let subLabel = '';
       if (step.water && step.water !== '0g') {
         subLabel = step.water;
+      } else if (step.waterGr != null) {
+        subLabel = `${step.waterGr}g`;
       } else if (step.ratio) {
         subLabel = step.ratio;
       } else if (step.temp) {
