@@ -4,6 +4,7 @@ const State = (() => {
     selectedCoffee: null,
     selectedRecipe: null,
     favorites: [],
+    compareSelection: [],
     currentStep: 1,
   };
 
@@ -43,7 +44,22 @@ const State = (() => {
       _state.selectedFlavor = null;
       _state.selectedCoffee = null;
       _state.selectedRecipe = null;
+      _state.compareSelection = [];
       _state.currentStep = 1;
     },
+
+    toggleCompare(id) {
+      const idx = _state.compareSelection.indexOf(id);
+      if (idx === -1) {
+        if (_state.compareSelection.length >= 2) return false;
+        _state.compareSelection.push(id);
+        return true;
+      } else {
+        _state.compareSelection.splice(idx, 1);
+        return false;
+      }
+    },
+
+    isComparing(id) { return _state.compareSelection.includes(id); },
   };
 })();

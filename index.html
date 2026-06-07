@@ -97,6 +97,9 @@
         <p class="section-subtitle">Select a flavor profile to discover matching coffees.</p>
       </div>
 
+      <!-- Weather recommendation card (populated by JS) -->
+      <div id="weather-card" class="weather-card hidden" role="complementary" aria-label="Weather-based recommendation"></div>
+
       <div class="cards-grid" id="flavor-cards" role="radiogroup" aria-label="Flavor profile options"></div>
 
       <div class="section-footer">
@@ -128,6 +131,35 @@
     </section>
 
   </main>
+
+  <!-- ── Compare bar (sticky bottom) ─────────────────────── -->
+  <div id="compare-bar" class="compare-bar hidden" role="status" aria-live="polite">
+    <span id="compare-bar-text">Select one more coffee to compare</span>
+    <div class="compare-bar-actions">
+      <button id="btn-compare-open" class="compare-bar-btn compare-bar-btn--primary hidden" aria-label="Open comparison">
+        Compare
+      </button>
+      <button id="btn-compare-clear" class="compare-bar-btn" aria-label="Clear selection">
+        Clear
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Compare drawer ───────────────────────────────────── -->
+  <div id="compare-drawer" class="compare-drawer" role="dialog" aria-modal="true" aria-label="Coffee comparison" aria-hidden="true">
+    <div class="compare-drawer-overlay" id="compare-drawer-overlay"></div>
+    <div class="compare-drawer-container">
+      <div class="compare-drawer-header">
+        <span class="compare-drawer-title">Compare Coffees</span>
+        <button class="modal-close" id="btn-compare-close" aria-label="Close comparison">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="compare-drawer-body" id="compare-drawer-body"></div>
+    </div>
+  </div>
 
   <!-- ── Coffee / Recipe Modal ─────────────────────────────── -->
   <div id="recipe-modal" class="modal" role="dialog" aria-modal="true" aria-label="Coffee details" aria-hidden="true"
@@ -180,6 +212,9 @@
   <!-- Data -->
   <script src="data/coffees.js"></script>
   <script src="data/flavorProfiles.js"></script>
+  <!-- Services -->
+  <script src="js/weather-service.js"></script>
+  <script src="js/recommendation-engine.js"></script>
   <!-- App modules (order matters) -->
   <script src="js/state.js"></script>
   <script src="js/data-service.js"></script>

@@ -10,6 +10,7 @@ const COFFEES = [
     recommendedUsage: ['Espresso', 'Pour Over', 'Phin'],
     pricing: { g250: 150000, g500: 280000, g1kg: 520000 },
     recipeMatch: 'Arabica',
+    profile: { acidity: 3, body: 3, sweetness: 4 },
   },
   {
     id: 'deep-blue-blend',
@@ -22,6 +23,7 @@ const COFFEES = [
     recommendedUsage: ['Espresso', 'Milk Based Drinks'],
     pricing: { g250: 170000, g500: 320000, g1kg: 580000 },
     recipeMatch: 'Deep Blue',
+    profile: { acidity: 2, body: 5, sweetness: 3 },
   },
   {
     id: 'robusta-honey',
@@ -34,6 +36,7 @@ const COFFEES = [
     recommendedUsage: ['Phin', 'Espresso', 'Cold Brew'],
     pricing: { g250: 140000, g500: 260000, g1kg: 480000 },
     recipeMatch: 'Robusta Honey',
+    profile: { acidity: 2, body: 4, sweetness: 4 },
   },
   {
     id: 'robusta-82-blend',
@@ -46,6 +49,7 @@ const COFFEES = [
     recommendedUsage: ['Espresso', 'Cold Brew', 'Phin'],
     pricing: { g250: 160000, g500: 300000, g1kg: 550000 },
     recipeMatch: 'Robusta 82',
+    profile: { acidity: 1, body: 5, sweetness: 2 },
   },
   {
     id: 'croissant-blend',
@@ -58,6 +62,7 @@ const COFFEES = [
     recommendedUsage: ['Espresso', 'Milk Based Drinks'],
     pricing: { g250: 175000, g500: 330000, g1kg: 600000 },
     recipeMatch: 'Croissant',
+    profile: { acidity: 2, body: 3, sweetness: 5 },
   },
   {
     id: 'brazil',
@@ -70,6 +75,7 @@ const COFFEES = [
     recommendedUsage: ['Espresso', 'Pour Over'],
     pricing: { g250: 190000, g500: 360000, g1kg: 660000 },
     recipeMatch: 'Brazil',
+    profile: { acidity: 2, body: 4, sweetness: 4 },
   },
   {
     id: 'fruity-blend',
@@ -82,6 +88,7 @@ const COFFEES = [
     recommendedUsage: ['Pour Over', 'Cold Brew'],
     pricing: { g250: 200000, g500: 380000, g1kg: 700000 },
     recipeMatch: 'Fruity',
+    profile: { acidity: 4, body: 2, sweetness: 4 },
   },
   {
     id: 'w-yirgacheffe',
@@ -94,6 +101,7 @@ const COFFEES = [
     recommendedUsage: ['Pour Over', 'Cold Brew'],
     pricing: { g250: 220000, g500: 420000, g1kg: 780000 },
     recipeMatch: 'Yirgacheffe',
+    profile: { acidity: 5, body: 2, sweetness: 3 },
   },
   {
     id: 'n-shakiso',
@@ -106,6 +114,7 @@ const COFFEES = [
     recommendedUsage: ['Pour Over', 'Cold Brew'],
     pricing: { g250: 230000, g500: 440000, g1kg: 820000 },
     recipeMatch: 'Shakiso',
+    profile: { acidity: 4, body: 2, sweetness: 4 },
   },
   {
     id: 'peru',
@@ -118,6 +127,7 @@ const COFFEES = [
     recommendedUsage: ['Pour Over', 'Cold Brew'],
     pricing: { g250: 210000, g500: 400000, g1kg: 740000 },
     recipeMatch: 'Peru',
+    profile: { acidity: 4, body: 3, sweetness: 3 },
   },
   {
     id: 'liberia',
@@ -130,6 +140,7 @@ const COFFEES = [
     recommendedUsage: ['Pour Over', 'Phin'],
     pricing: { g250: 180000, g500: 340000, g1kg: 620000 },
     recipeMatch: 'Liberia',
+    profile: { acidity: 2, body: 3, sweetness: 3 },
   },
   {
     id: 'specialty-coffee',
@@ -142,5 +153,6 @@ const COFFEES = [
     recommendedUsage: ['Pour Over', 'Cold Brew'],
     pricing: { g250: 250000, g500: 470000, g1kg: 870000 },
     recipeMatch: 'Specialty',
+    profile: { acidity: 4, body: 2, sweetness: 4 },
   },
 ];

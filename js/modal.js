@@ -138,19 +138,41 @@ const Modal = (() => {
 
     body().innerHTML = UIRenderer.renderCoffeeModalContent(coffee, recipes);
 
-    // Wire pricing buttons
-    const pricingBtns = document.getElementById('pricing-btns');
+    // Wire pricing buttons + brew calc
+    const pricingBtns   = document.getElementById('pricing-btns');
     const pricingDisplay = document.getElementById('pricing-display');
+
+    function _calcUpdate() {
+      const activeBtn = pricingBtns ? pricingBtns.querySelector('.pricing-btn.active') : null;
+      if (!activeBtn) return;
+      const price = parseInt(activeBtn.dataset.price, 10);
+      const grams = parseInt(activeBtn.dataset.grams, 10);
+      const dose  = parseInt(document.getElementById('calc-dose')?.value || 18, 10);
+      if (!price || !grams || !dose) return;
+      const costPerBrew = Math.round((price / grams) * dose);
+      const cupsPerBag  = Math.floor(grams / dose);
+      const costEl = document.getElementById('calc-cost-brew');
+      const cupsEl = document.getElementById('calc-cups');
+      if (costEl) costEl.textContent = costPerBrew.toLocaleString('vi-VN') + ' ₫';
+      if (cupsEl) cupsEl.textContent = `~${cupsPerBag} cups`;
+    }
+
     if (pricingBtns && pricingDisplay) {
       pricingBtns.querySelectorAll('.pricing-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           pricingBtns.querySelectorAll('.pricing-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          const price = parseInt(btn.dataset.price, 10);
-          pricingDisplay.textContent = price.toLocaleString('vi-VN') + ' ₫';
+          pricingDisplay.textContent = parseInt(btn.dataset.price, 10).toLocaleString('vi-VN') + ' ₫';
+          _calcUpdate();
         });
       });
     }
+
+    // Wire calc inputs
+    ['calc-dose', 'calc-ratio'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', _calcUpdate);
+    });
+    _calcUpdate();
 
     // Wire recipe list items
     const recipeList = document.getElementById('modal-recipe-list');

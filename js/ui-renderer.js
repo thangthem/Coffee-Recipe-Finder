@@ -403,17 +403,19 @@ const UIRenderer = (() => {
   // ── Coffee catalog cards ──────────────────────────────────────────────
   const TOOL_EMOJIS = { 'MÁY': '⚡', PHIN: '🫖', FILTER: '☕', COLDBREW: '🧊', ESPRESSO: '⚡', COLD_BREW: '🧊' };
 
-  function renderCoffeeCards(container, coffees, onOpen) {
+  function renderCoffeeCards(container, coffees, onOpen, onCompare) {
     container.innerHTML = '';
     if (!coffees.length) {
       container.innerHTML = '<p style="text-align:center;color:var(--text-dim);padding:var(--space-8);grid-column:1/-1">No coffees found.</p>';
       return;
     }
     coffees.forEach(c => {
+      const comparing = State.isComparing(c.id);
       const card = document.createElement('div');
       card.className = 'coffee-card';
       card.setAttribute('role', 'listitem');
       card.setAttribute('tabindex', '0');
+      card.dataset.id = c.id;
       card.dataset.staggerItem = '';
       card.innerHTML = `
         <div class="coffee-card-header">
@@ -429,15 +431,40 @@ const UIRenderer = (() => {
         <div class="coffee-card-notes">
           ${c.flavorNotes.map(n => `<span class="note-tag">${n}</span>`).join('')}
         </div>
-        <span class="recipe-card-cta">View Details →</span>
+        <div class="coffee-card-footer">
+          ${onCompare ? `<button class="btn-compare${comparing ? ' active' : ''}" data-compare-id="${c.id}" aria-label="${comparing ? 'Remove from' : 'Add to'} comparison" aria-pressed="${comparing}">${comparing ? '✓ Comparing' : 'Compare'}</button>` : ''}
+          <span class="recipe-card-cta">View Details →</span>
+        </div>
       `;
-      card.addEventListener('click', () => onOpen(c.id));
+      card.addEventListener('click', e => {
+        if (e.target.closest('.btn-compare')) return;
+        onOpen(c.id);
+      });
       card.addEventListener('keydown', e => {
+        if (e.target.closest('.btn-compare')) return;
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(c.id); }
       });
+      if (onCompare) {
+        card.querySelector('.btn-compare')?.addEventListener('click', e => {
+          e.stopPropagation();
+          onCompare(c.id);
+        });
+      }
       container.appendChild(card);
     });
     Anim.staggerIn(container.querySelectorAll('.coffee-card'), { stagger: 0.07 });
+  }
+
+  function updateCompareCardState(container, compareSelection) {
+    container.querySelectorAll('.coffee-card').forEach(card => {
+      const id = card.dataset.id;
+      const btn = card.querySelector('.btn-compare');
+      if (!btn) return;
+      const active = compareSelection.includes(id);
+      btn.classList.toggle('active', active);
+      btn.textContent = active ? '✓ Comparing' : 'Compare';
+      btn.setAttribute('aria-pressed', active);
+    });
   }
 
   // ── Coffee detail modal content ───────────────────────────────────────
@@ -493,11 +520,42 @@ const UIRenderer = (() => {
       <div class="modal-section-label">Pricing</div>
       <div class="pricing-section">
         <div class="pricing-btns" id="pricing-btns" role="group" aria-label="Select weight">
-          <button class="pricing-btn active" data-price="${coffee.pricing.g250}">250g</button>
-          <button class="pricing-btn" data-price="${coffee.pricing.g500}">500g</button>
-          <button class="pricing-btn" data-price="${coffee.pricing.g1kg}">1kg</button>
+          <button class="pricing-btn active" data-price="${coffee.pricing.g250}" data-grams="250">250g</button>
+          <button class="pricing-btn" data-price="${coffee.pricing.g500}" data-grams="500">500g</button>
+          <button class="pricing-btn" data-price="${coffee.pricing.g1kg}" data-grams="1000">1kg</button>
         </div>
         <div class="pricing-display" id="pricing-display">${fmt(coffee.pricing.g250)}</div>
+      </div>
+
+      <hr class="modal-divider">
+      <div class="modal-section-label">Brew Cost Calculator</div>
+      <div class="brew-calc" id="brew-calc">
+        <div class="brew-calc-inputs">
+          <div class="brew-calc-field">
+            <label class="brew-calc-label" for="calc-dose">Coffee Dose</label>
+            <div class="brew-calc-input-wrap">
+              <input type="number" id="calc-dose" class="brew-calc-input" value="18" min="1" max="100" aria-label="Coffee dose in grams">
+              <span class="brew-calc-unit">g</span>
+            </div>
+          </div>
+          <div class="brew-calc-field">
+            <label class="brew-calc-label" for="calc-ratio">Water Ratio</label>
+            <div class="brew-calc-input-wrap">
+              <span class="brew-calc-prefix">1 :</span>
+              <input type="number" id="calc-ratio" class="brew-calc-input brew-calc-input--ratio" value="16" min="1" max="30" aria-label="Water ratio">
+            </div>
+          </div>
+        </div>
+        <div class="brew-calc-outputs">
+          <div class="brew-calc-result">
+            <div class="brew-calc-result-label">Cost per brew</div>
+            <div class="brew-calc-result-value" id="calc-cost-brew">—</div>
+          </div>
+          <div class="brew-calc-result">
+            <div class="brew-calc-result-label">Cups per bag</div>
+            <div class="brew-calc-result-value" id="calc-cups">—</div>
+          </div>
+        </div>
       </div>
 
       <hr class="modal-divider">
@@ -529,13 +587,129 @@ const UIRenderer = (() => {
     `;
   }
 
+  // ── Weather recommendation card ───────────────────────────────────────
+  function renderWeatherCard(container, weather, rec, onExplore, onManualSelect) {
+    if (!container) return;
+
+    const weatherRec = rec.weatherRec;
+    const timeRec    = rec.timeRec;
+
+    const primaryRec  = weatherRec || timeRec;
+    if (!primaryRec) { container.classList.add('hidden'); return; }
+
+    const coffeesText = primaryRec.coffeeIds
+      .map(id => { const c = COFFEES.find(x => x.id === id); return c ? c.name : ''; })
+      .filter(Boolean)
+      .map(n => `<span class="weather-coffee-chip">${n}</span>`)
+      .join('');
+
+    const manualBtns = !weather.locationGranted
+      ? `<div class="weather-manual-row">
+          ${RecommendationEngine.MANUAL_OPTIONS.map(o =>
+            `<button class="weather-manual-btn${rec.condition === RecommendationEngine.manualCondition(o.key) ? ' active' : ''}" data-weather="${o.key}" aria-label="${o.label}">
+              <span aria-hidden="true">${o.emoji}</span> ${o.label}
+            </button>`
+          ).join('')}
+        </div>`
+      : '';
+
+    const tempText = weather.locationGranted && weather.temp != null
+      ? `<span class="weather-temp">${weather.temp}°C</span>`
+      : '';
+
+    container.innerHTML = `
+      <div class="weather-card-inner">
+        <div class="weather-card-header">
+          <span class="weather-card-emoji" aria-hidden="true">${primaryRec.emoji}</span>
+          <div class="weather-card-title-block">
+            <div class="weather-card-label">${primaryRec.label} ${tempText}</div>
+            <div class="weather-card-msg">${primaryRec.message}</div>
+          </div>
+        </div>
+        ${manualBtns}
+        <div class="weather-card-body">
+          <div class="weather-coffees">${coffeesText}</div>
+          <button class="weather-explore-btn btn-primary" id="btn-weather-explore">
+            Explore
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    `;
+    container.classList.remove('hidden');
+
+    container.querySelector('#btn-weather-explore')?.addEventListener('click', () => {
+      onExplore(primaryRec.coffeeIds);
+    });
+
+    container.querySelectorAll('.weather-manual-btn').forEach(btn => {
+      btn.addEventListener('click', () => onManualSelect(btn.dataset.weather));
+    });
+  }
+
+  // ── Comparison content ────────────────────────────────────────────────
+  function _scale(val, max = 5) {
+    const filled = Math.round(val);
+    const empty  = max - filled;
+    return `<span class="rating-dots" aria-label="${val} of ${max}">${'●'.repeat(filled)}${'○'.repeat(empty)}</span>`;
+  }
+
+  function renderComparison(container, coffeeA, coffeeB, onView) {
+    if (!container || !coffeeA || !coffeeB) return;
+
+    const rows = [
+      { label: 'Origin',            a: coffeeA.origin,                        b: coffeeB.origin },
+      { label: 'Roast Level',       a: coffeeA.roastLevel,                    b: coffeeB.roastLevel },
+      { label: 'Processing',        a: coffeeA.processingMethod,               b: coffeeB.processingMethod },
+      { label: 'Flavor Notes',      a: coffeeA.flavorNotes.join(', '),         b: coffeeB.flavorNotes.join(', ') },
+      { label: 'Best For',          a: coffeeA.recommendedUsage.join(', '),    b: coffeeB.recommendedUsage.join(', ') },
+    ];
+
+    const profileRows = (coffeeA.profile && coffeeB.profile)
+      ? [
+          { label: 'Acidity',   a: _scale(coffeeA.profile.acidity),   b: _scale(coffeeB.profile.acidity) },
+          { label: 'Body',      a: _scale(coffeeA.profile.body),       b: _scale(coffeeB.profile.body) },
+          { label: 'Sweetness', a: _scale(coffeeA.profile.sweetness),  b: _scale(coffeeB.profile.sweetness) },
+        ]
+      : [];
+
+    const allRows = [...rows, ...profileRows];
+
+    container.innerHTML = `
+      <div class="compare-names">
+        <div class="compare-name">${coffeeA.name}</div>
+        <div class="compare-vs">vs</div>
+        <div class="compare-name">${coffeeB.name}</div>
+      </div>
+      <div class="compare-rows">
+        ${allRows.map(row => `
+          <div class="compare-row">
+            <div class="compare-cell">${row.a}</div>
+            <div class="compare-row-label">${row.label}</div>
+            <div class="compare-cell">${row.b}</div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="compare-actions">
+        <button class="compare-view-btn btn-primary" data-id="${coffeeA.id}">View ${coffeeA.name}</button>
+        <button class="compare-view-btn btn-primary" data-id="${coffeeB.id}">View ${coffeeB.name}</button>
+      </div>
+    `;
+
+    container.querySelectorAll('.compare-view-btn').forEach(btn => {
+      btn.addEventListener('click', () => onView(btn.dataset.id));
+    });
+  }
+
   return {
     TOOLS, PREFS,
     renderTools, updateToolSelection,
     renderPrefs, updatePrefSelection,
     renderFlavorCards, updateFlavorSelection,
-    renderCoffeeCards,
+    renderCoffeeCards, updateCompareCardState,
     renderCoffeeModalContent,
+    renderWeatherCard,
+    renderComparison,
     renderRecipeCards, updateFavButton,
     renderFavoritesList,
     renderModalContent,

@@ -21,6 +21,9 @@ const App = (() => {
     catalog: $('section-catalog'),
   };
 
+  let _currentWeather    = null;
+  let _currentCondition  = null;
+
   function _showSection(name) {
     Object.entries(sections).forEach(([key, el]) => {
       const isTarget = key === name;
@@ -80,6 +83,7 @@ const App = (() => {
       _onFlavorSelect
     );
     _syncFlavorNext();
+    _refreshWeatherCard();
   }
 
   function _onFlavorSelect(flavorId) {
@@ -92,18 +96,56 @@ const App = (() => {
     $('btn-flavor-next').disabled = !State.get().selectedFlavor;
   }
 
+  /* ── Weather recommendation ── */
+  async function _initWeather() {
+    try {
+      _currentWeather = await WeatherService.init();
+      _refreshWeatherCard();
+    } catch { /* silent fail */ }
+  }
+
+  function _refreshWeatherCard() {
+    const rec = RecommendationEngine.getRecommendation(_currentWeather, _currentCondition);
+    UIRenderer.renderWeatherCard(
+      $('weather-card'),
+      _currentWeather || { locationGranted: false },
+      rec,
+      _onWeatherExplore,
+      _onWeatherManual
+    );
+  }
+
+  function _onWeatherExplore(coffeeIds) {
+    State.set('compareSelection', []);
+    const coffees = coffeeIds
+      .map(id => DataService.getCoffeeById(id))
+      .filter(Boolean);
+    _showSection('catalog');
+    $('catalog-title').textContent = "Today's Pick";
+    $('catalog-subtitle').textContent = 'Based on your current weather and time of day.';
+    _renderCatalog(coffees);
+  }
+
+  function _onWeatherManual(weatherKey) {
+    _currentCondition = RecommendationEngine.manualCondition(weatherKey);
+    _refreshWeatherCard();
+  }
+
   /* ── Coffee catalog ── */
   function _goToCatalog() {
+    State.set('compareSelection', []);
     _showSection('catalog');
     const { selectedFlavor } = State.get();
     const coffees = DataService.getCoffeesByFlavor(selectedFlavor);
     const profile = FLAVOR_PROFILES.find(f => f.id === selectedFlavor);
+    $('catalog-title').textContent   = profile ? profile.label : 'Our Coffees';
+    $('catalog-subtitle').textContent = profile ? profile.keywords.join(' · ') : 'Select a coffee to view details.';
+    _renderCatalog(coffees);
+  }
 
-    $('catalog-title').textContent = profile ? profile.label : 'Our Coffees';
-    $('catalog-subtitle').textContent =
-      profile ? profile.keywords.join(' · ') : 'Select a coffee to view details.';
-
-    UIRenderer.renderCoffeeCards($('catalog-grid'), coffees, _openCoffee);
+  function _renderCatalog(coffees) {
+    UIRenderer.renderCoffeeCards($('catalog-grid'), coffees, _openCoffee, _onCompareToggle);
+    _updateCompareBar();
   }
 
   function _openCoffee(coffeeId) {
@@ -121,11 +163,89 @@ const App = (() => {
     Modal.open(recipe);
   }
 
+  /* ── Compare ── */
+  function _onCompareToggle(coffeeId) {
+    const sel = State.get().compareSelection;
+    if (!State.isComparing(coffeeId) && sel.length >= 2) {
+      Toast.show('Max 2 coffees for comparison. Clear first.');
+      return;
+    }
+    State.toggleCompare(coffeeId);
+    UIRenderer.updateCompareCardState($('catalog-grid'), State.get().compareSelection);
+    _updateCompareBar();
+  }
+
+  function _updateCompareBar() {
+    const sel = State.get().compareSelection;
+    const bar = $('compare-bar');
+    if (!bar) return;
+
+    if (!sel || sel.length === 0) {
+      bar.classList.add('hidden');
+      return;
+    }
+
+    bar.classList.remove('hidden');
+    const textEl   = $('compare-bar-text');
+    const openBtn  = $('btn-compare-open');
+
+    if (sel.length === 1) {
+      const c = DataService.getCoffeeById(sel[0]);
+      if (textEl) textEl.textContent = `"${c ? c.name : ''}" selected — pick one more to compare`;
+      openBtn?.classList.add('hidden');
+    } else if (sel.length === 2) {
+      if (textEl) textEl.textContent = '2 coffees selected';
+      openBtn?.classList.remove('hidden');
+    }
+  }
+
+  function _openComparison() {
+    const [idA, idB] = State.get().compareSelection;
+    const coffeeA = DataService.getCoffeeById(idA);
+    const coffeeB = DataService.getCoffeeById(idB);
+    if (!coffeeA || !coffeeB) return;
+
+    const drawer  = $('compare-drawer');
+    const body    = $('compare-drawer-body');
+    const overlay = $('compare-drawer-overlay');
+
+    UIRenderer.renderComparison(body, coffeeA, coffeeB, id => {
+      _closeComparison();
+      setTimeout(() => _openCoffee(id), 300);
+    });
+
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function _closeComparison() {
+    const drawer = $('compare-drawer');
+    drawer?.classList.remove('open');
+    drawer?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function _initCompare() {
+    $('btn-compare-open')?.addEventListener('click', _openComparison);
+    $('btn-compare-clear')?.addEventListener('click', () => {
+      State.set('compareSelection', []);
+      UIRenderer.updateCompareCardState($('catalog-grid'), []);
+      _updateCompareBar();
+    });
+    $('btn-compare-close')?.addEventListener('click', _closeComparison);
+    $('compare-drawer-overlay')?.addEventListener('click', _closeComparison);
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') _closeComparison();
+    });
+  }
+
   /* ── Favorites panel ── */
   function _initFavPanel() {
-    const panel   = document.getElementById('favorites-panel');
-    const overlay = document.getElementById('favorites-overlay');
-    const btnOpen = $('btn-nav-favorites');
+    const panel    = document.getElementById('favorites-panel');
+    const overlay  = document.getElementById('favorites-overlay');
+    const btnOpen  = $('btn-nav-favorites');
     const btnClose = $('btn-close-favorites');
 
     function openPanel() {
@@ -181,9 +301,11 @@ const App = (() => {
     await DataService.load();
     _initLanding();
     _initNav();
+    _initCompare();
     _initFavPanel();
     _initRipples();
     _updateFavCount();
+    _initWeather();
 
     if (typeof AOS !== 'undefined') {
       AOS.init({ duration: 500, once: true, offset: 40 });
