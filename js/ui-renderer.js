@@ -365,10 +365,177 @@ const UIRenderer = (() => {
     return header;
   }
 
+  // ── Flavor profile cards ──────────────────────────────────────────────
+  function renderFlavorCards(container, selectedId, onSelect) {
+    container.innerHTML = '';
+    FLAVOR_PROFILES.forEach(f => {
+      const card = document.createElement('div');
+      card.className = `sel-card${selectedId === f.id ? ' selected' : ''}`;
+      card.setAttribute('role', 'radio');
+      card.setAttribute('aria-checked', selectedId === f.id);
+      card.setAttribute('tabindex', '0');
+      card.dataset.staggerItem = '';
+      card.innerHTML = `
+        <span class="sel-card-icon" aria-hidden="true">${f.icon}</span>
+        <div class="sel-card-title">${f.label}</div>
+        <div class="sel-card-desc">${f.description}<br><span class="sel-card-keywords">${f.keywords.join(' · ')}</span></div>
+        <div class="sel-card-check">✓</div>
+      `;
+      card.addEventListener('click', () => onSelect(f.id));
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(f.id); }
+      });
+      container.appendChild(card);
+    });
+    Anim.staggerIn(container.querySelectorAll('.sel-card'));
+  }
+
+  function updateFlavorSelection(container, selectedId) {
+    container.querySelectorAll('.sel-card').forEach(card => {
+      const match = FLAVOR_PROFILES.find(f => card.querySelector('.sel-card-title')?.textContent === f.label);
+      if (!match) return;
+      const isSelected = match.id === selectedId;
+      card.classList.toggle('selected', isSelected);
+      card.setAttribute('aria-checked', isSelected);
+    });
+  }
+
+  // ── Coffee catalog cards ──────────────────────────────────────────────
+  const TOOL_EMOJIS = { 'MÁY': '⚡', PHIN: '🫖', FILTER: '☕', COLDBREW: '🧊', ESPRESSO: '⚡', COLD_BREW: '🧊' };
+
+  function renderCoffeeCards(container, coffees, onOpen) {
+    container.innerHTML = '';
+    if (!coffees.length) {
+      container.innerHTML = '<p style="text-align:center;color:var(--text-dim);padding:var(--space-8);grid-column:1/-1">No coffees found.</p>';
+      return;
+    }
+    coffees.forEach(c => {
+      const card = document.createElement('div');
+      card.className = 'coffee-card';
+      card.setAttribute('role', 'listitem');
+      card.setAttribute('tabindex', '0');
+      card.dataset.staggerItem = '';
+      card.innerHTML = `
+        <div class="coffee-card-header">
+          <div>
+            <div class="coffee-card-name">${c.name}</div>
+            <div class="coffee-card-origin">${c.origin}</div>
+          </div>
+        </div>
+        <div class="coffee-card-meta">
+          <span class="coffee-card-roast">${c.roastLevel}</span>
+          <span class="coffee-card-process">${c.processingMethod}</span>
+        </div>
+        <div class="coffee-card-notes">
+          ${c.flavorNotes.map(n => `<span class="note-tag">${n}</span>`).join('')}
+        </div>
+        <span class="recipe-card-cta">View Details →</span>
+      `;
+      card.addEventListener('click', () => onOpen(c.id));
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(c.id); }
+      });
+      container.appendChild(card);
+    });
+    Anim.staggerIn(container.querySelectorAll('.coffee-card'), { stagger: 0.07 });
+  }
+
+  // ── Coffee detail modal content ───────────────────────────────────────
+  function renderCoffeeModalContent(coffee, recipes) {
+    const fmt = p => p.toLocaleString('vi-VN') + ' ₫';
+    const TOOL_LABELS = { 'MÁY': 'Espresso', PHIN: 'Phin', FILTER: 'Filter', COLDBREW: 'Cold Brew', ESPRESSO: 'Espresso', COLD_BREW: 'Cold Brew' };
+
+    const usageChips = coffee.recommendedUsage
+      .map(u => `<span class="usage-chip">${u}</span>`).join('');
+
+    const recipeListHTML = recipes.length > 0
+      ? recipes.map(r => {
+          const toolLabel = TOOL_LABELS[r.tool] || r.tool;
+          const toolEmoji = TOOL_EMOJIS[r.tool] || '☕';
+          const prefDisplay = r.preference ? r.preference.charAt(0) + r.preference.slice(1).toLowerCase() : '';
+          const isFav = State.isFavorite(r.id);
+          return `
+            <div class="modal-recipe-item" data-id="${r.id}" role="button" tabindex="0" aria-label="View ${toolLabel} recipe">
+              <div class="modal-recipe-item-left">
+                <span class="modal-recipe-item-emoji" aria-hidden="true">${toolEmoji}</span>
+                <div class="modal-recipe-item-info">
+                  <div class="modal-recipe-item-name">${toolLabel}</div>
+                  ${prefDisplay ? `<div class="modal-recipe-item-pref">${prefDisplay}</div>` : ''}
+                </div>
+              </div>
+              <div class="modal-recipe-item-right">
+                <button class="recipe-card-fav${isFav ? ' active' : ''}" data-fav-id="${r.id}" aria-label="${isFav ? 'Remove from' : 'Add to'} favorites">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                  </svg>
+                </button>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          `;
+        }).join('')
+      : '<p class="modal-recipe-empty">No recipes available for this coffee yet.</p>';
+
+    return `
+      <p class="modal-origin">📍 ${coffee.origin}</p>
+      <h2 class="modal-coffee-name">${coffee.name}</h2>
+      <div class="modal-chips">
+        <span class="chip chip--tool">${coffee.roastLevel}</span>
+        <span class="chip chip--tool">${coffee.processingMethod}</span>
+        ${coffee.flavorNotes.map(n => `<span class="note-tag">${n}</span>`).join('')}
+      </div>
+
+      <hr class="modal-divider">
+      <div class="modal-section-label">Recommended Usage</div>
+      <div class="usage-chips">${usageChips}</div>
+
+      <hr class="modal-divider">
+      <div class="modal-section-label">Pricing</div>
+      <div class="pricing-section">
+        <div class="pricing-btns" id="pricing-btns" role="group" aria-label="Select weight">
+          <button class="pricing-btn active" data-price="${coffee.pricing.g250}">250g</button>
+          <button class="pricing-btn" data-price="${coffee.pricing.g500}">500g</button>
+          <button class="pricing-btn" data-price="${coffee.pricing.g1kg}">1kg</button>
+        </div>
+        <div class="pricing-display" id="pricing-display">${fmt(coffee.pricing.g250)}</div>
+      </div>
+
+      <hr class="modal-divider">
+      <div class="modal-section-label">Wholesale</div>
+      <div class="wholesale-section">
+        <p class="wholesale-text">Need wholesale pricing?<br>Available for cafés and businesses.</p>
+        <div class="wholesale-btns">
+          <a href="https://m.me/" class="btn-contact btn-contact--messenger" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.906 1.408 5.503 3.611 7.22V22l3.274-1.81c.874.243 1.799.373 2.761.373 5.523 0 10-4.145 10-9.243C22 6.145 17.523 2 12 2zm1.053 12.45l-2.543-2.717-4.97 2.717 5.465-5.805 2.605 2.717 4.908-2.717-5.465 5.805z"/>
+            </svg>
+            Contact via Messenger
+          </a>
+          <a href="https://zalo.me/" class="btn-contact btn-contact--zalo" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+              <rect width="32" height="32" rx="8" fill="#0068FF"/>
+              <text x="16" y="22" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="13" fill="white">Zalo</text>
+            </svg>
+            Contact via Zalo
+          </a>
+        </div>
+      </div>
+
+      <hr class="modal-divider">
+      <div class="modal-section-label">Brewing Recipes</div>
+      <div class="modal-recipe-list" id="modal-recipe-list">
+        ${recipeListHTML}
+      </div>
+    `;
+  }
+
   return {
     TOOLS, PREFS,
     renderTools, updateToolSelection,
     renderPrefs, updatePrefSelection,
+    renderFlavorCards, updateFlavorSelection,
+    renderCoffeeCards,
+    renderCoffeeModalContent,
     renderRecipeCards, updateFavButton,
     renderFavoritesList,
     renderModalContent,

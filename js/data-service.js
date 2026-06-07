@@ -38,6 +38,24 @@ const DataService = (() => {
 
   function getAll() { return _recipes; }
 
+  // ── Coffee catalog ──────────────────────────────────────────────────────
+  function getCoffeesByFlavor(flavorId) {
+    return COFFEES.filter(c => c.flavorProfiles.includes(flavorId));
+  }
+
+  function getCoffeeById(id) {
+    return COFFEES.find(c => c.id === id) || null;
+  }
+
+  function getRecipesByCoffee(coffee) {
+    const match = coffee.recipeMatch.toLowerCase();
+    return _recipes.filter(r =>
+      r.coffee && r.coffee.name && r.coffee.name.toLowerCase().includes(match)
+    );
+  }
+
+  function getAllCoffees() { return COFFEES; }
+
   // ── Inline fallback (mirrors data/recipes.json) ─────────────────────
   // NOTE: kept minimal — full data loads via fetch in normal operation
   const RECIPES_INLINE = [
@@ -332,5 +350,5 @@ const DataService = (() => {
     },
   ];
 
-  return { load, filter, search, getById, getAll };
+  return { load, filter, search, getById, getAll, getCoffeesByFlavor, getCoffeeById, getRecipesByCoffee, getAllCoffees };
 })();

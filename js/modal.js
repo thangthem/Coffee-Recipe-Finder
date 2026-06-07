@@ -4,8 +4,9 @@ const Modal = (() => {
   const body     = () => document.getElementById('modal-body');
   const closeBtn = () => document.getElementById('modal-close');
 
-  let _onClose = null;
-  let _isOpen  = false;
+  let _onClose  = null;
+  let _isOpen   = false;
+  let _hasTimer = false;
 
   function _recipeToSteps(subRecipe) {
     if (!subRecipe || !subRecipe.specs || !subRecipe.specs.brewTimeSec) return [];
@@ -74,7 +75,8 @@ const Modal = (() => {
   }
 
   function open(recipe, { onClose } = {}) {
-    _onClose = onClose || null;
+    _onClose  = onClose || null;
+    _hasTimer = true;
 
     body().innerHTML = UIRenderer.renderModalContent(recipe);
 
@@ -113,7 +115,7 @@ const Modal = (() => {
 
   function close() {
     if (!_isOpen) return;
-    BrewTimer.stop();
+    if (_hasTimer) BrewTimer.stop();
 
     const modal = el();
     modal.classList.remove('open');
@@ -130,9 +132,75 @@ const Modal = (() => {
 
   function isOpen() { return _isOpen; }
 
+  function openCoffee(coffee, recipes, { onRecipeOpen } = {}) {
+    _onClose  = null;
+    _hasTimer = false;
+
+    body().innerHTML = UIRenderer.renderCoffeeModalContent(coffee, recipes);
+
+    // Wire pricing buttons
+    const pricingBtns = document.getElementById('pricing-btns');
+    const pricingDisplay = document.getElementById('pricing-display');
+    if (pricingBtns && pricingDisplay) {
+      pricingBtns.querySelectorAll('.pricing-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          pricingBtns.querySelectorAll('.pricing-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const price = parseInt(btn.dataset.price, 10);
+          pricingDisplay.textContent = price.toLocaleString('vi-VN') + ' ₫';
+        });
+      });
+    }
+
+    // Wire recipe list items
+    const recipeList = document.getElementById('modal-recipe-list');
+    if (recipeList) {
+      recipeList.querySelectorAll('.modal-recipe-item').forEach(item => {
+        const id = parseInt(item.dataset.id, 10);
+
+        // Fav button
+        const favBtn = item.querySelector('.recipe-card-fav');
+        if (favBtn) {
+          favBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            const added = State.toggleFavorite(id);
+            UIRenderer.updateFavButton(favBtn, added);
+            Toast.show(added ? '♥ Added to favorites' : '♡ Removed from favorites');
+            if (typeof App !== 'undefined') App.syncFavBadge();
+          });
+        }
+
+        // Open recipe
+        const activate = () => {
+          if (!onRecipeOpen) return;
+          close();
+          setTimeout(() => onRecipeOpen(id), 350);
+        };
+        item.addEventListener('click', e => {
+          if (e.target.closest('.recipe-card-fav')) return;
+          activate();
+        });
+        item.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+        });
+      });
+    }
+
+    const modal = el();
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    _isOpen = true;
+
+    closeBtn().addEventListener('click', close, { once: true });
+    overlay().addEventListener('click', close, { once: true });
+
+    modal.focus();
+  }
+
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && _isOpen) close();
   });
 
-  return { open, close, isOpen };
+  return { open, close, isOpen, openCoffee };
 })();

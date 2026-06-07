@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Find the perfect coffee brew recipe for your method and taste preference.">
-  <title>Coffee Recipe Finder</title>
+  <meta name="description" content="Discover coffee beans based on your taste preference and explore brewing recipes.">
+  <title>Blue In Green Coffee</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,11 +49,9 @@
 
   <!-- ── Step indicator ───────────────────────────────────── -->
   <div class="step-indicator hidden" id="step-indicator" role="progressbar" aria-label="Step progress">
-    <div class="step-dot active" data-step="1" aria-label="Step 1: Method"><span>1</span></div>
+    <div class="step-dot active" data-step="1" aria-label="Step 1: Flavor"><span>1</span></div>
     <div class="step-line"></div>
-    <div class="step-dot" data-step="2" aria-label="Step 2: Preference"><span>2</span></div>
-    <div class="step-line"></div>
-    <div class="step-dot" data-step="3" aria-label="Step 3: Results"><span>3</span></div>
+    <div class="step-dot" data-step="2" aria-label="Step 2: Coffee"><span>2</span></div>
   </div>
 
   <!-- ── Main ─────────────────────────────────────────────── -->
@@ -67,15 +65,16 @@
             <circle cx="45" cy="45" r="43" stroke="#C49A6C" stroke-width="1" stroke-dasharray="5 5" />
             <path d="M27 34h36v22a9 9 0 01-9 9H36a9 9 0 01-9-9V34z" stroke="#C49A6C" stroke-width="2" fill="none" />
             <path d="M63 38h2a7 7 0 010 14h-2" stroke="#C49A6C" stroke-width="2" />
-            <path d="M36 25c0 0 2-5 5 0M45 25c0 0 2-5 5 0" stroke="#C49A6C" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M36 25c0 0 2-5 5 0M45 25c0 0 2-5 5 0" stroke="#C49A6C" stroke-width="1.5"
+              stroke-linecap="round" />
             <path d="M27 34h36" stroke="#C49A6C" stroke-width="1.5" />
             <circle cx="45" cy="48" r="4" fill="#C49A6C" opacity="0.3" />
           </svg>
         </div>
-        <h1 class="landing-title">Coffee Recipe Finder</h1>
-        <p class="landing-tagline">Find the perfect brew for today.</p>
+        <h1 class="landing-title">Find Your Perfect Coffee</h1>
+        <p class="landing-tagline">Discover coffee beans based on your taste preference.</p>
         <button id="btn-start" class="btn-primary btn-lg">
-          Start Brewing
+          Explore Coffee
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7" />
@@ -84,24 +83,24 @@
       </div>
     </section>
 
-    <!-- Step 2 — Tool selector -->
-    <section id="section-tool" class="section hidden" aria-label="Choose your brewing method">
+    <!-- Step 2 — Flavor selector -->
+    <section id="section-flavor" class="section hidden" aria-label="Choose your flavor profile">
       <div class="section-header" style="position:relative;padding-top:var(--space-8);">
-        <button class="btn-back" id="btn-back-tool" aria-label="Back to landing">
+        <button class="btn-back" id="btn-back-flavor" aria-label="Back to landing">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             aria-hidden="true">
             <path d="M19 12H5M12 5l-7 7 7 7" />
           </svg>
           Back
         </button>
-        <h2 class="section-title">Choose Your Brewing Method</h2>
-        <p class="section-subtitle">How do you like to brew your coffee?</p>
+        <h2 class="section-title">What Flavor Do You Enjoy?</h2>
+        <p class="section-subtitle">Select a flavor profile to discover matching coffees.</p>
       </div>
 
-      <div class="cards-grid" id="tool-cards" role="radiogroup" aria-label="Brewing method options"></div>
+      <div class="cards-grid" id="flavor-cards" role="radiogroup" aria-label="Flavor profile options"></div>
 
       <div class="section-footer">
-        <button id="btn-tool-next" class="btn-primary" disabled aria-label="Continue to flavor preference">
+        <button id="btn-flavor-next" class="btn-primary" disabled aria-label="Continue to coffee catalog">
           Continue
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             aria-hidden="true">
@@ -111,72 +110,31 @@
       </div>
     </section>
 
-    <!-- Step 3 — Preference selector -->
-    <section id="section-preference" class="section hidden" aria-label="Choose your flavor preference">
+    <!-- Step 3 — Coffee catalog -->
+    <section id="section-catalog" class="section hidden" aria-label="Coffee catalog">
       <div class="section-header" style="position:relative;padding-top:var(--space-8);">
-        <button class="btn-back" id="btn-back-pref" aria-label="Back to brewing method">
+        <button class="btn-back" id="btn-back-catalog" aria-label="Back to flavor selection">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             aria-hidden="true">
             <path d="M19 12H5M12 5l-7 7 7 7" />
           </svg>
           Back
         </button>
-        <h2 class="section-title">What Flavor Profile Do You Prefer?</h2>
-        <p class="section-subtitle">Choose the taste that suits your mood today.</p>
+        <h2 class="section-title" id="catalog-title">Recommended Coffees</h2>
+        <p class="section-subtitle" id="catalog-subtitle">Select a coffee to view details and brewing recipes.</p>
       </div>
 
-      <div class="cards-grid cards-grid--pref" id="preference-cards" role="radiogroup"
-        aria-label="Flavor preference options"></div>
-
-      <div class="section-footer">
-        <button id="btn-pref-next" class="btn-primary" disabled aria-label="See coffee recommendations">
-          See Recommendations
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            aria-hidden="true">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
-    </section>
-
-    <!-- Step 4 — Results -->
-    <section id="section-results" class="section hidden" aria-label="Coffee recommendations">
-      <div class="section-header" style="position:relative;padding-top:var(--space-8);">
-        <button class="btn-back" id="btn-back-results" aria-label="Back to flavor preference">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            aria-hidden="true">
-            <path d="M19 12H5M12 5l-7 7 7 7" />
-          </svg>
-          Back
-        </button>
-        <h2 class="section-title" id="results-title">Recommended for You</h2>
-      </div>
-
-      <div class="search-wrapper" style="margin-bottom:var(--space-2);">
-        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" aria-hidden="true">
-          <circle cx="11" cy="11" r="8" />
-          <path d="M21 21l-4.35-4.35" />
-        </svg>
-        <input type="search" id="search-input" class="search-input" placeholder="Search coffee, origin, flavor…"
-          aria-label="Search recipes" autocomplete="off" spellcheck="false">
-      </div>
-
-      <div class="results-meta" id="results-meta" aria-live="polite"></div>
-      <div class="results-grid" id="results-grid" role="list" aria-label="Recipe results"></div>
-      <div class="no-results hidden" id="no-results" role="status">
-        <p>No results found.<br>Try a different search term.</p>
-      </div>
+      <div class="results-grid" id="catalog-grid" role="list" aria-label="Coffee catalog"></div>
     </section>
 
   </main>
 
-  <!-- ── Recipe Modal ──────────────────────────────────────── -->
-  <div id="recipe-modal" class="modal" role="dialog" aria-modal="true" aria-label="Recipe details" aria-hidden="true"
+  <!-- ── Coffee / Recipe Modal ─────────────────────────────── -->
+  <div id="recipe-modal" class="modal" role="dialog" aria-modal="true" aria-label="Coffee details" aria-hidden="true"
     tabindex="-1">
     <div class="modal-overlay" id="modal-overlay"></div>
     <div class="modal-container" role="document">
-      <button class="modal-close" id="modal-close" aria-label="Close recipe details">
+      <button class="modal-close" id="modal-close" aria-label="Close">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           aria-hidden="true">
           <line x1="18" y1="6" x2="6" y2="18" />
@@ -219,6 +177,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Data -->
+  <script src="data/coffees.js"></script>
+  <script src="data/flavorProfiles.js"></script>
   <!-- App modules (order matters) -->
   <script src="js/state.js"></script>
   <script src="js/data-service.js"></script>

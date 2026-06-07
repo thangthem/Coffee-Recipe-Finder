@@ -1,7 +1,7 @@
 const State = (() => {
   const _state = {
-    selectedTool: null,
-    selectedPreference: null,
+    selectedFlavor: null,
+    selectedCoffee: null,
     selectedRecipe: null,
     favorites: [],
     currentStep: 1,
@@ -40,8 +40,8 @@ const State = (() => {
     },
 
     reset() {
-      _state.selectedTool = null;
-      _state.selectedPreference = null;
+      _state.selectedFlavor = null;
+      _state.selectedCoffee = null;
       _state.selectedRecipe = null;
       _state.currentStep = 1;
     },

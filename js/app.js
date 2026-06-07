@@ -13,16 +13,12 @@ const Toast = (() => {
 
 /* ── App ────────────────────────────────────────────────── */
 const App = (() => {
-  let _currentResults = [];
-
-  /* ── DOM refs ── */
   const $ = id => document.getElementById(id);
 
   const sections = {
-    landing:    $('section-landing'),
-    tool:       $('section-tool'),
-    preference: $('section-preference'),
-    results:    $('section-results'),
+    landing: $('section-landing'),
+    flavor:  $('section-flavor'),
+    catalog: $('section-catalog'),
   };
 
   function _showSection(name) {
@@ -33,14 +29,11 @@ const App = (() => {
     });
 
     const isLanding = name === 'landing';
-    const header = document.getElementById('app-header');
-    const stepInd = document.getElementById('step-indicator');
-
-    header.classList.toggle('visible', !isLanding);
-    stepInd.classList.toggle('hidden', isLanding);
+    document.getElementById('app-header').classList.toggle('visible', !isLanding);
+    document.getElementById('step-indicator').classList.toggle('hidden', isLanding);
 
     if (!isLanding) {
-      const stepNum = { tool: 1, preference: 2, results: 3 }[name] || 1;
+      const stepNum = { flavor: 1, catalog: 2 }[name] || 1;
       _updateStepIndicator(stepNum);
       Anim.sectionEnter(sections[name]);
     }
@@ -71,98 +64,54 @@ const App = (() => {
   /* ── Landing ── */
   function _initLanding() {
     Anim.landingEntrance();
-
     const btnStart = $('btn-start');
     btnStart.addEventListener('click', e => {
       Anim.ripple(btnStart, e);
-      _goToTool();
+      _goToFlavor();
     });
   }
 
-  /* ── Tool selector ── */
-  function _goToTool() {
-    _showSection('tool');
-    UIRenderer.renderTools(
-      $('tool-cards'),
-      State.get().selectedTool,
-      _onToolSelect
+  /* ── Flavor selector ── */
+  function _goToFlavor() {
+    _showSection('flavor');
+    UIRenderer.renderFlavorCards(
+      $('flavor-cards'),
+      State.get().selectedFlavor,
+      _onFlavorSelect
     );
-    _syncToolNext();
+    _syncFlavorNext();
   }
 
-  function _onToolSelect(toolId) {
-    State.set('selectedTool', toolId);
-    UIRenderer.updateToolSelection($('tool-cards'), toolId);
-    _syncToolNext();
+  function _onFlavorSelect(flavorId) {
+    State.set('selectedFlavor', flavorId);
+    UIRenderer.updateFlavorSelection($('flavor-cards'), flavorId);
+    _syncFlavorNext();
   }
 
-  function _syncToolNext() {
-    $('btn-tool-next').disabled = !State.get().selectedTool;
+  function _syncFlavorNext() {
+    $('btn-flavor-next').disabled = !State.get().selectedFlavor;
   }
 
-  /* ── Preference selector ── */
-  function _goToPref() {
-    _showSection('preference');
-    UIRenderer.renderPrefs(
-      $('preference-cards'),
-      State.get().selectedPreference,
-      _onPrefSelect
-    );
-    _syncPrefNext();
+  /* ── Coffee catalog ── */
+  function _goToCatalog() {
+    _showSection('catalog');
+    const { selectedFlavor } = State.get();
+    const coffees = DataService.getCoffeesByFlavor(selectedFlavor);
+    const profile = FLAVOR_PROFILES.find(f => f.id === selectedFlavor);
+
+    $('catalog-title').textContent = profile ? profile.label : 'Our Coffees';
+    $('catalog-subtitle').textContent =
+      profile ? profile.keywords.join(' · ') : 'Select a coffee to view details.';
+
+    UIRenderer.renderCoffeeCards($('catalog-grid'), coffees, _openCoffee);
   }
 
-  function _onPrefSelect(prefId) {
-    State.set('selectedPreference', prefId);
-    UIRenderer.updatePrefSelection($('preference-cards'), prefId);
-    _syncPrefNext();
-  }
-
-  function _syncPrefNext() {
-    $('btn-pref-next').disabled = !State.get().selectedPreference;
-  }
-
-  /* ── Results ── */
-  async function _goToResults() {
-    _showSection('results');
-
-    const { selectedTool, selectedPreference } = State.get();
-    const recipes = DataService.filter(selectedTool, selectedPreference);
-    _currentResults = recipes;
-
-    $('results-title').textContent =
-      `${_toolLabel(selectedTool)} · ${_prefLabel(selectedPreference)}`;
-
-    _renderResults(recipes);
-    $('search-input').value = '';
-  }
-
-  function _toolLabel(t) {
-    return { MÁY: 'Espresso', PHIN: 'Phin', ESPRESSO: 'Espresso', FILTER: 'Filter', COLD_BREW: 'Cold Brew', COLDBREW: 'Cold Brew' }[t] || t;
-  }
-
-  function _prefLabel(p) {
-    return p ? p.charAt(0) + p.slice(1).toLowerCase() : '';
-  }
-
-  function _renderResults(recipes) {
-    const grid    = $('results-grid');
-    const noRes   = $('no-results');
-    const meta    = $('results-meta');
-
-    const count = recipes.length;
-    meta.textContent = count > 0
-      ? `${count} recipe${count !== 1 ? 's' : ''} found`
-      : '';
-
-    noRes.classList.toggle('hidden', count > 0);
-    grid.classList.toggle('hidden', count === 0);
-
-    UIRenderer.renderRecipeCards(
-      grid,
-      recipes,
-      id => _openRecipe(id),
-      (id, cardEl) => _toggleFav(id, cardEl)
-    );
+  function _openCoffee(coffeeId) {
+    const coffee = DataService.getCoffeeById(coffeeId);
+    if (!coffee) return;
+    State.set('selectedCoffee', coffee);
+    const recipes = DataService.getRecipesByCoffee(coffee);
+    Modal.openCoffee(coffee, recipes, { onRecipeOpen: _openRecipe });
   }
 
   function _openRecipe(id) {
@@ -172,21 +121,12 @@ const App = (() => {
     Modal.open(recipe);
   }
 
-  function _toggleFav(id, cardEl) {
-    const added = State.toggleFavorite(id);
-    const btn   = cardEl.querySelector('.recipe-card-fav');
-    UIRenderer.updateFavButton(btn, added);
-    Toast.show(added ? '♥ Added to favorites' : '♡ Removed from favorites');
-    _updateFavCount();
-    _syncFavPanel();
-  }
-
   /* ── Favorites panel ── */
   function _initFavPanel() {
     const panel   = document.getElementById('favorites-panel');
     const overlay = document.getElementById('favorites-overlay');
     const btnOpen = $('btn-nav-favorites');
-    const btnClose= $('btn-close-favorites');
+    const btnClose = $('btn-close-favorites');
 
     function openPanel() {
       _syncFavPanel();
@@ -210,22 +150,13 @@ const App = (() => {
     const favIds  = State.get().favorites;
     const all     = DataService.getAll();
     const favRecs = favIds.map(id => all.find(r => r.id === id)).filter(Boolean);
-
     UIRenderer.renderFavoritesList(
       $('favorites-list'),
       document.getElementById('favorites-empty'),
       favRecs,
-      id => { _openRecipe(id); }
+      id => _openRecipe(id)
     );
-  }
-
-  /* ── Search ── */
-  function _initSearch() {
-    $('search-input').addEventListener('input', e => {
-      const q = e.target.value.trim();
-      const pool = q ? DataService.search(q, _currentResults) : _currentResults;
-      _renderResults(pool);
-    });
+    _updateFavCount();
   }
 
   /* ── Ripple on primary buttons ── */
@@ -237,22 +168,12 @@ const App = (() => {
 
   /* ── Navigation wiring ── */
   function _initNav() {
-    // Tool step
-    $('btn-tool-next').addEventListener('click', e => {
-      Anim.ripple($('btn-tool-next'), e);
-      _goToPref();
+    $('btn-flavor-next').addEventListener('click', e => {
+      Anim.ripple($('btn-flavor-next'), e);
+      _goToCatalog();
     });
-    $('btn-back-tool').addEventListener('click', () => _showSection('landing'));
-
-    // Preference step
-    $('btn-pref-next').addEventListener('click', async e => {
-      Anim.ripple($('btn-pref-next'), e);
-      await _goToResults();
-    });
-    $('btn-back-pref').addEventListener('click', () => _goToTool());
-
-    // Results step
-    $('btn-back-results').addEventListener('click', () => _goToPref());
+    $('btn-back-flavor').addEventListener('click', () => _showSection('landing'));
+    $('btn-back-catalog').addEventListener('click', () => _goToFlavor());
   }
 
   /* ── Init ── */
@@ -260,18 +181,16 @@ const App = (() => {
     await DataService.load();
     _initLanding();
     _initNav();
-    _initSearch();
     _initFavPanel();
     _initRipples();
     _updateFavCount();
 
-    // AOS
     if (typeof AOS !== 'undefined') {
       AOS.init({ duration: 500, once: true, offset: 40 });
     }
   }
 
-  return { init };
+  return { init, syncFavBadge: _updateFavCount };
 })();
 
 document.addEventListener('DOMContentLoaded', App.init);
